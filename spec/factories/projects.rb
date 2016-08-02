@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :project do
-    name "MyString"
-    license "MyString"
+    name "Test_Project"
   end
 end
