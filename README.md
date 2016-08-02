@@ -1,24 +1,8 @@
-# README
+# JobWalk
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+JobWalk is an application for project engineers to help manage their floor plans with 360 photos.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Current Development
+- Implement Projects Model, Controller
+- Implement PDF Uploading using PaperClip
+- Convert uploaded PDF to tiles
