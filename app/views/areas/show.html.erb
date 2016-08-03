@@ -10,5 +10,10 @@
   <%= @area.project %>
 </p>
 
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @area.floor_plan.thumb.url %>
+</p>
+
 <%= link_to 'Edit', edit_area_path(@area) %> |
 <%= link_to 'Back', areas_path %>
