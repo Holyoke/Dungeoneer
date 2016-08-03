@@ -1,20 +1,9 @@
 class AreasController < ApplicationController
   before_action :set_area, only: [:show, :edit, :update, :destroy]
 
-  # GET /areas
-  # GET /areas.json
-  def index
-    @areas = Area.all
-  end
-
   # GET /areas/1
   # GET /areas/1.json
   def show
-  end
-
-  # GET /areas/new
-  def new
-    @area = Area.new
   end
 
   # GET /areas/1/edit
@@ -25,7 +14,6 @@ class AreasController < ApplicationController
   # POST /areas.json
   def create
     @area = Area.new(area_params)
-
     respond_to do |format|
       if @area.save
         format.html { redirect_to @area, notice: 'Area was successfully created.' }
@@ -69,6 +57,6 @@ class AreasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def area_params
-      params.require(:area).permit(:name, :floor_plan)
+      params.require(:area).permit(:name, :floor_plan, :project_id)
     end
 end
