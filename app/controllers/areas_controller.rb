@@ -23,7 +23,9 @@ class AreasController < ApplicationController
   # POST /areas
   # POST /areas.json
   def create
-    @area = Area.new(area_params)
+    project = Project.find(area_params[:project_id])
+    @area = project.areas.new(area_params)
+
     respond_to do |format|
       if @area.save
         format.html { redirect_to @area, notice: 'Area was successfully created.' }
@@ -38,9 +40,10 @@ class AreasController < ApplicationController
   # PATCH/PUT /areas/1
   # PATCH/PUT /areas/1.json
   def update
+    fail
     respond_to do |format|
       if @area.update(area_params)
-        format.html { redirect_to @area, notice: 'Area was successfully updated.' }
+        format.html { redirect_to @area.project, notice: 'Area was successfully updated.' }
         format.json { render :show, status: :ok, location: @area }
       else
         format.html { render :edit }
