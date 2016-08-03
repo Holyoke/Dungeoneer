@@ -6,5 +6,6 @@ class Projects::AreasController < ApplicationController
     # GET /areas/new
     def new
       @area = Area.new
+      render :new
     end
 end
