@@ -14,4 +14,7 @@
 class Area < ApplicationRecord
   mount_uploader :floor_plan, FloorPlanUploader
   belongs_to :project
+
+  validates :name, presence: true
+  validates_presence_of :floor_plan
 end

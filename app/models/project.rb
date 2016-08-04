@@ -12,5 +12,5 @@
 class Project < ApplicationRecord
   validates :name, presence: true
 
-  has_many :areas
+  has_many :areas, dependent: :destroy
 end
