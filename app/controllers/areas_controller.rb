@@ -1,5 +1,5 @@
 class AreasController < ApplicationController
-  before_filter :set_project
+  before_action :set_area, only: [:show, :edit, :update, :destroy]
 
   def index
     @areas = @project.areas
@@ -7,27 +7,27 @@ class AreasController < ApplicationController
 
   # GET /areas/new
   def new
+    @project = Project.find(params[:project_id])
     @area = @project.areas.new
     render :new
   end
 
   def show
-    @area = @project.areas.find(params[:id])
   end
 
   # GET /areas/1/edit
   def edit
-    @area = @project.areas.find(params[:id])
   end
 
   # POST /areas
   # POST /areas.json
   def create
+    @project = Project.find(area_params[:project_id])
     @area = @project.areas.new(area_params)
 
     respond_to do |format|
       if @area.save
-        format.html { redirect_to [@project, @area], notice: 'Area was successfully created.' }
+        format.html { redirect_to @area, notice: 'Area was successfully created.' }
         format.json { render :show, status: :created, location: @area }
       else
         format.html { render :new }
@@ -39,8 +39,6 @@ class AreasController < ApplicationController
   # PATCH/PUT /areas/1
   # PATCH/PUT /areas/1.json
   def update
-    @area = @project.areas.find(params[:id])
-
     respond_to do |format|
       if @area.update(area_params)
         format.html { redirect_to [@project, @area], notice: 'Area was successfully updated.' }
@@ -55,8 +53,6 @@ class AreasController < ApplicationController
   # DELETE /areas/1
   # DELETE /areas/1.json
   def destroy
-    @area = @project.areas.find(params[:id])
-
     @area.destroy
     respond_to do |format|
       format.html { redirect_to project_path(@area.project), notice: 'Area was successfully destroyed.' }
@@ -65,11 +61,15 @@ class AreasController < ApplicationController
   end
 
   private
+    def set_area
+      @area = Area.find(params[:id])
+    end
+
     def set_project
       if params.has_key?(:project_id)
         @project = Project.find(params[:project_id])
-      else
-        @project = Area.find(params[:id]).project
+      elsif area_params.has_key?(:project_id)
+        @project = Project.find(area_params[:project_id])
       end
 
       @project
