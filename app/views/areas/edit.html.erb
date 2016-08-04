@@ -1,6 +1,11 @@
 <h1>Editing Area</h1>
 
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @area.floor_plan.url %>
+</p>
+
 <%= render 'form', area: @area %>
 
-<%= link_to 'Show', project_area_path(@project, @area) %> |
-<%= link_to 'Back', project_areas_path(@project) %>
+<%= link_to 'Show', area_path(@area) %> |
+<%= link_to 'Back', project_path(@project) %>
