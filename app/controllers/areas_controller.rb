@@ -31,7 +31,7 @@ class AreasController < ApplicationController
         format.html { redirect_to @area, notice: 'Area was successfully created.' }
         format.json { render :show, status: :created, location: @area }
       else
-        format.html { render :new }
+        format.html { render new_project_area_url(@area.project) }
         format.json { render json: @area.errors, status: :unprocessable_entity }
       end
     end
@@ -40,7 +40,6 @@ class AreasController < ApplicationController
   # PATCH/PUT /areas/1
   # PATCH/PUT /areas/1.json
   def update
-    fail
     respond_to do |format|
       if @area.update(area_params)
         format.html { redirect_to @area.project, notice: 'Area was successfully updated.' }
