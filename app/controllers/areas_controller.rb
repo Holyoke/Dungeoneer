@@ -59,7 +59,7 @@ class AreasController < ApplicationController
 
     @area.destroy
     respond_to do |format|
-      format.html { redirect_to project_areas_path(@project), notice: 'Area was successfully destroyed.' }
+      format.html { redirect_to project_path(@area.project), notice: 'Area was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
