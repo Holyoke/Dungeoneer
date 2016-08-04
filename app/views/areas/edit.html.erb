@@ -2,5 +2,5 @@
 
 <%= render 'form', area: @area %>
 
-<%= link_to 'Show', @area %> |
-<%= link_to 'Back', project_path(@area.project) %>
+<%= link_to 'Show', project_area_path(@project, @area) %> |
+<%= link_to 'Back', project_areas_path(@project) %>
