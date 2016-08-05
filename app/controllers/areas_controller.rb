@@ -7,8 +7,8 @@ class AreasController < ApplicationController
 
   # GET /areas/new
   def new
-    @project = Project.find(params[:project_id])
-    @area = @project.areas.new
+    project = Project.find(params[:project_id])
+    @area = project.areas.new
     render :new
   end
 
@@ -22,15 +22,15 @@ class AreasController < ApplicationController
   # POST /areas
   # POST /areas.json
   def create
-    @project = Project.find(area_params[:project_id])
-    @area = @project.areas.new(area_params)
+    project = Project.find(area_params[:project_id])
+    @area = project.areas.new(area_params)
 
     respond_to do |format|
       if @area.save
         format.html { redirect_to @area, notice: 'Area was successfully created.' }
         format.json { render :show, status: :created, location: @area }
       else
-        format.html { render 'projects', notice: 'There were errors' }
+        format.html { render :new }
         format.json { render json: @area.errors, status: :unprocessable_entity }
       end
     end
@@ -63,16 +63,6 @@ class AreasController < ApplicationController
   private
     def set_area
       @area = Area.find(params[:id])
-    end
-
-    def set_project
-      if params.has_key?(:project_id)
-        @project = Project.find(params[:project_id])
-      elsif area_params.has_key?(:project_id)
-        @project = Project.find(area_params[:project_id])
-      end
-
-      @project
     end
 
     def area_params

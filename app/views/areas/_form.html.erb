@@ -1,4 +1,5 @@
 <%= form_for(area) do |f| %>
+
   <% if area.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(area.errors.count, "error") %> prohibited this area from being saved:</h2>
@@ -22,7 +23,7 @@
   </div>
 
   <div>
-    <%= f.hidden_field :project_id, :value => params[:project_id] %>
+    <%= f.hidden_field :project_id, :value => params[:area][:project_id] %>
   </div>
 
   <div class="actions">
