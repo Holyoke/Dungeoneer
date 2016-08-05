@@ -7,7 +7,7 @@ class AreasController < ApplicationController
 
   # GET /areas/new
   def new
-    project = Project.find(params[:project_id])
+    project = Project.find(params[:area][:project_id])
     @area = project.areas.new
     render :new
   end
