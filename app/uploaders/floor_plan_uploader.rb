@@ -42,7 +42,7 @@ class FloorPlanUploader < CarrierWave::Uploader::Base
 
   def thumbnail_pdf
     manipulate! do |img|
-      img.format("png", 1)
+      img.format("png")
       img.resize("150x150")
       img = yield(img) if block_given?
       img
