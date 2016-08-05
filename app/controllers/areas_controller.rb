@@ -30,7 +30,7 @@ class AreasController < ApplicationController
         format.html { redirect_to @area, notice: 'Area was successfully created.' }
         format.json { render :show, status: :created, location: @area }
       else
-        format.html { render :new }
+        format.html { render 'projects', notice: 'There were errors' }
         format.json { render json: @area.errors, status: :unprocessable_entity }
       end
     end

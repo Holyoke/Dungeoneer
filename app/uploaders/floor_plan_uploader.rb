@@ -36,6 +36,19 @@ class FloorPlanUploader < CarrierWave::Uploader::Base
     process :resize_to_fit => [150, 150]
   end
 
+  version :web_thumb do
+    process :thumbnail_pdf
+  end
+
+  def thumbnail_pdf
+    manipulate! do |img|
+      img.format("png", 1)
+      img.resize("150x150")
+      img = yield(img) if block_given?
+      img
+    end
+  end
+
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_white_list
