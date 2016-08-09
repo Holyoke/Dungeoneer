@@ -237,6 +237,7 @@ GEM
     json (2.0.2)
     launchy (2.4.3)
       addressable (~> 2.3)
+    leaflet-rails (0.7.7)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -387,6 +388,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   launchy
+  leaflet-rails
   listen (~> 3.0.5)
   mini_magick (~> 4.3)
   pg (~> 0.18)

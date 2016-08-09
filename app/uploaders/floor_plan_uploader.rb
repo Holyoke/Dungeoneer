@@ -40,10 +40,22 @@ class FloorPlanUploader < CarrierWave::Uploader::Base
     process :thumbnail_pdf
   end
 
+  version :full_map do
+    process :full_map_png
+  end
+
   def thumbnail_pdf
     manipulate! do |img|
       img.format("png")
       img.resize("150x150")
+      img = yield(img) if block_given?
+      img
+    end
+  end
+
+  def full_map_png
+    manipulate! do |img|
+      img.format("png")
       img = yield(img) if block_given?
       img
     end
