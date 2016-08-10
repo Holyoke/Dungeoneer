@@ -35,7 +35,9 @@ gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'
 gem 'fog'
 
-gem 'leaflet-rails'
+#User auth
+gem 'devise'
+gem 'pundit'
 
 
 group :development, :test do
@@ -50,6 +52,7 @@ group :test do
   gem 'capybara'
   gem 'guard-rspec'
   gem 'launchy'
+  gem 'database_cleaner'
 end
 
 group :development do
