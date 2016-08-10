@@ -3,7 +3,6 @@ require 'rails_helper'
 feature 'Sign in', :devise do
   scenario 'user cannot login if not registered' do
      sign_in('test@test.com', 'password')
-     save_and_open_page
      expect(page).to have_content 'Invalid Email or password.'
   end
 
