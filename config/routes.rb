@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root 'static_pages#root'
 
   resources :areas, except: [:index]
+  resources :users
 
   resources :projects do
     resources :areas, only: [:index]
