@@ -3,16 +3,12 @@
   <head>
     <title>JobWalk</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    <link rel="stylesheet" href="https://npmcdn.com/leaflet@0.7.7/dist/leaflet.css" />
-    <script src="https://npmcdn.com/leaflet@0.7.7/dist/leaflet.js"></script>
   </head>
 
   <body>
-    <%= render 'layouts/header' %> 
+    <%= render 'layouts/header' %>
     <div class='container'>
       <% flash.each do |message_type, message| %>
         <div id="flash" class="flash-<%= message_type %>"><%= message %></div>
