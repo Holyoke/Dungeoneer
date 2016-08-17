@@ -13,6 +13,6 @@
   <%= link_to("Delete user",
               user_path(user),
               :data => { confirm: 'Are you sure?' },
-              :method => :delete, 
+              :method => :delete,
               :class => 'button') unless user == current_user %>
 </td>
