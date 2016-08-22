@@ -62,8 +62,7 @@ class FloorPlanUploader < CarrierWave::Uploader::Base
   end
 
   def filename
-    fail
-    "#{model.nicely_formatted_filename}.png"
+    "#{model.name}_full_map.png"
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
