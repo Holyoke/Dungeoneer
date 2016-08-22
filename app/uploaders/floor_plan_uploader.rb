@@ -41,7 +41,7 @@ class FloorPlanUploader < CarrierWave::Uploader::Base
   end
 
   version :full_map do
-    process :full_map_png
+    process :full_map_mogrify
   end
 
   def thumbnail_pdf
@@ -53,12 +53,17 @@ class FloorPlanUploader < CarrierWave::Uploader::Base
     end
   end
 
-  def full_map_png
+  def full_map_mogrify
     manipulate! do |img|
       img.format("png")
       img = yield(img) if block_given?
       img
     end
+  end
+
+  def filename
+    fail
+    "#{model.nicely_formatted_filename}.png"
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
