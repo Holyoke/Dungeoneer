@@ -8,7 +8,7 @@ module Api::V1
     end
 
     def show
-      render json: @project
+      render json: @project, serializer: ProjectSerializer
     end
 
     def create

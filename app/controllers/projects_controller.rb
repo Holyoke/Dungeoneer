@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    render
   end
 
   def new
