@@ -17,7 +17,7 @@ module Api::V1
       if @project.save
         render json: @project, status: :created, location: @project
       else
-        render json: @todo.errors, status: :unprocessable_entity
+        render json: @project.errors, status: :unprocessable_entity
       end
     end
 

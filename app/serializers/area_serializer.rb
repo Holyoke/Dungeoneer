@@ -1,16 +1,18 @@
 # == Schema Information
 #
-# Table name: projects
+# Table name: areas
 #
 #  id         :integer          not null, primary key
 #  name       :string           not null
-#  license    :string
+#  project_id :integer
+#  floor_plan :string
+#  thumbnail  :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class ProjectSerializer < ActiveModel::Serializer
-  attributes :id, :name, :license
+class AreaSerializer < ActiveModel::Serializer
+  attributes :id, :name, :floor_plan
 
-  has_many :areas
+  belongs_to :project
 end
