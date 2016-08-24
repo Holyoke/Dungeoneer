@@ -6,4 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Project.create(name: 'Test1')
+4.times do |idx|
+  license = idx % 2 == 0 ? nil : rand(100..200).to_s + ('a'..'z').to_a.sample(3).join
+  Project.create(name: "Test Project #{idx + 1}", license: license)
+end
