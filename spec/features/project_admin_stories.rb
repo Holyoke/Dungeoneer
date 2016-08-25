@@ -9,7 +9,8 @@ feature 'Project Admin Stories', :devise do
 
   scenario 'Admin can see their projects' do
     user = FactoryGirl.create(:user)
-    sign_in(user.email, user.password
+    sign_in(user.email, user.password)
+    save_and_open_page
     expect(page).to have_content 'Projects'
   end
 
