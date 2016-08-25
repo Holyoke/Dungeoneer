@@ -22,6 +22,11 @@
     <%= f.file_field :floor_plan %>
   </div>
 
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+
   <div>
     <%= f.hidden_field :project_id, :value => params[:area][:project_id] %>
   </div>

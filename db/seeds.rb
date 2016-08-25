@@ -14,5 +14,3 @@
           description: "This is a description for Project #{idx + 1}"
           )
 end
-
-Project.first.areas.new
