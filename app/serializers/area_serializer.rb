@@ -12,7 +12,7 @@
 #
 
 class AreaSerializer < ActiveModel::Serializer
-  attributes :id, :name, :floor_plan
+  attributes :id, :name, :floor_plan, :created_at, :updated_at
 
   belongs_to :project
 end

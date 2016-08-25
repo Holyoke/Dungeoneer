@@ -11,11 +11,11 @@ class FloorPlanUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  version :png_version do
+  version :full_map do
     process :full_map_mogrify
   end
 
-  version :thumb, from_version: :png_version do
+  version :thumb, from_version: :full_map do
     process :resize_to_fit => [150, 150]
   end
 
