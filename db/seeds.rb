@@ -13,7 +13,6 @@ user_jane = User.create(name: "Jane", email: "jane@jobwalk.com", password: "test
 
 4.times do |idx|
   license = idx % 2 == 0 ? nil : rand(100..200).to_s + ('a'..'z').to_a.sample(3).join
-  byebug
   admin_1.projects.create(
           name: "Test Project #{idx + 1}",
           license: license,

@@ -13,6 +13,6 @@
 class Project < ApplicationRecord
   validates :name, presence: true
 
-  belongs_to :user, primary_key: 'owner_id'
+  belongs_to :user
   has_many :areas, dependent: :destroy
 end
