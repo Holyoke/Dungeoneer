@@ -34,4 +34,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :projects
+  has_many :project_memberships
+  has_many :collaborators, :through => :project_memberships, :source => :user
 end
