@@ -5,9 +5,10 @@ feature 'CRUD Project Stories', :devise do
   before { login_as(user, scope: :user) }
   after { Warden.test_reset! }
 
-  scenario 'User can create new projects'
-
-  scenario 'User can see their projects'
+  scenario 'User can create new projects' do
+    visit '/'
+    expect(page).to have_content 'Projects'
+  end
 
   scenario 'User can edit project description'
 
