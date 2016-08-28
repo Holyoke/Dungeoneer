@@ -11,6 +11,8 @@ admin_2 = User.create(name: "Admin2", email: "admin2@jobwalk.com", password: "te
 user_joe = User.create(name: "Joe", email: "joe@jobwalk.com", password: "test1234", role: 'user')
 user_jane = User.create(name: "Jane", email: "jane@jobwalk.com", password: "test1234", role: 'user')
 
+
+# Add 4 projects to admin 1
 4.times do |idx|
   license = idx % 2 == 0 ? nil : rand(100..200).to_s + ('a'..'z').to_a.sample(3).join
   admin_1.projects.create(
