@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'User index page', :devise do
+feature 'User Signs in to their Home Page', :devise do
   let(:user) { FactoryGirl.create(:user) }
 
   before do

@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Desciption</th>
       <th>License</th>
       <th colspan="3"></th>
     </tr>
@@ -15,6 +16,7 @@
     <% @projects.each do |project| %>
       <tr>
         <td><%= project.name %></td>
+        <td><%= project.description %></td>
         <td><%= project.license %></td>
         <td><%= link_to 'Show', project %></td>
         <td><%= link_to 'Edit', edit_project_path(project) %></td>
