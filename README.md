@@ -11,3 +11,5 @@ The app is utilizing `Devise` and `Pundit` for User authentication and authoriza
 For Image Uploading and Processing, JobWalk is utilizing `CarrierWave` and `MiniMagick`.
 
 For interactive maps, Web App is looking to use `leaflet.js`.
+
+For production, `Heroku` and `AWS` will be used.
