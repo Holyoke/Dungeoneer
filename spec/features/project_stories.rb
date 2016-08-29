@@ -6,7 +6,9 @@ feature 'CRUD Project Stories', :devise do
   before { login_as(user_1, scope: :user) }
   after { Warden.test_reset! }
 
-  scenario 'User can create new projects'
+  scenario 'User can create new projects' do
+
+  end
 
   scenario 'User only sees their projects' do
     #Seed user 1 and user 2
