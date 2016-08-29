@@ -35,5 +35,5 @@ class User < ApplicationRecord
 
   has_many :projects
   has_many :project_memberships
-  has_many :collaborators, :through => :project_memberships, :source => :user
+  has_many :collaborated_projects, :through => :project_memberships, :source => :project
 end
