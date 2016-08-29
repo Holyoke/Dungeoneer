@@ -3,8 +3,8 @@ module Api::V1
     before_action :set_project, only: [:show, :update, :destroy]
 
     def index
-      @projects = Project.all
-      render json: @projects
+      @projects = Project.includes(:areas)
+      render json: @projects, include: ['areas']
     end
 
     def show

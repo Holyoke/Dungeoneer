@@ -11,7 +11,7 @@
 #
 
 class ProjectSerializer < ActiveModel::Serializer
-  attributes :id, :name, :license
+  attributes :id, :name, :license, :description, :created_at, :updated_at
 
   has_many :areas
 end
