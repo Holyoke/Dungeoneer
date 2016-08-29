@@ -17,5 +17,5 @@ class Project < ApplicationRecord
   has_many :areas, dependent: :destroy
 
   has_many :project_memberships
-  has_many :collaborators, :through => :project_memberships, :source => :user
+  has_many :users, :through => :project_memberships, :source => :user
 end

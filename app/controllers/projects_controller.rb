@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def index
-    @projects = current_user.projects + current_user.collaborated_projects
+    @projects = current_user.projects + current_user.user_projects
   end
 
   def show
