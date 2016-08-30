@@ -13,5 +13,15 @@
 FactoryGirl.define do
   factory :project do
     name "Test_Project"
+
+    factory :project_with_areas do
+      transient do
+        areas_count 3
+      end
+
+      after(:create) do |project, evaluator|
+        create_list(:area, evaluator.areas_count, project: project)
+      end
+    end
   end
 end

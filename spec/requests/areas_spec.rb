@@ -11,7 +11,6 @@ require 'rspec_api_documentation/dsl'
 
    describe "GET /api/v1/areas" do
      it "returns all the areas" do
-       byebug
 
        get '/api/v1/areas', { project_id: 1}
 
