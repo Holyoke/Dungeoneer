@@ -23,9 +23,9 @@ user_joe = User.create(name: "Joe", email: "joe@jobwalk.com", password: "test123
 end
 
 # Add users to projects in various ways
-admin_1.projects[0].collaborators << user_joe
-admin_1.projects[0].collaborators << user_jane
-admin_1.projects[0].collaborators << admin_2
+admin_1.projects[0].users << user_joe
+admin_1.projects[0].users << user_jane
+admin_1.projects[0].users << admin_2
 
-admin_1.projects[1].collaborators << user_joe
-admin_1.projects[2].collaborators << user_jane
+admin_1.projects[1].users << user_joe
+admin_1.projects[2].users << user_jane
