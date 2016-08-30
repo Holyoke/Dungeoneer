@@ -20,7 +20,7 @@
 
 FactoryGirl.define do
   factory :user do
-    email 'test@email.com'
+    email { Faker::Internet.email }
     password 'password'
 
     trait :admin do

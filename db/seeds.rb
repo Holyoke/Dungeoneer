@@ -29,3 +29,14 @@ admin_1.projects[0].users << admin_2
 
 admin_1.projects[1].users << user_joe
 admin_1.projects[2].users << user_jane
+
+#Areas to project
+project = admin_1.projects[0]
+
+3.times do |n|
+  project.areas.create(
+      name: "Test Area #{n + 1}",
+      description: "Foo",
+      floor_plan: File.open(File.join(Rails.root,'reference_documents', 'Sample_PDFs', 'sample_floor_plan.pdf' ))
+  )
+end
