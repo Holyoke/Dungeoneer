@@ -3,6 +3,7 @@ require 'rspec_api_documentation/dsl'
 
  RSpec.describe "Areas", :type => :request do
    let(:user) { FactoryGirl.create(:user) }
+   let(:project) { FactoryGirl.create(:project_with_areas, id: 1) }
 
    before do
      login_as(user, scope: :user)
@@ -10,14 +11,14 @@ require 'rspec_api_documentation/dsl'
 
    describe "GET /api/v1/areas" do
      it "returns all the areas" do
-       FactoryGirl.create :area, name: 'Area-1'
-       FactoryGirl.create :area, name: 'Area-2'
+       byebug
 
-       get '/api/v1/areas'
+       get '/api/v1/areas', { project_id: 1}
 
        expect(response.status).to eq 200
 
        body = JSON.parse(response.body)
+       result_names = project.areas.map{ |area| area['name'] }
        area_names = body.map{|area| area['name'] }
        expect(area_names).to match_array(['Area-1', 'Area-2'])
      end
