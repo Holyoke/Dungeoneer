@@ -33,20 +33,20 @@ require 'rspec_api_documentation/dsl'
 
        body = JSON.parse(response.body)
        project_name = body['name']
-       expect(project_name) == 'Project-X'
+       expect(project_name).to eq('Project-X')
      end
    end
 
    describe "POST /api/v1/projects" do
      it "creates the specified project" do
-       project = {
+       project_params = {
          project: {
              name: "Project-Y"
            }
         }
 
        post '/api/v1/projects',
-         params: project.to_json,
+         params: project_params.to_json,
          headers: { 'Content-Type': 'application/json' }
 
        expect(response.status).to eq 201
@@ -54,7 +54,7 @@ require 'rspec_api_documentation/dsl'
        body = JSON.parse(response.body)
 
        project_name = body['name']
-       expect(project_name) == 'Project-Y'
+       expect(project_name).to eq(project_params[:project][:name])
      end
    end
 
@@ -62,7 +62,7 @@ require 'rspec_api_documentation/dsl'
      it "updates the specified project" do
       FactoryGirl.create :project, name: 'Project-1', id: 1
 
-      project = {
+      project_params = {
         project: {
             name: "Project-X-Edited",
             description: "Testing the update for description"
@@ -70,15 +70,15 @@ require 'rspec_api_documentation/dsl'
        }
 
        put '/api/v1/projects/1',
-         params: project.to_json,
+         params: project_params.to_json,
          headers: { 'Content-Type': 'application/json' }
 
        expect(response.status).to eq 200
 
        body = JSON.parse(response.body)
 
-       expect(body['name']) == project[:project][:name]
-       expect(body['description']) == project[:project][:decription]
+       expect(body['name']).to eq(project_params[:project][:name])
+       expect(body['description']).to eq(project_params[:project][:description])
      end
    end
 

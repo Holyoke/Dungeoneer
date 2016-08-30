@@ -16,7 +16,7 @@ FactoryGirl.define do
 
     factory :project_with_areas do
       transient do
-        areas_count 3
+        areas_count 2
       end
 
       after(:create) do |project, evaluator|
