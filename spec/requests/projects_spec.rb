@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'rspec_api_documentation/dsl'
 
  RSpec.describe "Projects", :type => :request do
    let(:user) { FactoryGirl.create(:user) }
