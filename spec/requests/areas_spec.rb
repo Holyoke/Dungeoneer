@@ -21,7 +21,10 @@ require 'rspec_api_documentation/dsl'
        expect(area_names).to match_array(area_names)
      end
 
-     it "returns an error message if there's no project_id specified"
+     it "returns an error message if there's no project_id specified" do
+       get '/api/v1/areas'
+       expect(response.status).to eq 404
+     end
    end
 
    describe "GET api/v1/areas/:id" do

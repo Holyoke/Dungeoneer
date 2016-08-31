@@ -1,6 +1,7 @@
 module Api::V1
   class AreasController < ActionController::API
     before_action :set_area, only: [:show, :update, :destroy]
+    before_action :check_project, only: [:index]
 
     def index
       project = Project.find(params[:project_id])
@@ -41,6 +42,12 @@ module Api::V1
 
       def area_params
         params.require(:area).permit(:name, :floor_plan, :project_id, :description)
+      end
+
+      def check_project
+        if params[:project_id].nil?
+          render json: {error: 'requires project_id'}, status: 404
+        end
       end
   end
 end
