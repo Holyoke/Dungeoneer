@@ -37,6 +37,6 @@ project = admin_1.projects[0]
   project.areas.create(
       name: "Test Area #{n + 1}",
       description: "Foo",
-      floor_plan: File.open(File.join(Rails.root,'reference_documents', 'Sample_PDFs', 'sample_floor_plan.pdf' ))
+      floor_plan: File.open(File.join(Rails.root, 'sample_data','sample_floor_plan.pdf' ))
   )
 end
