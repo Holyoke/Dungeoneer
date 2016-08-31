@@ -36,18 +36,19 @@ module Api::V1
     end
 
     private
-      def set_area
-        @area = Area.find(params[:id])
-      end
 
-      def area_params
-        params.require(:area).permit(:name, :floor_plan, :project_id, :description)
-      end
+    def set_area
+      @area = Area.find(params[:id])
+    end
 
-      def check_project
-        if params[:project_id].nil?
-          render json: {error: 'requires project_id'}, status: 404
-        end
+    def area_params
+      params.require(:area).permit(:name, :floor_plan, :project_id, :description)
+    end
+
+    def check_project
+      if params[:project_id].nil?
+        render json: {error: 'requires project_id'}, status: 404
       end
+    end
   end
 end
