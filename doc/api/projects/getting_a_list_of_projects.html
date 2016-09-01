@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Projects API</title>
+    <meta charset="utf-8">
+    <style>
+      
+body {
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 18px;
+  color: #404040;
+}
+
+.container {
+  width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  zoom: 1;
+}
+
+pre {
+  background-color: #f5f5f5;
+  display: block;
+  padding: 8.5px;
+  margin: 0 0 18px;
+  line-height: 18px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+td.required .name:after {
+  float: right;
+  content: "required";
+  font-weight: normal;
+  color: #F08080;
+}
+
+a{
+  color: #0069d6;
+  text-decoration: none;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #404040;
+}
+
+h1 {
+  margin-bottom: 18px;
+  font-size: 30px;
+  line-height: 36px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+h3{
+  font-size: 18px;
+  line-height: 36px;
+}
+h4 {
+  font-size: 16px;
+  line-height: 36px;
+}
+
+table{
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 0;
+  border-collapse: separate;
+  font-size: 13px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+table th {
+  padding-top: 9px;
+  font-weight: bold;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+table th+th, table td+td {
+  border-left: 1px solid #ddd;
+}
+table th, table td {
+  padding: 10px 10px 9px;
+  line-height: 18px;
+  text-align: left;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Projects API</h1>
+
+      <div class="article">
+        <h2>Getting a list of projects</h2>
+        <h3>GET /api/v1/projects</h3>
+          <p class="explanation">
+            Retrieves a list of projects with areas
+          </p>
+
+
+
+          <h3>Request</h3>
+
+            <h4>Headers</h4>
+            <pre class="request headers">Accept: application/json
+Content-Type: application/json
+Host: jobwalk-staging.herokuapp.com
+Cookie: n/a</pre>
+
+          <h4>Route</h4>
+          <pre class="request route highlight">GET /api/v1/projects</pre>
+
+
+
+
+            <h3>Response</h3>
+              <h4>Headers</h4>
+              <pre class="response headers">X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Content-Type: application/json; charset=utf-8
+ETag: W/&quot;3d6439b0088a7e48c9a20112bc0a4f7b&quot;
+Cache-Control: max-age=0, private, must-revalidate
+Set-Cookie: _JobWalk_session=eSt6d0lCRWtKUmRNZllTaWxPVHFueHp4L1QreWxHOU82aThqY0Y5ZCtDVlJxcTNYcXdiTk1pRHE0THZsckpGTlVrMTNFWms1SEh0YzdXZ3g2WStEVUd1OHVkNUNXMjJheUNocmJmR1k3RnNJYllVaVVYYzdHUmszdlh6RnRJT2NTMlBpajNOeFBnMFRtSVl2VkR3WmpRPT0tLXJlbnhkSFRQeHVsWkQzTHdNRjVvYlE9PQ%3D%3D--6963668c2cee4a57c40e5ef7c87eee0697cf34d5; path=/; HttpOnly
+X-Request-Id: ac936ec7-88c3-4a96-bcb3-3e1e4d256459
+X-Runtime: 0.115132
+Content-Length: 1707</pre>
+            <h4>Status</h4>
+            <pre class="response status">200 OK</pre>
+              <h4>Body</h4>
+              <pre class="response body">[
+  {
+    &quot;id&quot;: 1,
+    &quot;name&quot;: &quot;Test_Project&quot;,
+    &quot;license&quot;: null,
+    &quot;created_at&quot;: &quot;2016-09-01T01:09:59.427Z&quot;,
+    &quot;updated_at&quot;: &quot;2016-09-01T01:09:59.427Z&quot;,
+    &quot;description&quot;: null,
+    &quot;areas&quot;: [
+      {
+        &quot;id&quot;: 1,
+        &quot;name&quot;: &quot;Test Area&quot;,
+        &quot;floor_plan&quot;: {
+          &quot;floor_plan&quot;: {
+            &quot;url&quot;: &quot;/uploads/area/floor_plan/1/Test%20Area.png&quot;,
+            &quot;full_map&quot;: {
+              &quot;url&quot;: &quot;/uploads/area/floor_plan/1/full_map_Test%20Area.png&quot;
+            },
+            &quot;thumb&quot;: {
+              &quot;url&quot;: &quot;/uploads/area/floor_plan/1/thumb_Test%20Area.png&quot;
+            }
+          }
+        },
+        &quot;description&quot;: &quot;Foo&quot;,
+        &quot;created_at&quot;: &quot;2016-09-01T01:10:11.722Z&quot;,
+        &quot;updated_at&quot;: &quot;2016-09-01T01:10:11.722Z&quot;
+      },
+      {
+        &quot;id&quot;: 2,
+        &quot;name&quot;: &quot;Test Area&quot;,
+        &quot;floor_plan&quot;: {
+          &quot;floor_plan&quot;: {
+            &quot;url&quot;: &quot;/uploads/area/floor_plan/2/Test%20Area.png&quot;,
+            &quot;full_map&quot;: {
+              &quot;url&quot;: &quot;/uploads/area/floor_plan/2/full_map_Test%20Area.png&quot;
+            },
+            &quot;thumb&quot;: {
+              &quot;url&quot;: &quot;/uploads/area/floor_plan/2/thumb_Test%20Area.png&quot;
+            }
+          }
+        },
+        &quot;description&quot;: &quot;Foo&quot;,
+        &quot;created_at&quot;: &quot;2016-09-01T01:10:21.936Z&quot;,
+        &quot;updated_at&quot;: &quot;2016-09-01T01:10:21.936Z&quot;
+      }
+    ]
+  },
+  {
+    &quot;id&quot;: 2,
+    &quot;name&quot;: &quot;Test_Project&quot;,
+    &quot;license&quot;: null,
+    &quot;created_at&quot;: &quot;2016-09-01T01:10:21.948Z&quot;,
+    &quot;updated_at&quot;: &quot;2016-09-01T01:10:21.948Z&quot;,
+    &quot;description&quot;: null,
+    &quot;areas&quot;: [
+      {
+        &quot;id&quot;: 3,
+        &quot;name&quot;: &quot;Test Area&quot;,
+        &quot;floor_plan&quot;: {
+          &quot;floor_plan&quot;: {
+            &quot;url&quot;: &quot;/uploads/area/floor_plan/3/Test%20Area.png&quot;,
+            &quot;full_map&quot;: {
+              &quot;url&quot;: &quot;/uploads/area/floor_plan/3/full_map_Test%20Area.png&quot;
+            },
+            &quot;thumb&quot;: {
+              &quot;url&quot;: &quot;/uploads/area/floor_plan/3/thumb_Test%20Area.png&quot;
+            }
+          }
+        },
+        &quot;description&quot;: &quot;Foo&quot;,
+        &quot;created_at&quot;: &quot;2016-09-01T01:10:32.891Z&quot;,
+        &quot;updated_at&quot;: &quot;2016-09-01T01:10:32.891Z&quot;
+      },
+      {
+        &quot;id&quot;: 4,
+        &quot;name&quot;: &quot;Test Area&quot;,
+        &quot;floor_plan&quot;: {
+          &quot;floor_plan&quot;: {
+            &quot;url&quot;: &quot;/uploads/area/floor_plan/4/Test%20Area.png&quot;,
+            &quot;full_map&quot;: {
+              &quot;url&quot;: &quot;/uploads/area/floor_plan/4/full_map_Test%20Area.png&quot;
+            },
+            &quot;thumb&quot;: {
+              &quot;url&quot;: &quot;/uploads/area/floor_plan/4/thumb_Test%20Area.png&quot;
+            }
+          }
+        },
+        &quot;description&quot;: &quot;Foo&quot;,
+        &quot;created_at&quot;: &quot;2016-09-01T01:10:43.727Z&quot;,
+        &quot;updated_at&quot;: &quot;2016-09-01T01:10:43.727Z&quot;
+      }
+    ]
+  }
+]</pre>
+      </div>
+    </div>
+  </body>
+</html>

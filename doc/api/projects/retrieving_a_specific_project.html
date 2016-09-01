@@ -109,47 +109,12 @@ table th, table td {
       <h1>Projects API</h1>
 
       <div class="article">
-        <h2>Update a specific project</h2>
-        <h3>PUT /api/v1/projects/:id</h3>
+        <h2>Retrieving a specific project</h2>
+        <h3>GET api/v1/projects/:id</h3>
           <p class="explanation">
-            Updating a project by id
+            Retrieve project by id
           </p>
 
-          <h3>Parameters</h3>
-          <table class="parameters table table-striped table-bordered table-condensed">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                    <span class="name">project[name]</span>
-                </td>
-                <td>
-                  <span class="description">Name of project</span>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                    <span class="name">project[license]</span>
-                </td>
-                <td>
-                  <span class="description">Optional license</span>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                    <span class="name">project[description]</span>
-                </td>
-                <td>
-                  <span class="description">Description of the project</span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
 
 
           <h3>Request</h3>
@@ -161,11 +126,9 @@ Host: jobwalk-staging.herokuapp.com
 Cookie: n/a</pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">PUT /api/v1/projects/2</pre>
+          <pre class="request route highlight">GET api/v1/projects/1</pre>
 
 
-            <h4>Body</h4>
-            <pre class="request body">{"project":{"name":"Updated name.","license":"updatedLicense1","description":"Updated description."}}</pre>
 
 
             <h3>Response</h3>
@@ -174,58 +137,58 @@ Cookie: n/a</pre>
 X-XSS-Protection: 1; mode=block
 X-Content-Type-Options: nosniff
 Content-Type: application/json; charset=utf-8
-ETag: W/&quot;3b15b5e76f679975353bf349c7730ce0&quot;
+ETag: W/&quot;99765be80a7bb4f97a5046009d76a9f0&quot;
 Cache-Control: max-age=0, private, must-revalidate
-Set-Cookie: _JobWalk_session=ak5YMEY5bnBXMFNiWWd3S0h3c2xZblN0U1dERk8wR0ViTGVubjZLdVk4TWNJMkFOVDJIbHhOMFQrL2dUTGgrN01RS0lJaGlKNzRBeWVuUXZ6bS9Gd1ZtSWhYb3VoRk5sM2N1Mlg3cXZTRGR5c1hXdWM2ZG1sWnM2dVgwQnVuYzFuWmRSKy95TDROMjk2SXRiMGc1UFdRPT0tLVIwNExVUTZFRzlsamdxUmoremU2YVE9PQ%3D%3D--3c6d1ca486d2e56d46fad205241bc5676fc25e9f; path=/; HttpOnly
-X-Request-Id: 21c4d461-49a6-4fa6-9092-23bc5ef2ceb1
-X-Runtime: 0.027487
-Content-Length: 884</pre>
+Set-Cookie: _JobWalk_session=VER3TU1iQlBZQmMyZEd1NW1FRFlJMzBWUUkyNm9LVFltUzd6SjVKL2tDUFdxRDZQTjI2QTdtVU5PSVdVWWwrdnMzbElySHpycm82Q1dwU2orL01VeUZPaTFCRUFjOGlTZjMxV0dlVTJYVVZlaCtFb3F6VEs0YW53T3Q0ZlV0dlVJaWMyOHplUVl0Z3BCZnI5VHh1Z1N3PT0tLUVXSWdFVjQzd20wUmprT0Vac2Yxdmc9PQ%3D%3D--500893c6283de80b0a5790f456126a30dff265cf; path=/; HttpOnly
+X-Request-Id: fd9ead5d-3f81-49ab-b1e8-ea30f97c7d24
+X-Runtime: 0.058846
+Content-Length: 852</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
               <pre class="response body">{
-  &quot;id&quot;: 2,
-  &quot;name&quot;: &quot;Updated name.&quot;,
-  &quot;license&quot;: &quot;updatedLicense1&quot;,
-  &quot;created_at&quot;: &quot;2016-09-01T01:11:50.945Z&quot;,
-  &quot;updated_at&quot;: &quot;2016-09-01T01:12:13.535Z&quot;,
-  &quot;description&quot;: &quot;Updated description.&quot;,
+  &quot;id&quot;: 1,
+  &quot;name&quot;: &quot;Test_Project&quot;,
+  &quot;license&quot;: null,
+  &quot;created_at&quot;: &quot;2016-09-01T01:10:44.974Z&quot;,
+  &quot;updated_at&quot;: &quot;2016-09-01T01:10:44.974Z&quot;,
+  &quot;description&quot;: null,
   &quot;areas&quot;: [
     {
-      &quot;id&quot;: 3,
+      &quot;id&quot;: 1,
       &quot;name&quot;: &quot;Test Area&quot;,
       &quot;floor_plan&quot;: {
         &quot;floor_plan&quot;: {
-          &quot;url&quot;: &quot;/uploads/area/floor_plan/3/Test%20Area.png&quot;,
+          &quot;url&quot;: &quot;/uploads/area/floor_plan/1/Test%20Area.png&quot;,
           &quot;full_map&quot;: {
-            &quot;url&quot;: &quot;/uploads/area/floor_plan/3/full_map_Test%20Area.png&quot;
+            &quot;url&quot;: &quot;/uploads/area/floor_plan/1/full_map_Test%20Area.png&quot;
           },
           &quot;thumb&quot;: {
-            &quot;url&quot;: &quot;/uploads/area/floor_plan/3/thumb_Test%20Area.png&quot;
+            &quot;url&quot;: &quot;/uploads/area/floor_plan/1/thumb_Test%20Area.png&quot;
           }
         }
       },
       &quot;description&quot;: &quot;Foo&quot;,
-      &quot;created_at&quot;: &quot;2016-09-01T01:12:02.249Z&quot;,
-      &quot;updated_at&quot;: &quot;2016-09-01T01:12:02.249Z&quot;
+      &quot;created_at&quot;: &quot;2016-09-01T01:10:56.089Z&quot;,
+      &quot;updated_at&quot;: &quot;2016-09-01T01:10:56.089Z&quot;
     },
     {
-      &quot;id&quot;: 4,
+      &quot;id&quot;: 2,
       &quot;name&quot;: &quot;Test Area&quot;,
       &quot;floor_plan&quot;: {
         &quot;floor_plan&quot;: {
-          &quot;url&quot;: &quot;/uploads/area/floor_plan/4/Test%20Area.png&quot;,
+          &quot;url&quot;: &quot;/uploads/area/floor_plan/2/Test%20Area.png&quot;,
           &quot;full_map&quot;: {
-            &quot;url&quot;: &quot;/uploads/area/floor_plan/4/full_map_Test%20Area.png&quot;
+            &quot;url&quot;: &quot;/uploads/area/floor_plan/2/full_map_Test%20Area.png&quot;
           },
           &quot;thumb&quot;: {
-            &quot;url&quot;: &quot;/uploads/area/floor_plan/4/thumb_Test%20Area.png&quot;
+            &quot;url&quot;: &quot;/uploads/area/floor_plan/2/thumb_Test%20Area.png&quot;
           }
         }
       },
       &quot;description&quot;: &quot;Foo&quot;,
-      &quot;created_at&quot;: &quot;2016-09-01T01:12:13.495Z&quot;,
-      &quot;updated_at&quot;: &quot;2016-09-01T01:12:13.495Z&quot;
+      &quot;created_at&quot;: &quot;2016-09-01T01:11:06.840Z&quot;,
+      &quot;updated_at&quot;: &quot;2016-09-01T01:11:06.840Z&quot;
     }
   ]
 }</pre>
