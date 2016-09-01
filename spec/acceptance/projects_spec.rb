@@ -1,12 +1,8 @@
-require 'spec_helper'
-require 'rails_helper'
-require 'rspec_api_documentation/dsl'
+require 'acceptance_helper'
 
 resource "Projects" do
   header "Accept", "application/json"
   header "Content-Type", "application/json"
-  header "Host", 'jobwalk-staging.herokuapp.com'
-  header "Cookie", 'n/a'
 
   let!(:projects) { FactoryGirl.create_list(:project_with_areas, 2) }
   let(:user) { FactoryGirl.create(:user) }
