@@ -25,9 +25,9 @@ gem 'mini_magick', '~> 4.3'
 gem 'fog'
 
 #User auth
-gem 'devise', '~> 4.2.0'
+gem 'devise', '~> 4.0.3'
 gem 'pundit'
-gem 'devise-ios-rails', '~> 4.2.0'
+gem 'devise-ios-rails', '~> 1.0.2'
 
 gem 'apitome'
 
