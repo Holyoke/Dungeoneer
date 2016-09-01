@@ -440,8 +440,8 @@ DEPENDENCIES
   capybara
   carrierwave (~> 0.10.0)
   database_cleaner
-  devise
-  devise-ios-rails
+  devise (~> 4.0.3)
+  devise-ios-rails (~> 1.0.2)
   factory_girl_rails
   faker
   fog
