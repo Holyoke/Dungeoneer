@@ -1,0 +1,46 @@
+{
+  "resource": "Projects",
+  "http_method": "PUT",
+  "route": "/api/v1/projects/:id",
+  "description": "Update a specific project",
+  "explanation": "Updating a project by id",
+  "parameters": [
+    {
+      "scope": "project",
+      "name": "name",
+      "description": "Name of project"
+    },
+    {
+      "scope": "project",
+      "name": "license",
+      "description": "Optional license"
+    },
+    {
+      "scope": "project",
+      "name": "description",
+      "description": "Description of the project"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PUT",
+      "request_path": "/api/v1/projects/2",
+      "request_body": "{\"project\":{\"name\":\"Updated name.\",\"license\":\"updatedLicense1\",\"description\":\"Updated description.\"}}",
+      "request_headers": {
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"id\": 2,\n  \"name\": \"Updated name.\",\n  \"license\": \"updatedLicense1\",\n  \"created_at\": \"2016-09-01T01:30:59.453Z\",\n  \"updated_at\": \"2016-09-01T01:31:23.073Z\",\n  \"description\": \"Updated description.\",\n  \"areas\": [\n    {\n      \"id\": 3,\n      \"name\": \"Test Area\",\n      \"floor_plan\": {\n        \"floor_plan\": {\n          \"url\": \"/uploads/area/floor_plan/3/Test%20Area.png\",\n          \"full_map\": {\n            \"url\": \"/uploads/area/floor_plan/3/full_map_Test%20Area.png\"\n          },\n          \"thumb\": {\n            \"url\": \"/uploads/area/floor_plan/3/thumb_Test%20Area.png\"\n          }\n        }\n      },\n      \"description\": \"Foo\",\n      \"created_at\": \"2016-09-01T01:31:11.494Z\",\n      \"updated_at\": \"2016-09-01T01:31:11.494Z\"\n    },\n    {\n      \"id\": 4,\n      \"name\": \"Test Area\",\n      \"floor_plan\": {\n        \"floor_plan\": {\n          \"url\": \"/uploads/area/floor_plan/4/Test%20Area.png\",\n          \"full_map\": {\n            \"url\": \"/uploads/area/floor_plan/4/full_map_Test%20Area.png\"\n          },\n          \"thumb\": {\n            \"url\": \"/uploads/area/floor_plan/4/thumb_Test%20Area.png\"\n          }\n        }\n      },\n      \"description\": \"Foo\",\n      \"created_at\": \"2016-09-01T01:31:23.001Z\",\n      \"updated_at\": \"2016-09-01T01:31:23.001Z\"\n    }\n  ]\n}",
+      "response_headers": {
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://jobwalk-staging.herokuapp.com/api/v1/projects/2\" -d '{\"project\":{\"name\":\"Updated name.\",\"license\":\"updatedLicense1\",\"description\":\"Updated description.\"}}' -X PUT \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}
