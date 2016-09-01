@@ -27,7 +27,6 @@ gem 'fog'
 #User auth
 gem 'devise', '~> 4.0.3'
 gem 'pundit'
-gem 'devise-ios-rails', '~> 1.0.2'
 
 gem 'apitome'
 
