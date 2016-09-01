@@ -42,7 +42,7 @@ module Api::V1
     end
 
     def area_params
-      params.require(:area).permit(:name, :floor_plan, :project_id, :description)
+      params.require(:area).permit(:name, :project_id, :description)
     end
 
     def check_project

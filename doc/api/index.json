@@ -1,6 +1,32 @@
 {
   "resources": [
     {
+      "name": "Areas",
+      "examples": [
+        {
+          "description": "Getting a list of areas",
+          "link": "areas/getting_a_list_of_areas.json",
+          "groups": "all",
+          "route": "/api/v1/areas",
+          "method": "get"
+        },
+        {
+          "description": "Retrieving a specific area",
+          "link": "areas/retrieving_a_specific_area.json",
+          "groups": "all",
+          "route": "api/v1/areas/:id",
+          "method": "get"
+        },
+        {
+          "description": "Update a specific area",
+          "link": "areas/update_a_specific_area.json",
+          "groups": "all",
+          "route": "/api/v1/areas/:id",
+          "method": "put"
+        }
+      ]
+    },
+    {
       "name": "Projects",
       "examples": [
         {

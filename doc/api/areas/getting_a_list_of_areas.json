@@ -1,0 +1,36 @@
+{
+  "resource": "Areas",
+  "http_method": "GET",
+  "route": "/api/v1/areas",
+  "description": "Getting a list of areas",
+  "explanation": "Retrieves a list of areas with project_id",
+  "parameters": [
+    {
+      "name": "project_id",
+      "description": "Specify project"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/api/v1/areas?project_id=1",
+      "request_body": null,
+      "request_headers": {
+      },
+      "request_query_parameters": {
+        "project_id": "1"
+      },
+      "request_content_type": "application/json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "[\n  {\n    \"id\": 1,\n    \"name\": \"Test Area\",\n    \"floor_plan\": {\n      \"floor_plan\": {\n        \"url\": \"/uploads/area/floor_plan/1/Test%20Area.png\",\n        \"full_map\": {\n          \"url\": \"/uploads/area/floor_plan/1/full_map_Test%20Area.png\"\n        },\n        \"thumb\": {\n          \"url\": \"/uploads/area/floor_plan/1/thumb_Test%20Area.png\"\n        }\n      }\n    },\n    \"description\": \"Foo\",\n    \"created_at\": \"2016-09-01T21:55:44.546Z\",\n    \"updated_at\": \"2016-09-01T21:55:44.546Z\",\n    \"project\": {\n      \"id\": 1,\n      \"name\": \"Test_Project\",\n      \"license\": null,\n      \"created_at\": \"2016-09-01T21:55:31.543Z\",\n      \"updated_at\": \"2016-09-01T21:55:31.543Z\",\n      \"description\": null\n    }\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Test Area\",\n    \"floor_plan\": {\n      \"floor_plan\": {\n        \"url\": \"/uploads/area/floor_plan/2/Test%20Area.png\",\n        \"full_map\": {\n          \"url\": \"/uploads/area/floor_plan/2/full_map_Test%20Area.png\"\n        },\n        \"thumb\": {\n          \"url\": \"/uploads/area/floor_plan/2/thumb_Test%20Area.png\"\n        }\n      }\n    },\n    \"description\": \"Foo\",\n    \"created_at\": \"2016-09-01T21:55:57.012Z\",\n    \"updated_at\": \"2016-09-01T21:55:57.012Z\",\n    \"project\": {\n      \"id\": 1,\n      \"name\": \"Test_Project\",\n      \"license\": null,\n      \"created_at\": \"2016-09-01T21:55:31.543Z\",\n      \"updated_at\": \"2016-09-01T21:55:31.543Z\",\n      \"description\": null\n    }\n  }\n]",
+      "response_headers": {
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://jobwalk-staging.herokuapp.com/api/v1/areas?project_id=1\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}
