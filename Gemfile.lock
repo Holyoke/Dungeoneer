@@ -369,6 +369,10 @@ GEM
     shellany (0.0.1)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
+    simple_token_authentication (1.14.0)
+      actionmailer (>= 3.2.6, < 6)
+      actionpack (>= 3.2.6, < 6)
+      devise (>= 3.2, < 6)
     slop (3.6.0)
     spring (1.7.2)
     spring-commands-rspec (1.0.4)
@@ -442,6 +446,7 @@ DEPENDENCIES
   rspec_api_documentation
   sass-rails (~> 5.0)
   shoulda-matchers
+  simple_token_authentication (~> 1.0)
   spring
   spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)

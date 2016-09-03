@@ -8,6 +8,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  description :text
+#  user_id     :integer
 #
 
 class Project < ApplicationRecord

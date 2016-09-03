@@ -16,6 +16,8 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  role                   :integer
+#  name                   :string           default("")
+#  authentication_token   :string(30)
 #
 
 require 'rails_helper'

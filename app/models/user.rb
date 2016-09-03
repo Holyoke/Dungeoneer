@@ -16,6 +16,8 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  role                   :integer
+#  name                   :string           default("")
+#  authentication_token   :string(30)
 #
 
 class User < ApplicationRecord
@@ -28,6 +30,8 @@ class User < ApplicationRecord
     self.role ||= :user
   end
 
+  acts_as_token_authenticatable
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
