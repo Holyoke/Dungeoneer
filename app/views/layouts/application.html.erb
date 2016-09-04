@@ -9,7 +9,7 @@
 
   <body>
     <%= render 'layouts/header' %>
-    <div class='container'>
+    <div class='flex column center-justify'>
       <% flash.each do |message_type, message| %>
         <div id="flash" class="flash-<%= message_type %>"><%= message %></div>
       <% end %>
