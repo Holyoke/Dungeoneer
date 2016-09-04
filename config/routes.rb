@@ -2,7 +2,13 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  root 'static_pages#root'
+  devise_scope :user do
+    root to: "devise/sessions#new"
+  end
+
+  resources :users, only: [] do
+    resources :projects, only: [:index]
+  end
 
   resources :projects do
     resources :areas, only: [:index]
