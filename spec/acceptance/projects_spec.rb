@@ -4,7 +4,7 @@ resource "Projects" do
   header "Accept", "application/json"
   header "Content-Type", "application/json"
 
-  let!(:projects) { FactoryGirl.create_list(:project_with_areas, 2) }
+  let!(:projects) { FactoryGirl.create_list(:project, 2) }
   let(:user) { FactoryGirl.create(:user) }
 
   before do

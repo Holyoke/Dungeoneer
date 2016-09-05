@@ -7,9 +7,9 @@ resource "Areas" do
   let!(:project) { FactoryGirl.create(:project_with_areas) }
   let(:user) { FactoryGirl.create(:user) }
 
-  # before do
-  #   login_as(user, scope: :user)
-  # end
+  before do
+    login_as(user, scope: :user)
+  end
 
   get "/api/v1/areas" do
     parameter :project_id, "Specify project"
@@ -21,7 +21,6 @@ resource "Areas" do
       explanation "Retrieves a list of areas with project_id"
       expect(status).to eq 200
     end
-
   end
 
   get "api/v1/areas/:id" do

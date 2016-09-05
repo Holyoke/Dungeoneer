@@ -1,5 +1,5 @@
 module Api::V1
-  class AreasController < ActionController::API
+  class AreasController < ApiApplicationController
     before_action :set_area, only: [:show, :update, :destroy]
     before_action :check_project, only: [:index]
 

@@ -18,8 +18,7 @@ Rails.application.routes.draw do
       resources :projects, except: [:new, :edit]
       resources :areas, except: [:new, :edit]
       resources :marker, except: [:new, :edit]
+      resource :session, only: [:create, :destroy], controller: 'sessions'
     end
   end
-
-  resource :api_session, only: [:create, :destroy], controller: 'sessions'
 end
