@@ -1,9 +1,8 @@
 <div class="flex column col-md-4">
   <%= form_for(project) do |f| %>
     <% if project.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
-
+      <div class="alert alert-danger">
+        Error(s) prohibited this project from being saved:
         <ul>
           <% project.errors.full_messages.each do |message| %>
             <li><%= message %></li>
