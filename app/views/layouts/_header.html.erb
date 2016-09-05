@@ -1,6 +1,8 @@
 <div class='top-bar'>
   <div class='flex space-between' style="height: 100%">
-    <%= link_to 'JobWalk', '/', class: "logo" %>
+    <div class="flex column center-justify">
+      <%= link_to 'JobWalk', '/', class: "logo" %>
+    </div>
     <div class="flex">
       <% if user_signed_in? %>
         <%= link_to 'Users', users_path, class: "navBarLink flex center"%>

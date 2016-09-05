@@ -1,6 +1,14 @@
 
 @import 'variables';
 
+* {
+  font-family: helvetica;
+}
+
+.main{
+  padding: 0 40px;
+}
+
 a{
   color: inherit;
   text-decoration: none;

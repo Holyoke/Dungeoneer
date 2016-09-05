@@ -17,3 +17,25 @@
         }
     }
 }
+
+
+.form-fields{
+  display: flex;
+  flex-direction: column;
+  > *{
+    display: flex;
+    padding: 10px;
+    > *{
+      width:50%;
+    }
+  }
+  > .footer{
+    display: flex;
+    flex-direction: row-reverse;
+    > * {
+      height: 40px;
+      width: 50%;
+    }
+  }
+}
+
