@@ -1,4 +1,4 @@
-<div class="flex column center-align">
+<div class="flex column center">
   <h2>Log in</h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -19,8 +19,8 @@
       </div>
     <% end -%>
 
-    <div class="actions">
-      <%= f.submit "Log in" %>
+    <div class="footer">
+      <div class="button"><%= submit_tag 'Login', class: "clear-formatting"%> </div>
     </div>
   <% end %>
 
