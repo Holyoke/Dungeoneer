@@ -28,8 +28,8 @@
       </div>
 
       <div class="footer">
-        <%= f.submit "back", class: "button" %>
-        <%= f.submit "save", class: "button" %>
+        <div class="button"><%= submit_tag 'Save', class: "clear-formatting"%> </div>
+        <div class="button"><%= link_to 'Back', projects_path, class: "clear-formatting" %></div>
       </div>
     </div>
   <% end %>

@@ -1,6 +1,6 @@
 @import 'variables';
 
-input:not(.button), select:not(.button){
+input:not([type=submit]), select:not([type=submit]){
     border-radius: 6px;
     border: solid 3px $grey;
     padding: 5px;
@@ -23,4 +23,5 @@ input:not(.button), select:not(.button){
     option:checked{
         background-color: $brandColor;
     }
+
 }
