@@ -1,37 +1,42 @@
-<%= form_for(area) do |f| %>
+<div class="flex column col-md-4">
+  <%= form_for(area) do |f| %>
 
-  <% if area.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(area.errors.count, "error") %> prohibited this area from being saved:</h2>
+    <% if area.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(area.errors.count, "error") %> prohibited this area from being saved:</h2>
 
-      <ul>
-      <% area.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+          <% area.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-fields">
+      <div>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+
+      <div>
+        <%= f.label :floor_plan %><br>
+        <%= f.file_field :floor_plan %>
+      </div>
+
+      <div>
+        <%= f.label :description %>
+        <%= f.text_field :description %>
+      </div>
+
+      <div>
+        <%= f.hidden_field :project_id, :value => params[:area][:project_id] %>
+      </div>
+
+      <div class="footer">
+        <%= f.submit "back", class: "button" %>
+        <%= f.submit "save", class: "button" %>
+      </div>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :floor_plan %><br>
-    <%= f.file_field :floor_plan %>
-  </div>
-
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-  </div>
-
-  <div>
-    <%= f.hidden_field :project_id, :value => params[:area][:project_id] %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

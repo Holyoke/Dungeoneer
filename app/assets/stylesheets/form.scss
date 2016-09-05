@@ -31,10 +31,10 @@
   }
   > .footer{
     display: flex;
-    flex-direction: row-reverse;
+    justify-content: flex-end;
     > * {
-      height: 40px;
-      width: 50%;
+      width: 25%;
+      height: 38px;
     }
   }
 }

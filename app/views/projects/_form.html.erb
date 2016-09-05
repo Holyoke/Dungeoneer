@@ -1,4 +1,4 @@
-<div class="flex column" style="width: 400px">
+<div class="flex column col-md-4">
   <%= form_for(project) do |f| %>
     <% if project.errors.any? %>
       <div id="error_explanation">
@@ -29,6 +29,7 @@
       </div>
 
       <div class="footer">
+        <%= f.submit "back", class: "button" %>
         <%= f.submit "save", class: "button" %>
       </div>
     </div>
