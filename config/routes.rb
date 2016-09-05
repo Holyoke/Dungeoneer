@@ -20,4 +20,6 @@ Rails.application.routes.draw do
       resources :marker, except: [:new, :edit]
     end
   end
+
+  resource :api_session, only: [:create, :destroy], controller: 'sessions'
 end

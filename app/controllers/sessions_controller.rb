@@ -1,4 +1,5 @@
-class SessionsController < Devise::SessionsController
+# class SessionsController < Devise::SessionsController
+class SessionsController < ApplicationController
 
   # This controller provides a JSON version of the Devise::SessionsController and
   # is compatible with the use of SimpleTokenAuthentication.
