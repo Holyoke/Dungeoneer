@@ -2,7 +2,7 @@
   <%= form_for(project) do |f| %>
     <% if project.errors.any? %>
       <div class="alert alert-danger">
-        Error(s) prohibited this project from being saved:
+        <%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:
         <ul>
           <% project.errors.full_messages.each do |message| %>
             <li><%= message %></li>
