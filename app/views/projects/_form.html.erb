@@ -1,32 +1,36 @@
-<%= form_for(project) do |f| %>
-  <% if project.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+<div class="flex column col-md-4">
+  <%= form_for(project) do |f| %>
+    <% if project.errors.any? %>
+      <div class="alert alert-danger">
+        <%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:
+        <ul>
+          <% project.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-      <ul>
-      <% project.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="form-fields">
+      <div>
+        <%= f.label :name%>
+        <%= f.text_field :name %>
+      </div>
+
+      <div>
+        <%= f.label :license %>
+        <%= f.text_field :license %>
+      </div>
+
+      <div>
+        <%= f.label :description %>
+        <%= f.text_field :description %>
+      </div>
+
+      <div class="footer">
+        <div class="button"><%= submit_tag 'Save', class: "clear-formatting"%> </div>
+        <div class="button"><%= link_to 'Back', projects_path, class: "clear-formatting" %></div>
+      </div>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :license %>
-    <%= f.text_field :license %>
-  </div>
-
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

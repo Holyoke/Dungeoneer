@@ -11,10 +11,6 @@ feature 'User Signs in to their Home Page', :devise do
   after { Warden.test_reset! }
 
   scenario 'User has a link to create new Projects' do
-    page.should have_selector(:link_or_button, 'Create a new Project')
-  end
-
-  scenario 'User has a link towards Projects index' do
-    page.should have_selector(:link_or_button, 'View Projects')
+    page.should have_selector(:link_or_button, 'New Project')
   end
 end

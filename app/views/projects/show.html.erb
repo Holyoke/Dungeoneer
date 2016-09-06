@@ -1,16 +1,24 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @project.name %>
-</p>
+<div class="flex row ">
+  <div class="project-info">
+    <p>
+    <strong>Name:</strong>
+    <%= @project.name %>
+    </p>
 
-<p>
-  <strong>License:</strong>
-  <%= @project.license %>
-</p>
+    <p>
+    <strong>License:</strong>
+    <%= @project.license %>
+    </p>
+    <p>
+    <strong>Description:</strong>
+    <%= @project.description %>
+    </p>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+    <%= link_to 'Edit', edit_project_path(@project) %>
+  </div>
+  <div>
+    <%= render '/areas/index' %>
+  </div>
+</div>
 
-<%= render '/areas/index' %>
