@@ -1,6 +1,18 @@
 {
   "resources": [
     {
+      "name": "Api Sessions",
+      "examples": [
+        {
+          "description": "Logging in via query params",
+          "link": "api_sessions/logging_in_via_query_params.json",
+          "groups": "all",
+          "route": "/api/v1/session",
+          "method": "post"
+        }
+      ]
+    },
+    {
       "name": "Areas",
       "examples": [
         {

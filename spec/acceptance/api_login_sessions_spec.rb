@@ -1,7 +1,7 @@
 require 'acceptance_helper'
 require 'byebug'
 
-resource "API Sessions" do
+resource "Api Sessions" do
   header "Accept", "application/json"
   header "Content-Type", "application/json"
 

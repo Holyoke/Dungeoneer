@@ -1,0 +1,41 @@
+{
+  "resource": "Api Sessions",
+  "http_method": "POST",
+  "route": "/api/v1/session",
+  "description": "Logging in via query params",
+  "explanation": null,
+  "parameters": [
+    {
+      "scope": "session",
+      "name": "email",
+      "description": "User email"
+    },
+    {
+      "scope": "session",
+      "name": "password",
+      "description": "User password"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/api/v1/session",
+      "request_body": "{\"session\":{\"email\":\"eusebio@mraz.net\",\"password\":\"password\"}}",
+      "request_headers": {
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"email\": \"eusebio@mraz.net\",\n  \"authentication_token\": \"CrmNTPYui_7bQbzLxNCz\",\n  \"id\": 1\n}",
+      "response_headers": {
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://jobwalk-staging.herokuapp.com/api/v1/session\" -d '{\"session\":{\"email\":\"eusebio@mraz.net\",\"password\":\"password\"}}' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+    }
+  ]
+}
