@@ -437,6 +437,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   fog
+  fog-aws (~> 0.11.0)
   guard-rspec
   jquery-rails
   launchy

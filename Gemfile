@@ -23,6 +23,7 @@ gem 'turbolinks', '~> 5'
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'
 gem 'fog'
+gem 'fog-aws', '~> 0.11.0'
 
 #User auth
 gem 'devise', '~> 4.0.3'
