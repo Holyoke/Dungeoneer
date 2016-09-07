@@ -34,7 +34,9 @@ feature 'CRUD Project Stories', :devise do
     expect(page).to have_content("User 1's project")
   end
 
-  scenario 'User can edit project description'
+  scenario 'User can edit project description' do
+    
+  end
 
   scenario 'User can destroy their projects'
 end
