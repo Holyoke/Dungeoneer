@@ -262,6 +262,8 @@ GEM
     kramdown (1.12.0)
     launchy (2.4.3)
       addressable (~> 2.3)
+    letter_opener (1.4.1)
+      launchy (~> 2.2)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -446,6 +448,7 @@ DEPENDENCIES
   guard-rspec
   jquery-rails
   launchy
+  letter_opener (~> 1.4.1)
   listen (~> 3.0.5)
   lol_dba
   mailgun-ruby (~> 1.1.0)
