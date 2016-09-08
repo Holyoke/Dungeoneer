@@ -20,11 +20,9 @@ class AreasController < ApplicationController
   end
 
   # POST /areas
-  # POST /areas.json
   def create
     project = Project.find(area_params[:project_id])
     @area = project.areas.new(area_params)
-    
     if @area.save
       redirect_to @area, notice: 'Area was successfully created.'
     else
@@ -34,26 +32,19 @@ class AreasController < ApplicationController
   end
 
   # PATCH/PUT /areas/1
-  # PATCH/PUT /areas/1.json
   def update
-    respond_to do |format|
-      if @area.update(area_params)
-        format.html { redirect_to @area, notice: 'Area was successfully updated.' }
-        format.json { render :show, status: :ok, location: @area }
-      else
-        format.html { render :edit }
-        format.json { render json: @area.errors, status: :unprocessable_entity }
-      end
+    if @area.update(area_params)
+      redirect_to @area, notice: 'Area was successfully updated.'
+    else
+      flash.now[:errors] = @area.errors.full_messages
+      render :edit
     end
   end
 
   # DELETE /areas/1
-  # DELETE /areas/1.json
   def destroy
-    @area.destroy
-    respond_to do |format|
-      format.html { redirect_to project_path(@area.project), notice: 'Area was successfully destroyed.' }
-      format.json { head :no_content }
+    if @area.destroy
+      redirect_to project_path(@area.project), notice: 'Area was successfully destroyed.'
     end
   end
 

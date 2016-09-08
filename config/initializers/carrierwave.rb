@@ -1,6 +1,7 @@
 CarrierWave.configure do |config|
   if Rails.env.test? || Rails.env.development?
     config.storage = :file
+  elsif Rails.env.test?
     config.enable_processing = false
     config.root = "#{Rails.root}/tmp"
   else
@@ -18,7 +19,7 @@ CarrierWave.configure do |config|
   config.asset_host = ActionController::Base.asset_host
 end
 
-#Seperates test uploads
+#Seperates rspec test uploads
 CarrierWave::Uploader::Base.descendants.each do |klass|
   next if klass.anonymous?
   klass.class_eval do
