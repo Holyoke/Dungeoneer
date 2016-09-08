@@ -16,6 +16,6 @@ FactoryGirl.define do
   factory :area do
     name "Test Area"
     description "Foo"
-    floor_plan { Rack::Test::UploadedFile.new(File.join(Rails.root,'sample_data', 'sample_floor_plan_small.pdf' ))}
+    floor_plan { Rack::Test::UploadedFile.new(File.join(Rails.root,'sample_data', 'sample_floor_plan_small.pdf' )) }
   end
 end

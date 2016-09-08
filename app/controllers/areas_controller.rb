@@ -24,15 +24,12 @@ class AreasController < ApplicationController
   def create
     project = Project.find(area_params[:project_id])
     @area = project.areas.new(area_params)
-
-    respond_to do |format|
-      if @area.save
-        format.html { redirect_to @area, notice: 'Area was successfully created.' }
-        format.json { render :show, status: :created, location: @area }
-      else
-        format.html { render :new }
-        format.json { render json: @area.errors, status: :unprocessable_entity }
-      end
+    
+    if @area.save
+      redirect_to @area, notice: 'Area was successfully created.'
+    else
+      flash.now[:errors] = @areas.errors.full_messages
+      render :new
     end
   end
 
