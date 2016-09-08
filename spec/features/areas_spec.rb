@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'byebug'
 
 feature 'CRUD Area Stories', :devise do
   let!(:user) { FactoryGirl.create(:user) }
@@ -9,7 +10,10 @@ feature 'CRUD Area Stories', :devise do
 
   scenario 'User can create new areas' do
     visit new_project_area_path(project)
-    save_and_open_page
+    fill_in('Name', with: 'New area name')
+    fill_in('Description', with: 'New area decription')
+    attach_file('Floor plan', File.join(Rails.root + 'sample_data/sample_floor_plan_small.pdf'))
+    expect(page).to have_content('Area was successfully created.')
   end
 
   scenario 'User sees a list of all areas under a project' do
@@ -24,7 +28,7 @@ feature 'CRUD Area Stories', :devise do
     expect(page).to have_content(area.name)
   end
 
-  scenario 'User can upload a new pdf to an area' do
+  scenario 'User can upload a new pdf to  an uploaded area' do
 
   end
 
