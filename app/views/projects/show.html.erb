@@ -1,4 +1,3 @@
-
 <div class="flex row ">
   <div class="project-info">
     <p>
@@ -22,3 +21,9 @@
   </div>
 </div>
 
+<%= form_for @invite , :url => invites_path do |f| %>
+    <%= f.hidden_field :project_id, :value => @project.id%>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+    <%= f.submit 'Send' %>
+<% end %>

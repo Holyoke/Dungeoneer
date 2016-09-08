@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :projects, only: [:index]
   end
 
+  resources :invites
+
   resources :projects do
     resources :areas, only: [:index, :new]
   end

@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @invite = Invite.new
   end
 
   def new
