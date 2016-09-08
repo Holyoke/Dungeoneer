@@ -9,6 +9,7 @@ require 'capybara/rails'
 require 'database_cleaner'
 require 'pundit/rspec'
 require 'shoulda/matchers'
+require 'byebug'
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 

@@ -19,7 +19,7 @@ describe FloorPlanUploader do
 
   context 'the full map version' do
     it "converts a pdf into a png" do
-      expect(uploader.full_map).to be_format('png')
+      expect(uploader.full_map.url).to be_present
     end
   end
 end

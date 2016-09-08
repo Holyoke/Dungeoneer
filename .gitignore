@@ -13,6 +13,7 @@
 !/log/.keep
 !/tmp/.keep
 /public/uploads/*
+/public/uploads/tmp/*
 /reference_documents/*
 
 # Ignore Byebug command history file.
