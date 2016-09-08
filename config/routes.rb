@@ -11,10 +11,11 @@ Rails.application.routes.draw do
   end
 
   resources :projects do
-    resources :areas, only: [:index]
+    resources :areas, only: [:index, :new]
   end
 
-  resources :areas, except: [:index]
+  resources :areas, except: [:index, :new]
+
   resources :users
 
 
