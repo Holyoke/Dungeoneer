@@ -4,10 +4,15 @@ class InvitesController < ApplicationController
     invite = Invite.new(invite_params)
     invite.sender_id = current_user.id
     if invite.save
-      InviteMailer.new_user_invite(
-        invite.email,
-        new_user_registration_path(invite_token: invite.token)
-      ).deliver
+      if invite.recipient
+        InviteMailer.existing_user_invite(invite.email, invite.project.name)
+        invite.recipient.projects.push(invite.project)
+      else
+        InviteMailer.new_user_invite(
+          invite.email,
+          new_user_registration_path(invite_token: invite.token)
+        ).deliver
+      end
 
       redirect_to "/"
     end

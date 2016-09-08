@@ -1,11 +1,21 @@
 class InviteMailer < ApplicationMailer
+  DOMAIN =  ENV["APP_DOMAIN"] || "constructiveapp.com"
+
   def new_user_invite(email, invite_url)
-    domain = ENV["APP_DOMAIN"] || "constructiveapp.com"
-    @invite_url = domain + invite_url
+    @invite_url = DOMAIN + invite_url
 
     mail(
       to: email,
-      from: "invite@#{domain}",
+      from: "invite@#{DOMAIN}",
+      subject: "Constructive Project Invitation"
+    )
+  end
+
+  def existing_user_invite(email, project_name)
+    @project_name = project_name
+    mail(
+      to: email,
+      from: "invite@#{DOMAIN}",
       subject: "Constructive Project Invitation"
     )
   end

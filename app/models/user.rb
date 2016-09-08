@@ -31,5 +31,7 @@ class User < ApplicationRecord
 
   has_many :projects
   has_many :project_memberships
+  has_many :invitations, :class_name => "Invite", :foreign_key => 'recipient_id'
+  has_many :sent_invites, :class_name => "Invite", :foreign_key => 'sender_id'
   has_many :user_projects, :through => :project_memberships, :source => :project
 end

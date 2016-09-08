@@ -27,12 +27,34 @@ describe InvitesController, type: :controller do
       expect(last_invite.sender_id).to eq(User.last.id)
     end
 
-    it 'sends email to the user' do
-      expect(InviteMailer).to receive(:new_user_invite).with(
-        invite_email,
-        invite_link
-      ).and_call_original
-      send_invite
+    context 'when user email does not exist' do
+      it 'sends email to the user' do
+        expect(InviteMailer).to receive(:new_user_invite).with(
+          invite_email,
+          invite_link
+        ).and_call_original
+        send_invite
+      end
+    end
+
+    context 'when user email does exist' do
+      let(:invite_email) { 'existing@email.com' }
+
+      it 'adds the project to the user group' do
+        user = FactoryGirl.create(:user, email: invite_email)
+        send_invite
+        expect(user.projects).to include(project)
+
+      end
+
+      it 'sends email to let them know they joined the group' do
+        FactoryGirl.create(:user, email: invite_email)
+        expect(InviteMailer).to receive(:existing_user_invite).with(
+          invite_email,
+          project.name
+        ).and_call_original
+        send_invite
+      end
     end
 
     context 'when save is not successful' do
