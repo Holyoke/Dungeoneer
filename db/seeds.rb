@@ -6,11 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-admin_1 = User.create(name: "Admin1", email: "admin1@jobwalk.com", password: "test123", role: 'admin')
-admin_2 = User.create(name: "Admin2", email: "admin2@jobwalk.com", password: "test123", role: 'admin')
-user_jane = User.create(name: "Jane", email: "jane@jobwalk.com", password: "test123", role: 'collaborator')
-user_joe = User.create(name: "Joe", email: "joe@jobwalk.com", password: "test123", role: 'collaborator')
-
+admin_1 = User.create(name: "Admin1", email: "admin1@jobwalk.com", password: "test123")
+admin_2 = User.create(name: "Admin2", email: "admin2@jobwalk.com", password: "test123")
+user_jane = User.create(name: "Jane", email: "jane@jobwalk.com", password: "test123")
+user_joe = User.create(name: "Joe", email: "joe@jobwalk.com", password: "test123")
 
 # Add projects to admin 1
 4.times do |idx|

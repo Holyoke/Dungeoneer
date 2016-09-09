@@ -15,7 +15,11 @@ class FloorPlanUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb, from_version: :full_map do
-    process :resize_to_fit => [150, 150]
+    process :resize_to_fill => [150, 150]
+    process :convert => 'png'
+    def full_filename (for_file = model.floor_plan.file)
+      "#{model.name.html_safe}-thumb.png"
+    end
   end
 
   def full_map_mogrify
@@ -27,11 +31,9 @@ class FloorPlanUploader < CarrierWave::Uploader::Base
   end
 
   def filename
-    "#{model.name}.png"
+    "converted-#{model.name.html_safe}.png"
   end
 
-  # Add a white list of extensions which are allowed to be uploaded.
-  # For images you might use something like this:
   def extension_white_list
     %w(pdf)
   end
