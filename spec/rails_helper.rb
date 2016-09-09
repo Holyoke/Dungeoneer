@@ -7,7 +7,6 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rails'
 require 'database_cleaner'
-require 'pundit/rspec'
 require 'shoulda/matchers'
 require 'byebug'
 

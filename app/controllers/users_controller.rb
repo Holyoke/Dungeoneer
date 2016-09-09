@@ -1,19 +1,16 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  after_action :verify_authorized
 
   # GET /users
   # GET /users.json
   def index
     @users = User.all
-    authorize(User)
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
-    authorize @user
   end
 
   # GET /users/new
@@ -69,7 +66,6 @@ class UsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
-      authorize @user
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

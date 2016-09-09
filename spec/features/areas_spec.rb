@@ -3,7 +3,7 @@ require 'byebug'
 
 feature 'CRUD Area Stories', :devise do
   let!(:user) { FactoryGirl.create(:user) }
-  let!(:projects) { FactoryGirl.create_list(:project_with_areas, 2, users: [user]) }
+  let!(:project) { FactoryGirl.create(:project_with_areas, users: [user]) }
 
   before { login_as(user, scope: :user) }
   after { Warden.test_reset! }

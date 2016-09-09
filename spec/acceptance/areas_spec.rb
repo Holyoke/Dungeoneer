@@ -5,7 +5,7 @@ resource "Areas" do
   header "Content-Type", "application/json"
 
   let!(:user) { FactoryGirl.create(:user) }
-  let!(:projects) { FactoryGirl.create_list(:project_with_areas, 2, users: [user]) }
+  let!(:project) { FactoryGirl.create(:project_with_areas, users: [user]) }
 
   before do
     login_as(user, scope: :user)
