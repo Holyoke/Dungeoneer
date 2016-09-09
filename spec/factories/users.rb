@@ -15,7 +15,6 @@
 #  last_sign_in_ip        :inet
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  role                   :integer
 #  name                   :string           default("")
 #  authentication_token   :string(30)
 #
