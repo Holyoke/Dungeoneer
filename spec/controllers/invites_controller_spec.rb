@@ -44,7 +44,6 @@ describe InvitesController, type: :controller do
         user = FactoryGirl.create(:user, email: invite_email)
         send_invite
         expect(user.projects).to include(project)
-
       end
 
       it 'sends email to let them know they joined the group' do

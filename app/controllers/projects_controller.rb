@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   def index
-    @projects = current_user.projects + current_user.user_projects
+    @projects = current_user.projects
   end
 
   def show
@@ -17,10 +17,11 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = current_user.projects.new(project_params)
+    project = Project.new(project_params)
+    project.users << current_user
 
-    if @project.save
-      redirect_to @project, notice: 'Project was successfully created.'
+    if project.save
+      redirect_to project, notice: 'Project was successfully created.'
     else
       render :new
     end

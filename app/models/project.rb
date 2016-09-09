@@ -14,10 +14,8 @@
 class Project < ApplicationRecord
   validates :name, presence: true
 
-  belongs_to :user
   has_many :invites
   has_many :areas, dependent: :destroy
-
   has_many :project_memberships
-  has_many :users, :through => :project_memberships, :source => :user
+  has_many :users, through: :project_memberships
 end
