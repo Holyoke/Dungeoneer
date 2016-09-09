@@ -12,14 +12,21 @@
     </thead>
 
     <tbody>
-      <% @projects.each do |project| %>
+      <% @project_memberships.each do |membership| %>
+        <% project = membership.project %>
         <tr>
           <td><%= project.name %></td>
           <td><%= project.description %></td>
           <td><%= project.license %></td>
           <td><%= link_to 'Show', project %></td>
-          <td><%= link_to 'Edit', edit_project_path(project) %></td>
-          <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Edit', edit_project_path(project) if membership.role == "admin" %></td>
+          <td><%= 
+          link_to 'Destroy', project,
+            method: :delete,
+            data: {
+            confirm: 'Are you sure?'
+          } if membership.role == "admin"
+          %></td>
         </tr>
       <% end %>
     </tbody>

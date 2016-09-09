@@ -22,7 +22,7 @@
         </td>
 
         <td><%= link_to 'Show', area_path(area) %></td>
-        <td><%= link_to 'Edit', edit_area_path(area) %></td>
+        <td><%= link_to 'Edit', edit_area_path(area) if role == "admin" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Area', new_project_area_path(@project) %>
+<%= link_to 'New Area', new_project_area_path(@project) if role == "admin" %>

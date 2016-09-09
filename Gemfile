@@ -37,6 +37,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem "letter_opener", "~> 1.4.1"
+  gem "pry-rails"
 end
 
 group :test do
@@ -46,6 +47,7 @@ group :test do
   gem 'launchy'
   gem 'database_cleaner'
   gem 'shoulda-matchers'
+  gem 'rails-controller-testing'
 end
 
 group :development do

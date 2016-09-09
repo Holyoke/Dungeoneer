@@ -19,19 +19,28 @@
 #  authentication_token   :string(30)
 #
 
-FactoryGirl.define do
-  factory :user do
-    email { Faker::Internet.email }
-    password { 'password' }
+require 'rails_helper'
 
-    factory :user_with_projects do
-      transient do
-        projects_count 2
-      end
+describe User, type: :model do
+  let(:project) {FactoryGirl.create(:project) }
+  let(:user) { FactoryGirl.create(:user_with_projects) }
 
-      after(:create) do |user, evaluator|
-        create_list(:project, evaluator.projects_count , users: [user])
-      end
+  describe '#set_role' do
+    let(:project) {FactoryGirl.create(:project) }
+    let(:user) { FactoryGirl.create(:user_with_projects) }
+
+    it 'assigns role to project membership' do
+      project_id = user.projects.first.id
+      expect(user.find_membership(project_id).role).to eq("collaborator")
+      user.set_role(project_id, "admin")
+      expect(user.find_membership(project_id).role).to eq("admin")
+    end
+  end
+
+  describe '#find_membership' do
+    it 'finds project memberships' do
+      project_id = user.projects.first.id
+      expect(user.find_membership(project_id).role).to eq("collaborator")
     end
   end
 end
