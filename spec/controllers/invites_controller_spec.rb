@@ -1,16 +1,17 @@
 require 'rails_helper'
 
 describe InvitesController, type: :controller do
-
   describe '#create' do
     login_user
     let(:project) { FactoryGirl.create(:project) }
+    let(:role) { "admin" }
     let(:invite_email) { 'fake@email.com' }
     let(:send_invite) do
       post :create, params: {
         invite: {
           project_id: project.id,
           email: invite_email,
+          role: "admin"
         }
       }
     end
@@ -25,6 +26,7 @@ describe InvitesController, type: :controller do
       expect(last_invite.project_id).to eq(project.id)
       expect(last_invite.email).to eq(invite_email)
       expect(last_invite.sender_id).to eq(User.last.id)
+      expect(last_invite.role).to eq("admin")
     end
 
     context 'when user email does not exist' do
@@ -57,7 +59,8 @@ describe InvitesController, type: :controller do
     end
 
     context 'when save is not successful' do
-      xit 'does something reasonable'
+      xit 'redirects the user'
+      xit 'notifies the user'
     end
   end
 end

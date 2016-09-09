@@ -6,10 +6,6 @@ feature 'CRUD Project Stories', :devise do
   before { login_as(user_1, scope: :user) }
   after { Warden.test_reset! }
 
-  scenario 'User can create new projects' do
-
-  end
-
   scenario 'User only sees their projects' do
     #Seed user 1 and user 2
     4.times do |idx|
@@ -33,10 +29,4 @@ feature 'CRUD Project Stories', :devise do
     expect(page).to_not have_content("User 2's project")
     expect(page).to have_content("User 1's project")
   end
-
-  scenario 'User can edit project description' do
-    
-  end
-
-  scenario 'User can destroy their projects'
 end

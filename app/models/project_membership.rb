@@ -7,9 +7,12 @@
 #  user_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  role       :integer          default("collaborator")
 #
 
 class ProjectMembership < ApplicationRecord
   belongs_to :project
   belongs_to :user
+
+  enum role: [:collaborator, :admin]
 end
