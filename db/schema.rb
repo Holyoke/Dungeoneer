@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160908042624) do
+ActiveRecord::Schema.define(version: 20160909021452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,15 +32,17 @@ ActiveRecord::Schema.define(version: 20160908042624) do
     t.integer  "sender_id"
     t.integer  "recipient_id"
     t.string   "token"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "role",         default: 0, null: false
   end
 
   create_table "project_memberships", force: :cascade do |t|
     t.integer  "project_id"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "role",       default: 0
     t.index ["project_id"], name: "index_project_memberships_on_project_id", using: :btree
     t.index ["user_id"], name: "index_project_memberships_on_user_id", using: :btree
   end
