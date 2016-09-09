@@ -22,10 +22,6 @@
 FactoryGirl.define do
   factory :user do
     email { Faker::Internet.email }
-    password { 'password' } 
-
-    trait :admin do
-      role 'admin'
-    end
+    password { 'password' }
   end
 end
