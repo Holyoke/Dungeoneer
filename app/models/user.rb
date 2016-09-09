@@ -32,6 +32,7 @@ class User < ApplicationRecord
   has_many :invitations, class_name: "Invite", foreign_key: 'recipient_id'
   has_many :sent_invites, class_name: "Invite", foreign_key: 'sender_id'
   has_many :projects, through: :project_memberships
+  has_many :areas, through: :projects
 
   def admin?(project_id)
     membership = find_membership(project_id)

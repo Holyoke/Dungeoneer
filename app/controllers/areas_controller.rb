@@ -1,5 +1,6 @@
 class AreasController < ApplicationController
   before_action :set_area, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_update, only: [:show, :edit, :update, :destroy]
 
   def index
     @areas = @project.areas
@@ -49,11 +50,21 @@ class AreasController < ApplicationController
   end
 
   private
-    def set_area
-      @area = Area.find(params[:id])
-    end
 
-    def area_params
-      params.require(:area).permit(:name, :floor_plan, :project_id, :description)
+  def set_area
+    @area = Area.find(params[:id])
+  end
+
+  def area_params
+    params.require(:area).permit(:name, :floor_plan, :project_id, :description)
+  end
+
+  def authorize_update
+    project = @area.project
+    #potential query optimization
+    if !current_user.projects.include?(project) || !current_user.admin?(project.id)
+      flash[:alert] = "Unauthorized access to this project"
+      redirect_to '/'
     end
+  end
 end

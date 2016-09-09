@@ -5,7 +5,10 @@ feature 'CRUD Area Stories', :devise do
   let!(:user) { FactoryGirl.create(:user) }
   let!(:project) { FactoryGirl.create(:project_with_areas, users: [user]) }
 
-  before { login_as(user, scope: :user) }
+  before do
+    login_as(user, scope: :user)
+    user.set_role(project.id, "admin")
+  end
   after { Warden.test_reset! }
 
   scenario 'User can create new areas' do
