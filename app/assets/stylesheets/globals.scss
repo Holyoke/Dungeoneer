@@ -15,29 +15,36 @@ a{
 }
 
 body{
-    font-family: $main-font;
-    color: $darkBrandColor;
+  font-family: $main-font;
+  color: $darkBrandColor;
 }
 
 .float-right{
-    float: right;
+  float: right;
 }
 
 .invisible{
-    visibility: hidden;
+  visibility: hidden;
 }
 
 .shrunk-horizontal{
-    flex-grow: 0;
-    width: 0;
-    overflow: hidden;
+  flex-grow: 0;
+  width: 0;
+  overflow: hidden;
 }
 
 .clickable{
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .fills-parent {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
+}
+
+.padded-children {
+  padding: 10px;
+  > * {
+    padding: 10px;
+  }
 }
