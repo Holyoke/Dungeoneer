@@ -3,7 +3,7 @@ require 'byebug'
 
 feature 'CRUD Area Stories', :devise do
   let!(:user) { FactoryGirl.create(:user) }
-  let!(:project) { FactoryGirl.create(:project_with_areas, user: user) }
+  let!(:project) { FactoryGirl.create(:project_with_areas, user: user, id: 25) }
 
   before { login_as(user, scope: :user) }
   after { Warden.test_reset! }
@@ -13,7 +13,8 @@ feature 'CRUD Area Stories', :devise do
     fill_in('Name', with: 'New area name')
     fill_in('Description', with: 'New area decription')
     attach_file('Floor plan', File.join(Rails.root + 'sample_data/sample_floor_plan_small.pdf'))
-    # expect(page).to have_content('Area was successfully created.')
+    click_button('Save')
+    expect(page).to have_content('Area was successfully created.')
   end
 
   scenario 'User sees a list of all areas under a project' do
@@ -28,9 +29,12 @@ feature 'CRUD Area Stories', :devise do
     expect(page).to have_content(area.name)
   end
 
-  scenario 'User can upload a new pdf to  an uploaded area' do
-
+  scenario 'User can upload a new pdf to an uploaded area' do
+    visit edit_area_path(project.areas.first)
+    fill_in('Name', with: 'Edited area name')
+    fill_in('Description', with: 'Edited area decription')
+    attach_file('Floor plan', File.join(Rails.root + 'sample_data/sample_floor_plan_small.pdf'))
+    click_button('Save')
+    expect(page).to have_content('Area was successfully updated.')
   end
-
-  scenario 'User can destroy their areas'
 end
