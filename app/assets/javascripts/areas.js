@@ -3,9 +3,9 @@
 
 var map = L.map('map', {
   crs: L.CRS.Simple,
-  maxZoom: 4
+  maxZoom: 5
 });
 
-var bounds = [[0,0], [1000,1000]];
+var bounds = [[0,0], [400,400]];
 var image = L.imageOverlay($('#map').data()["floorPlanUrl"] , bounds).addTo(map);
 map.fitBounds(bounds);

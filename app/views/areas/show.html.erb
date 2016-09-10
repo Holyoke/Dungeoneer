@@ -12,8 +12,10 @@
 
 <p>
   <strong>Image:</strong>
-  <%= content_tag "div",
-    id: "map", data: { floor_plan_url: @area.floor_plan.full_map.url } do %>
+  <div class="interactive_map">
+    <%= content_tag "div",
+      id: "map", data: { floor_plan_url: @area.floor_plan.full_map.url } do %>
+  </div>
 <% end %>
 </p>
 
