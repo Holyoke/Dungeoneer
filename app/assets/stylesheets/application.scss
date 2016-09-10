@@ -23,6 +23,8 @@
 @import 'scaffolds';
 @import 'static_pages';
 @import "bootstrap-sprockets";
+@import "projects/*";
 @import "notice";
 @import "table";
+@import "leaflet";
 @import "bootstrap";
