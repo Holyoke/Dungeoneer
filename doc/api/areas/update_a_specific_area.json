@@ -36,11 +36,11 @@
       "request_content_type": "application/json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"id\": 2,\n  \"name\": \"Updated area name.\",\n  \"floor_plan\": {\n    \"floor_plan\": {\n      \"url\": \"/uploads/area/floor_plan/2/converted-Test%20Area.png\",\n      \"full_map\": {\n        \"url\": \"/uploads/area/floor_plan/2/full_map_converted-Test%20Area.png\"\n      },\n      \"thumb\": {\n        \"url\": \"/uploads/area/floor_plan/2/Updated%20area%20name.-thumb.png\"\n      }\n    }\n  },\n  \"description\": \"Updated area description.\",\n  \"created_at\": \"2016-09-12T17:09:19.063Z\",\n  \"updated_at\": \"2016-09-12T17:09:19.091Z\",\n  \"project\": {\n    \"id\": 1,\n    \"name\": \"Test_Project\",\n    \"license\": null,\n    \"created_at\": \"2016-09-12T17:09:05.747Z\",\n    \"updated_at\": \"2016-09-12T17:09:05.747Z\",\n    \"description\": null\n  }\n}",
+      "response_body": "{\n  \"id\": 2,\n  \"name\": \"Updated area name.\",\n  \"floor_plan\": {\n    \"floor_plan\": {\n      \"url\": \"/uploads/area/floor_plan/2/converted-Test%20Area.png\",\n      \"full_map\": {\n        \"url\": \"/uploads/area/floor_plan/2/full_map_converted-Test%20Area.png\"\n      },\n      \"thumb\": {\n        \"url\": \"/uploads/area/floor_plan/2/Updated%20area%20name.-thumb.png\"\n      }\n    }\n  },\n  \"description\": \"Updated area description.\",\n  \"created_at\": \"2016-09-12T18:30:01.807Z\",\n  \"updated_at\": \"2016-09-12T18:30:01.841Z\",\n  \"project\": {\n    \"id\": 1,\n    \"name\": \"Test_Project\",\n    \"license\": null,\n    \"created_at\": \"2016-09-12T18:29:47.458Z\",\n    \"updated_at\": \"2016-09-12T18:29:47.458Z\",\n    \"description\": null\n  }\n}",
       "response_headers": {
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://jobwalk-staging.herokuapp.com/api/v1/areas/2\" -d '{\"area\":{\"name\":\"Updated area name.\",\"description\":\"Updated area description.\",\"project_id\":1}}' -X PUT \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\" \\\n\t-H \"Host: example.org\" \\\n\t-H \"Cookie: \""
+      "curl": "curl \"http://jobwalk-staging.herokuapp.com/api/v1/areas/2\" -d '{\"area\":{\"name\":\"Updated area name.\",\"description\":\"Updated area description.\",\"project_id\":1}}' -X PUT \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\""
     }
   ]
 }
