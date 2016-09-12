@@ -10,6 +10,8 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  description :text
+#  width       :float            not null
+#  height      :float            not null
 #
 
 require 'rails_helper'
@@ -17,4 +19,5 @@ require 'rails_helper'
 RSpec.describe Area, type: :model do
   it { should validate_presence_of(:name) }
   it { should belong_to(:project) }
+  it { should have_many(:pins) }
 end

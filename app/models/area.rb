@@ -10,6 +10,8 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  description :text
+#  width       :float            not null
+#  height      :float            not null
 #
 
 class Area < ApplicationRecord
@@ -17,7 +19,9 @@ class Area < ApplicationRecord
   # for floorplans
   mount_uploader :floor_plan, FloorPlanUploader
   belongs_to :project
+  has_many :pins
 
   validates :name, presence: true
   validates_presence_of :floor_plan
+
 end

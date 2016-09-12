@@ -10,6 +10,8 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  description :text
+#  width       :float            not null
+#  height      :float            not null
 #
 
 FactoryGirl.define do

@@ -7,7 +7,7 @@
 #  user_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  role       :integer          default("collaborator")
+#  role       :integer          default("collaborator"), not null
 #
 
 class ProjectMembership < ApplicationRecord
