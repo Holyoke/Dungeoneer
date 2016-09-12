@@ -19,7 +19,7 @@ class Area < ApplicationRecord
   # for floorplans
   mount_uploader :floor_plan, FloorPlanUploader
   belongs_to :project
-  has_many :pins
+  has_many :pins, dependent: :destroy
 
   validates :name, presence: true
   validates_presence_of :floor_plan

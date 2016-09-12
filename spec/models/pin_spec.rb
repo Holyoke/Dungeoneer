@@ -18,6 +18,6 @@ RSpec.describe Pin, type: :model do
   it { should validate_presence_of(:y) }
   it { should belong_to(:area) }
 
-  it {should validate_numericality_of(:x).is_greater_than(0.0).is_less_than(1.0)}
-  it {should validate_numericality_of(:y).is_greater_than(0.0).is_less_than(1.0)}
+  it {should validate_numericality_of(:x).is_greater_than_or_equal_to(0.0).is_less_than_or_equal_to(1.0)}
+  it {should validate_numericality_of(:y).is_greater_than_or_equal_to(0.0).is_less_than_or_equal_to(1.0)}
 end

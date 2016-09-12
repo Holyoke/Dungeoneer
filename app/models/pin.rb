@@ -12,8 +12,16 @@
 #
 
 class Pin < ApplicationRecord
-    validates_presence_of :x
-    validates_presence_of :y
+    validates :x,
+      presence: true,
+      numericality: {
+                      :greater_than_or_equal_to => 0.00000,
+                      :less_than_or_equal_to => 1.00000 }
+    validates :y,
+      presence: true,
+      numericality: {
+                      :greater_than_or_equal_to => 0.00000,
+                      :less_than_or_equal_to => 1.00000 }
 
     belongs_to :area
 end
