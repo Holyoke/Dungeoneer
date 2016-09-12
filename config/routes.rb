@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :projects, except: [:new, :edit]
       resources :areas, except: [:new, :edit]
-      resources :pin, except: [:new, :edit]
+      resources :pins, except: [:new, :edit]
       resource :session, only: [:create, :destroy], controller: 'sessions'
     end
   end
