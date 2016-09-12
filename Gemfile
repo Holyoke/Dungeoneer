@@ -38,6 +38,9 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem "letter_opener", "~> 1.4.1"
   gem "pry-rails"
+  #Common Debugging Gems
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :test do
@@ -58,11 +61,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'annotate'
-
-  #Common Debugging Gems
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'pry-rails'
 
   #For fast and easy testing
   gem 'spring-commands-rspec'
