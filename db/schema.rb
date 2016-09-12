@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160912164230) do
+ActiveRecord::Schema.define(version: 20160912174644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 20160912164230) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.text     "description"
-    t.float    "width"
-    t.float    "height"
+    t.float    "width",       null: false
+    t.float    "height",      null: false
     t.index ["project_id"], name: "index_areas_on_project_id", using: :btree
   end
 
