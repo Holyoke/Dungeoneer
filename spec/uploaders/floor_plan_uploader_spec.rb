@@ -21,5 +21,10 @@ describe FloorPlanUploader do
     it "converts a pdf into a png" do
       expect(uploader.full_map.url).to be_present
     end
+
+    it 'stores dimensions of a photo' do
+      expect(uploader.model.width).to eq(3024.0)
+      expect(uploader.model.height).to eq(2160.0)
+    end
   end
 end

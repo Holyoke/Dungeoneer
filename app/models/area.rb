@@ -13,6 +13,8 @@
 #
 
 class Area < ApplicationRecord
+  # potentially have many floorplans in the future may want create a new model
+  # for floorplans
   mount_uploader :floor_plan, FloorPlanUploader
   belongs_to :project
 
