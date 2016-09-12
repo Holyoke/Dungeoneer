@@ -3,9 +3,22 @@
 
 var map = L.map('map', {
   crs: L.CRS.Simple,
-  maxZoom: 5
+  maxZoom: 5,
 });
 
-var bounds = [[0,0], [400,400]];
-var image = L.imageOverlay($('#map').data()["floorPlanUrl"] , bounds).addTo(map);
+var floorPlanData = $('#map').data()
+console.log(floorPlanData)
+
+
+var height = parseInt(floorPlanData['height']);
+var width = parseInt(floorPlanData['width']);
+
+//converts height to map units for leaflet
+var ratio = width + height
+var width_unit = width/ratio * 1000;
+var height_unit = height/ratio * 1000;
+
+var bounds = [[0,0], [height_unit, width_unit]];
+// var bounds = [[0,0], [100,100]];
+var image = L.imageOverlay(floorPlanData["floorPlanUrl"] , bounds).addTo(map);
 map.fitBounds(bounds);
