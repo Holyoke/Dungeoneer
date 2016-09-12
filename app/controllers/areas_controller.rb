@@ -2,10 +2,6 @@ class AreasController < ApplicationController
   before_action :set_area, only: [:show, :edit, :update, :destroy]
   before_action :authorize_update, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @areas = @project.areas
-  end
-
   # GET project/:id/areas/new
   def new
     project = Project.find(params[:project_id])

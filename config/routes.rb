@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :invites
 
   resources :projects do
-    resources :areas, only: [:index, :new]
+    resources :areas, only: [:new]
   end
 
   resources :areas, except: [:index, :new]
