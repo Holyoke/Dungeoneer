@@ -10,6 +10,8 @@ describe ProjectsController, type: :controller do
     user
   end
 
+  it { should use_before_action(:authenticate_user!) }
+
   describe '#show' do
     let(:show_project) do
       get :show, params: {id: project.id}
