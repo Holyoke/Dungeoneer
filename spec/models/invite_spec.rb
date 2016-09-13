@@ -11,6 +11,7 @@
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  role         :integer          default("collaborator"), not null
+#  accepted     :boolean          default(FALSE)
 #
 
 require 'rails_helper'
