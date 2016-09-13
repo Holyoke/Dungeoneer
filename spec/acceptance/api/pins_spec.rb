@@ -36,16 +36,38 @@ resource "Floorplan Pins" do
   post "/api/v1/pins/" do
     parameter :x, "X coordinate in terms of percentage. Data format is float, and ranges between 0 -> 1.0.", :scope => :pin
     parameter :y, "Y coordinate in terms of percentage. Data format is float, and ranges between 0 -> 1.0.", :scope => :pin
-    parameter :area_id, "ID of the area which the pin belongs to", :scope => :area
+    parameter :description, "Description of the pin area", :scope => :pin
+    parameter :area_id, "ID of the area which the pin belongs to", :scope => :pin
 
-    let(:x) { "Updated area name." }
-    let(:y) { "Updated area description." }
+    response_field :x, "X coordinate in terms of percentage. Data format is float, and ranges between 0 -> 1.0.",
+                  :scope => :pin,
+                  "Type" => "Float"
+    response_field :y, "Y coordinate in terms of percentage. Data format is float, and ranges between 0 -> 1.0.",
+                  :scope => :pin,
+                  "Type" => "Float"
+                  
+    response_field :description, "Description of the pin area", :scope => :pin
+    response_field :area_id, "ID of the area which the pin belongs to", :scope => :pin
+
+    let(:x) { 0.75 }
+    let(:y) { 0.25 }
+    let(:description) { "New pin description."}
     let(:area_id) { area.id }
 
     let(:raw_post) { params.to_json }
 
     example_request "Adding a pin" do
-      explanation "Updating an area by id. Requires project_id"
+      explanation "Creates new pin within area. Requires area_id."
+
+      pin = JSON.parse(response_body)
+
+      expect(status).to eq(201)
+      expect(pin.except("id", "created_at", "updated_at")).to eq({
+        x: x,
+        y: y,
+        desciption: description,
+        area_id: area_id
+        })
     end
   end
 end

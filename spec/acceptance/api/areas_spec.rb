@@ -37,6 +37,10 @@ resource "Areas" do
     parameter :description, "Description of the area", :scope => :area
     parameter :project_id, "id of the parent project", :scope => :area
 
+    response_field :name, "Name of area", :scope => :area
+    response_field :description, "Description of the area", :scope => :area
+    response_field :project_id, "id of the parent project", :scope => :area
+
     let(:id) { project.areas.last.id }
     let(:name) { "Updated area name." }
     let(:description) { "Updated area description." }
