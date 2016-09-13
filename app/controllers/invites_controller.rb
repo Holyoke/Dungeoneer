@@ -5,8 +5,8 @@ class InvitesController < ApplicationController
     invite.sender_id = current_user.id
     if invite.save
       if invite.recipient
+        invite.accept_invitation
         InviteMailer.existing_user_invite(invite.email, invite.project.name)
-        invite.recipient.projects.push(invite.project)
       else
         InviteMailer.new_user_invite(
           invite.email,

@@ -23,6 +23,12 @@ class Invite < ApplicationRecord
   before_create :generate_token
   before_save :check_user_existence
 
+  def accept_invitation
+    self.accepted = true
+    self.recipient.projects.push(self.project)
+    self.save
+  end
+
   def generate_token
     self.token = Digest::SHA1.hexdigest([self.project_id, Time.now, rand].join)
   end

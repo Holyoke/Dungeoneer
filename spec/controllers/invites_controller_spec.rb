@@ -41,20 +41,24 @@ describe InvitesController, type: :controller do
 
     context 'when user email does exist' do
       let(:invite_email) { 'existing@email.com' }
+      let!(:user) { FactoryGirl.create(:user, email: invite_email) }
 
       it 'adds the project to the user group' do
-        user = FactoryGirl.create(:user, email: invite_email)
         send_invite
         expect(user.projects).to include(project)
       end
 
       it 'sends email to let them know they joined the group' do
-        FactoryGirl.create(:user, email: invite_email)
         expect(InviteMailer).to receive(:existing_user_invite).with(
           invite_email,
           project.name
         ).and_call_original
         send_invite
+      end
+
+      it 'marks invite as accepted' do
+        send_invite
+       expect(Invite.find_by(recipient_id: user.id).accepted).to eq(true)
       end
     end
 
