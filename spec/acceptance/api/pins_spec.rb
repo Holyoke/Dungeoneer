@@ -32,4 +32,20 @@ resource "Floorplan Pins" do
       expect(status).to eq 200
     end
   end
+
+  post "/api/v1/pins/" do
+    parameter :x, "X coordinate in terms of percentage. Data format is float, and ranges between 0 -> 1.0.", :scope => :pin
+    parameter :y, "Y coordinate in terms of percentage. Data format is float, and ranges between 0 -> 1.0.", :scope => :pin
+    parameter :area_id, "ID of the area which the pin belongs to", :scope => :area
+
+    let(:x) { "Updated area name." }
+    let(:y) { "Updated area description." }
+    let(:area_id) { area.id }
+
+    let(:raw_post) { params.to_json }
+
+    example_request "Adding a pin" do
+      explanation "Updating an area by id. Requires project_id"
+    end
+  end
 end

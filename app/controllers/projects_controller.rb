@@ -55,7 +55,7 @@ class ProjectsController < ApplicationController
   end
 
   def authorize_update
-    if !current_user.projects.include?(@project) || !current_user.admin?(@project.id)
+    if !current_user.projects.pluck(:id).include?(@project.id) || !current_user.admin?(@project.id)
       flash[:alert] = "Unauthorized access to this project"
       redirect_to '/'
     end
