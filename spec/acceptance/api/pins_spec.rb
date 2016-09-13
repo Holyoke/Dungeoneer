@@ -24,7 +24,7 @@ resource "Floorplan Pins" do
     end
   end
 
-  get "api/v1/pins/:id" do
+  get "/api/v1/pins/:id" do
     let(:id) { area.pins.last.id }
 
     example_request "Retrieving a specific pin" do
