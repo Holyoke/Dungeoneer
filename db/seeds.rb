@@ -39,3 +39,13 @@ project = admin_1.projects[0]
       floor_plan: File.open(File.join(Rails.root, 'sample_data','sample_floor_plan.pdf' ))
   )
 end
+
+#Pins to area
+area = project.areas.first
+3.times do |n|
+  area.pins.create(
+      description: "Pin Seed Description",
+      x: rand(),
+      y: rand()
+  )
+end

@@ -52,7 +52,7 @@
           "description": "Retrieving a specific pin",
           "link": "floorplan_pins/retrieving_a_specific_pin.json",
           "groups": "all",
-          "route": "api/v1/pins/:id",
+          "route": "/api/v1/pins/:id",
           "method": "get"
         }
       ]

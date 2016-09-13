@@ -1,7 +1,7 @@
 {
   "resource": "Floorplan Pins",
   "http_method": "GET",
-  "route": "api/v1/pins/:id",
+  "route": "/api/v1/pins/:id",
   "description": "Retrieving a specific pin",
   "explanation": "Retrieve pin by id",
   "parameters": [
@@ -13,7 +13,7 @@
   "requests": [
     {
       "request_method": "GET",
-      "request_path": "api/v1/pins/3",
+      "request_path": "/api/v1/pins/3",
       "request_body": null,
       "request_headers": {
       },
@@ -22,11 +22,11 @@
       "request_content_type": "application/json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"id\": 3,\n  \"x\": 0.5,\n  \"y\": 0.5,\n  \"description\": \"Test Pin\",\n  \"area_id\": 1,\n  \"created_at\": \"2016-09-13T00:02:21.626Z\",\n  \"updated_at\": \"2016-09-13T00:02:21.626Z\"\n}",
+      "response_body": "{\n  \"id\": 3,\n  \"x\": 0.5,\n  \"y\": 0.5,\n  \"description\": \"Test Pin\",\n  \"area_id\": 1,\n  \"created_at\": \"2016-09-13T00:21:59.195Z\",\n  \"updated_at\": \"2016-09-13T00:21:59.195Z\"\n}",
       "response_headers": {
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://jobwalk-staging.herokuapp.comapi/v1/pins/3\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\""
+      "curl": "curl \"http://jobwalk-staging.herokuapp.com/api/v1/pins/3\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\""
     }
   ]
 }
