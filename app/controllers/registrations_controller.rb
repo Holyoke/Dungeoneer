@@ -13,7 +13,8 @@ class RegistrationsController < Devise::RegistrationsController
   private
 
   def invite_to_project
-    project = Invite.find_by_token(params[:invite_token]).project
-    resource.projects.push(project)
+    invite = Invite.find_by_token(params[:invite_token])
+    invite.recipient = resource
+    invite.accept_invitation
   end
 end

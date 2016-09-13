@@ -9,7 +9,6 @@ class ProjectsController < ApplicationController
   def show
     membership = current_user.find_membership(@project.id)
     @role = membership.role
-    @invite = Invite.new
   end
 
   def new

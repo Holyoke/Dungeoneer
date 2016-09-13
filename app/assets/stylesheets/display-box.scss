@@ -1,0 +1,10 @@
+.boxed-children{
+  > * {
+    width: 210px;
+    height: 180px;
+    padding: 30px;
+    border-style: solid;
+    border-width: 1px;
+    margin: 10px;
+  }
+}

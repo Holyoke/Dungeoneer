@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   resources :projects do
     resources :areas, only: [:new]
+    resources :members, only: :index
   end
 
   resources :areas, except: [:index, :new]

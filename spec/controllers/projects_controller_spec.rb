@@ -17,7 +17,6 @@ describe ProjectsController, type: :controller do
 
     it 'renders show with memberships' do
       show_project
-      expect(assigns(:invite)).to be_a_new(Invite)
       expect(assigns(:role)).to eq("admin")
     end
 

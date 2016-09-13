@@ -17,10 +17,7 @@
 
       <%= link_to 'Edit', edit_project_path(@project) if @role == "admin" %>
     </div>
-
-    <%= render 'invite_admins', project: @project, invite: @invite if @role == "admin" %>
-    <%= render 'invite_collaborators', project: @project, invite: @invite %>
-
+      <%= link_to 'Members', project_members_url(@project) %>
   </div>
   <div>
     <%= render '/areas/index', role: @role %>
