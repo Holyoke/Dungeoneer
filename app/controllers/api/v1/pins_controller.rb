@@ -23,6 +23,14 @@ module Api::V1
       end
     end
 
+    def update
+      if @pin.update(pin_params)
+        render json: @pin.to_json, status: 200
+      else
+        render json: @pin.errors, status: :unprocessable_entity
+      end
+    end
+
     def destroy
       @pin.destroy
       head 204

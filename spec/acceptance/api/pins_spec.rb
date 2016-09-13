@@ -74,6 +74,34 @@ resource "Floorplan Pins" do
     end
   end
 
+  put "/api/v1/pins/:id" do
+    parameter :x, "X coordinate in terms of percentage. Data format is float, and ranges between 0 -> 1.0.", :scope => :pin
+    parameter :y, "Y coordinate in terms of percentage. Data format is float, and ranges between 0 -> 1.0.", :scope => :pin
+    parameter :description, "Description of the pin area", :scope => :pin
+    parameter :area_id, "ID of the area which the pin belongs to", :scope => :pin
+
+    let(:x) { 1.00 }
+    let(:y) { 0.00 }
+    let(:description) { "Edited pin description."}
+    let(:id) { area.pins.last.id }
+
+    let(:raw_post) { params.to_json }
+
+    example_request "Updating a pin" do
+      explanation "Updates a pin within area."
+
+      pin = JSON.parse(response_body)
+
+      expect(status).to eq(200)
+      expect(pin.except("id", "created_at", "updated_at")).to eq({
+        "x" => x,
+        "y" => y,
+        "description" => description,
+        "area_id" => area.id
+      })
+    end
+  end
+
   delete "/api/v1/pins/:id" do
     let(:id) { area.pins.last.id }
 
