@@ -13,6 +13,16 @@ module Api::V1
       render json: @pin
     end
 
+    def create
+      @pin = Pin.new(pin_params)
+
+      if @pin.save
+        render json: @pin, status: :created
+      else
+        render json: @pin.errors, status: :unprocessable_entity
+      end
+    end
+
     private
 
     def set_pin
@@ -20,7 +30,7 @@ module Api::V1
     end
 
     def pin_params
-      params.require(:pin).permit(:x, :y, :description)
+      params.require(:pin).permit(:x, :y, :description, :area_id)
     end
 
     def check_area

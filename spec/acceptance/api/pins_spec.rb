@@ -45,7 +45,7 @@ resource "Floorplan Pins" do
     response_field :y, "Y coordinate in terms of percentage. Data format is float, and ranges between 0 -> 1.0.",
                   :scope => :pin,
                   "Type" => "Float"
-                  
+
     response_field :description, "Description of the pin area", :scope => :pin
     response_field :area_id, "ID of the area which the pin belongs to", :scope => :pin
 
@@ -63,10 +63,10 @@ resource "Floorplan Pins" do
 
       expect(status).to eq(201)
       expect(pin.except("id", "created_at", "updated_at")).to eq({
-        x: x,
-        y: y,
-        desciption: description,
-        area_id: area_id
+        "x" => x,
+        "y" => y,
+        "description" => description,
+        "area_id" => area_id
         })
     end
   end
