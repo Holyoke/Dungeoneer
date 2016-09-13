@@ -1,6 +1,6 @@
 module Api::V1
   class PinsController < ApiApplicationController
-    before_action :set_pin, only: [:show, :update]
+    before_action :set_pin, only: [:show, :update, :destroy]
     before_action :check_area, only: [:index]
 
     def index
@@ -21,6 +21,11 @@ module Api::V1
       else
         render json: @pin.errors, status: :unprocessable_entity
       end
+    end
+
+    def destroy
+      @pin.destroy
+      head 204
     end
 
     private

@@ -73,4 +73,13 @@ resource "Floorplan Pins" do
       })
     end
   end
+
+  delete "/api/v1/pins/:id" do
+    let(:id) { area.pins.last.id }
+
+    example_request "Deleting a pin" do
+      expect(status).to eq(204)
+    end
+  end
+
 end
