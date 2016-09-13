@@ -39,6 +39,25 @@
       ]
     },
     {
+      "name": "Floorplan Pins",
+      "examples": [
+        {
+          "description": "Getting a list of pins",
+          "link": "floorplan_pins/getting_a_list_of_pins.json",
+          "groups": "all",
+          "route": "/api/v1/pins",
+          "method": "get"
+        },
+        {
+          "description": "Retrieving a specific pin",
+          "link": "floorplan_pins/retrieving_a_specific_pin.json",
+          "groups": "all",
+          "route": "api/v1/pins/:id",
+          "method": "get"
+        }
+      ]
+    },
+    {
       "name": "Projects",
       "examples": [
         {

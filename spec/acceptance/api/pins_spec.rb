@@ -1,11 +1,11 @@
 require 'acceptance_helper'
 
-resource "Pins" do
+resource "Floorplan Pins" do
   header "Accept", "application/json"
   header "Content-Type", "application/json"
 
   let!(:user) { FactoryGirl.create(:user) }
-  let!(:project) { FactoryGirl.create(:project_with_areas_and_pins, users: [user]) }
+  let!(:project) { FactoryGirl.create(:project, :with_area_and_pins, users: [user]) }
   let!(:area) { project.areas.first }
 
   before do
@@ -24,8 +24,8 @@ resource "Pins" do
     end
   end
 
-  get "api/v1/pin/:id" do
-    let(:id) { area.id }
+  get "api/v1/pins/:id" do
+    let(:id) { area.pins.last.id }
 
     example_request "Retrieving a specific pin" do
       explanation "Retrieve pin by id"

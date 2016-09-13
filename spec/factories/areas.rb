@@ -19,5 +19,12 @@ FactoryGirl.define do
     name "Test Area"
     description "Foo"
     floor_plan { Rack::Test::UploadedFile.new(File.join(Rails.root,'sample_data', 'sample_floor_plan_small.pdf' )) }
+
+    trait :with_pins do
+      after(:create) do |instance|
+        create_list(:pin, 3, area: instance)
+      end
+    end
+
   end
 end

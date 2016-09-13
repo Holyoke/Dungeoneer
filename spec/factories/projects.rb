@@ -25,16 +25,11 @@ FactoryGirl.define do
       end
     end
 
-    factory :project_with_areas_and_pins do
-      transient do
-        areas_count 2
-        pins_count 3
-      end
-
+    trait :with_area_and_pins do
       after(:create) do |project, evaluator|
-        pins = build_list(:pin, evaluator.pins_count)
-        create_list(:area, evaluator.areas_count, project: project, pins: pins)
+        create(:area, :with_pins, project: project)
       end
     end
+
   end
 end
