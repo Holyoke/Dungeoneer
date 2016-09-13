@@ -21,5 +21,16 @@ describe MembersController, type: :controller do
       expect(assigns(:invite)).to be_a_new(Invite)
       expect(assigns(:role)).to eq("admin")
     end
+
+    context 'invalid user access' do
+      let(:user) { User.last }
+      it 'alerts the user' do
+        expect(show_members).to redirect_to('/')
+        expect(flash[:alert]).to eq('Unauthorized Access')
+      end
+
+      it 'redirects to home page' do
+      end
+    end
   end
 end
