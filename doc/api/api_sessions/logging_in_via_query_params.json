@@ -23,7 +23,7 @@
     {
       "request_method": "POST",
       "request_path": "/api/v1/session",
-      "request_body": "{\"session\":{\"email\":\"kaleb.eichmann@kris.biz\",\"password\":\"password\"}}",
+      "request_body": "{\"session\":{\"email\":\"linnea.wehner@rathsipes.com\",\"password\":\"password\"}}",
       "request_headers": {
       },
       "request_query_parameters": {
@@ -31,11 +31,11 @@
       "request_content_type": "application/json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"email\": \"kaleb.eichmann@kris.biz\",\n  \"authentication_token\": \"58FmXsbRCx4VzybbeKxZ\",\n  \"id\": 1\n}",
+      "response_body": "{\n  \"email\": \"linnea.wehner@rathsipes.com\",\n  \"authentication_token\": \"aC74Nr79gNmiUXxKBKUz\",\n  \"id\": 1\n}",
       "response_headers": {
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://jobwalk-staging.herokuapp.com/api/v1/session\" -d '{\"session\":{\"email\":\"kaleb.eichmann@kris.biz\",\"password\":\"password\"}}' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\""
+      "curl": "curl \"http://jobwalk-staging.herokuapp.com/api/v1/session\" -d '{\"session\":{\"email\":\"linnea.wehner@rathsipes.com\",\"password\":\"password\"}}' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\""
     }
   ]
 }

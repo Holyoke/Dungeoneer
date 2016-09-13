@@ -54,6 +54,13 @@
           "groups": "all",
           "route": "/api/v1/pins/:id",
           "method": "get"
+        },
+        {
+          "description": "Adding a pin",
+          "link": "floorplan_pins/adding_a_pin.json",
+          "groups": "all",
+          "route": "/api/v1/pins/",
+          "method": "post"
         }
       ]
     },

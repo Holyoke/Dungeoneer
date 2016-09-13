@@ -45,9 +45,12 @@ resource "Floorplan Pins" do
     response_field :y, "Y coordinate in terms of percentage. Data format is float, and ranges between 0 -> 1.0.",
                   :scope => :pin,
                   "Type" => "Float"
-
-    response_field :description, "Description of the pin area", :scope => :pin
-    response_field :area_id, "ID of the area which the pin belongs to", :scope => :pin
+    response_field :description, "Description of the pin area",
+                  :scope => :pin,
+                  "Type" => "String"
+    response_field :area_id, "ID of the area which the pin belongs to",
+                  :scope => :pin,
+                  "Type" => "Integer"
 
     let(:x) { 0.75 }
     let(:y) { 0.25 }
@@ -67,7 +70,7 @@ resource "Floorplan Pins" do
         "y" => y,
         "description" => description,
         "area_id" => area_id
-        })
+      })
     end
   end
 end

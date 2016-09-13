@@ -1,0 +1,74 @@
+{
+  "resource": "Floorplan Pins",
+  "http_method": "POST",
+  "route": "/api/v1/pins/",
+  "description": "Adding a pin",
+  "explanation": "Creates new pin within area. Requires area_id.",
+  "parameters": [
+    {
+      "scope": "pin",
+      "name": "x",
+      "description": "X coordinate in terms of percentage. Data format is float, and ranges between 0 -> 1.0."
+    },
+    {
+      "scope": "pin",
+      "name": "y",
+      "description": "Y coordinate in terms of percentage. Data format is float, and ranges between 0 -> 1.0."
+    },
+    {
+      "scope": "pin",
+      "name": "description",
+      "description": "Description of the pin area"
+    },
+    {
+      "scope": "pin",
+      "name": "area_id",
+      "description": "ID of the area which the pin belongs to"
+    }
+  ],
+  "response_fields": [
+    {
+      "scope": "pin",
+      "Type": "Float",
+      "name": "x",
+      "description": "X coordinate in terms of percentage. Data format is float, and ranges between 0 -> 1.0."
+    },
+    {
+      "scope": "pin",
+      "Type": "Float",
+      "name": "y",
+      "description": "Y coordinate in terms of percentage. Data format is float, and ranges between 0 -> 1.0."
+    },
+    {
+      "scope": "pin",
+      "Type": "String",
+      "name": "description",
+      "description": "Description of the pin area"
+    },
+    {
+      "scope": "pin",
+      "Type": "Integer",
+      "name": "area_id",
+      "description": "ID of the area which the pin belongs to"
+    }
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "/api/v1/pins/",
+      "request_body": "{\"pin\":{\"x\":0.75,\"y\":0.25,\"description\":\"New pin description.\",\"area_id\":1}}",
+      "request_headers": {
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 201,
+      "response_status_text": "Created",
+      "response_body": "{\n  \"id\": 4,\n  \"x\": 0.75,\n  \"y\": 0.25,\n  \"description\": \"New pin description.\",\n  \"area_id\": 1,\n  \"created_at\": \"2016-09-13T22:02:16.208Z\",\n  \"updated_at\": \"2016-09-13T22:02:16.208Z\"\n}",
+      "response_headers": {
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://jobwalk-staging.herokuapp.com/api/v1/pins/\" -d '{\"pin\":{\"x\":0.75,\"y\":0.25,\"description\":\"New pin description.\",\"area_id\":1}}' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\""
+    }
+  ]
+}
