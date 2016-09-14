@@ -14,12 +14,12 @@ user_joe = User.create(name: "Joe", email: "joe@jobwalk.com", password: "test123
 # Add projects to admin 1
 4.times do |idx|
   license = "idx#{idx}"
-  project = FactoryGirl.build(:project,
+  project = admin_1.projects.create(
           name: "Test Project #{idx + 1}",
           license: license,
           description: "This is a description for Project #{idx + 1}"
           )
-  admin_1.project_memberships.create(project: project, role: 'admin')
+  admin_1.set_role(project.id, 'admin')
 end
 
 # Add users to projects in various ways
