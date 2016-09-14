@@ -7,8 +7,6 @@ var map = L.map('map', {
 });
 
 var floorPlanData = $('#map').data()
-console.log(floorPlanData)
-
 
 var height = parseInt(floorPlanData['height']);
 var width = parseInt(floorPlanData['width']);
@@ -22,3 +20,5 @@ var bounds = [[0,0], [height_unit, width_unit]];
 // var bounds = [[0,0], [100,100]];
 var image = L.imageOverlay(floorPlanData["floorPlanUrl"] , bounds).addTo(map);
 map.fitBounds(bounds);
+
+
