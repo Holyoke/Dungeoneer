@@ -23,12 +23,14 @@ user_joe = User.create(name: "Joe", email: "joe@jobwalk.com", password: "test123
 end
 
 # Add users to projects in various ways
-admin_1.projects[0].users << user_joe
-admin_1.projects[0].users << user_jane
-admin_1.projects[0].users << admin_2
+project = admin_1.projects[0]
 
-admin_1.projects[1].users << user_joe
-admin_1.projects[2].users << user_jane
+user_joe.project_memberships.create(project: project, role: 'collaborator')
+user_jane.project_memberships.create(project: project, role: 'collaborator')
+admin_2.project_memberships.create(project: project, role: 'admin')
+
+user_joe.project_memberships.create(project: admin_1.projects[1], role: 'collaborator')
+user_jane.project_memberships.create(project: admin_1.projects[2], role: 'collaborator')
 
 #Areas to project
 project = admin_1.projects[0]
@@ -45,7 +47,7 @@ end
 area = project.areas.first
 3.times do |n|
   area.pins.create(
-      description: "Pin Seed Description",
+      description: "Pin Seed Description #{n}",
       x: rand(),
       y: rand()
   )

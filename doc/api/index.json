@@ -61,6 +61,20 @@
           "groups": "all",
           "route": "/api/v1/pins/",
           "method": "post"
+        },
+        {
+          "description": "Updating a pin",
+          "link": "floorplan_pins/updating_a_pin.json",
+          "groups": "all",
+          "route": "/api/v1/pins/:id",
+          "method": "put"
+        },
+        {
+          "description": "Deleting a pin",
+          "link": "floorplan_pins/deleting_a_pin.json",
+          "groups": "all",
+          "route": "/api/v1/pins/:id",
+          "method": "delete"
         }
       ]
     },
