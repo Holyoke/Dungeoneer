@@ -20,7 +20,6 @@ class FloorPlanUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb, from_version: :full_map do
-    process :convert => 'png'
     process :resize_to_fill => [100, 100]
     def full_filename(for_file = model.floor_plan.file )
       "thumb.png"
@@ -43,7 +42,7 @@ class FloorPlanUploader < CarrierWave::Uploader::Base
       img.format("png")
       img
     end
-    self.file.instance_variable_set(:@content_type, "application/png")
+    self.file.instance_variable_set(:@content_type, "image/png")
   end
 
   def store_dimensions

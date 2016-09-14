@@ -19,7 +19,13 @@ describe FloorPlanUploader do
 
   context 'Floor plan uploader' do
     it "converts a pdf into a full map png" do
-      expect(uploader.full_map.content_type).to eq('application/png')
+      expect(uploader.full_map.url).to be_present
+      expect(uploader.full_map.content_type).to eq('image/png')
+    end
+
+    it "has a thumbnail" do
+      expect(uploader.thumb.url).to be_present
+      expect(uploader.thumb.content_type).to eq('image/png')
     end
 
     it 'stores dimensions of a photo' do
