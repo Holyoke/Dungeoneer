@@ -3,7 +3,7 @@ CarrierWave.configure do |config|
     config.storage = :file
   elsif Rails.env.test?
     config.enable_processing = false
-    config.root = "#{Rails.root}/tmp"
+    config.root = "#{Rails.root}/tmp/spec"
   else
     config.fog_credentials = {
       :provider              => 'AWS',

@@ -17,6 +17,12 @@
 /reference_documents/*
 .idea/*
 frontend/node_modules/
+.DS_Store
+public/.DS_Store
+app/assets/.DS_Store
+app/views/.DS_Store
+app/views/areas/.DS_Store
+
 
 # Ignore Byebug command history file.
 .byebug_history

@@ -17,9 +17,9 @@ describe FloorPlanUploader do
     uploader.remove!
   end
 
-  context 'the full map version' do
-    it "converts a pdf into a png" do
-      expect(uploader.full_map.url).to be_present
+  context 'Floor plan uploader' do
+    it "converts a pdf into a full map png" do
+      expect(uploader.full_map.content_type).to eq('application/png')
     end
 
     it 'stores dimensions of a photo' do

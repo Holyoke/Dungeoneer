@@ -13,27 +13,23 @@ class FloorPlanUploader < CarrierWave::Uploader::Base
   end
 
   version :full_map do
-    process :full_map_mogrify
+    process :pdf_png_conversion
+    def full_filename(for_file = model.floor_plan.file )
+      "full_map.png"
+    end
   end
 
   version :thumb, from_version: :full_map do
-    process :resize_to_fill => [100, 100]
     process :convert => 'png'
-    def full_filename (for_file = model.floor_plan.file)
-      "#{model.name.html_safe}-thumb.png"
+    process :resize_to_fill => [100, 100]
+    def full_filename(for_file = model.floor_plan.file )
+      "thumb.png"
     end
   end
 
-  def full_map_mogrify
-    manipulate! do |img|
-      img.format("png")
-      img = yield(img) if block_given?
-      img
-    end
-  end
 
   def filename
-    "converted-#{model.name.html_safe}.png"
+    "uploaded-#{model.name.html_safe}.pdf"
   end
 
   def extension_white_list
@@ -41,6 +37,14 @@ class FloorPlanUploader < CarrierWave::Uploader::Base
   end
 
   private
+
+  def pdf_png_conversion
+    manipulate! do |img|
+      img.format("png")
+      img
+    end
+    self.file.instance_variable_set(:@content_type, "application/png")
+  end
 
   def store_dimensions
     if file && model
