@@ -20,7 +20,7 @@ class FloorPlanUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb, from_version: :full_map do
-    process :resize_to_fill => [100, 100]
+    process :thumbnail_conversion
     def full_filename(for_file = model.floor_plan.file )
       "thumb.png"
     end
@@ -28,7 +28,7 @@ class FloorPlanUploader < CarrierWave::Uploader::Base
 
 
   def filename
-    "uploaded-#{model.name.html_safe}.pdf"
+    "#{model.name.html_safe}-uploaded.pdf"
   end
 
   def extension_white_list
@@ -43,6 +43,15 @@ class FloorPlanUploader < CarrierWave::Uploader::Base
       img
     end
     self.file.instance_variable_set(:@content_type, "image/png")
+  end
+
+  def thumbnail_conversion
+    manipulate! do |img|
+      img.format("png") do |combine|
+        combine.resize "200x200"
+      end
+      img
+    end
   end
 
   def store_dimensions

@@ -26,6 +26,7 @@ describe FloorPlanUploader do
     it "has a thumbnail" do
       expect(uploader.thumb.url).to be_present
       expect(uploader.thumb.content_type).to eq('image/png')
+      expect(uploader.thumb).to be_no_larger_than(200, 200)
     end
 
     it 'stores dimensions of a photo' do
