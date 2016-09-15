@@ -64,7 +64,7 @@
       "request_content_type": "application/json",
       "response_status": 201,
       "response_status_text": "Created",
-      "response_body": "{\n  \"id\": 4,\n  \"x\": 0.75,\n  \"y\": 0.25,\n  \"description\": \"New pin description.\",\n  \"area_id\": 1,\n  \"created_at\": \"2016-09-14T00:39:16.566Z\",\n  \"updated_at\": \"2016-09-14T00:39:16.566Z\"\n}",
+      "response_body": "{\n  \"id\": 4,\n  \"x\": 0.75,\n  \"y\": 0.25,\n  \"description\": \"New pin description.\",\n  \"area_id\": 1,\n  \"created_at\": \"2016-09-15T18:59:54.536Z\",\n  \"updated_at\": \"2016-09-15T18:59:54.536Z\"\n}",
       "response_headers": {
       },
       "response_content_type": "application/json; charset=utf-8",
