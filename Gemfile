@@ -28,7 +28,7 @@ gem 'fog-aws', '~> 0.11.0'
 #User auth
 gem 'devise', '~> 4.0.3'
 gem 'simple_token_authentication', '~> 1.0'
-
+gem 'pundit'
 gem 'apitome'
 
 group :development, :test do
