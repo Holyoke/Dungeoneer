@@ -40,6 +40,7 @@ module Api::V1
 
     def set_pin
       @pin = Pin.find(params[:id])
+      authorize @pin
     end
 
     def pin_params
