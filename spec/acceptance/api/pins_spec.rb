@@ -10,6 +10,10 @@ resource "Floorplan Pins" do
 
   before do
     login_as(user, scope: :user)
+
+    user.projects.each do |project|
+      user.set_role(project.id, 'admin')
+    end
   end
 
   get "/api/v1/pins" do
