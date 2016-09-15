@@ -115,5 +115,4 @@ resource "Floorplan Pins" do
       expect(status).to eq(401)
     end
   end
-
 end
