@@ -108,6 +108,12 @@ resource "Floorplan Pins" do
     example_request "Deleting a pin" do
       expect(status).to eq(204)
     end
+
+    example "Deleting a pin from the wrong area" do
+      pin_b = FactoryGirl.create(:pin, area_id: 10)
+      do_request :id => pin_b.id
+      expect(status).to eq(401)
+    end
   end
 
 end
