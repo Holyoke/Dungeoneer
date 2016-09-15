@@ -15,7 +15,7 @@
 #
 
 class AreaSerializer < ActiveModel::Serializer
-  attributes :id, :name, :floor_plan, :description, :created_at, :updated_at
+  attributes :id, :name, :floor_plan, :description, :created_at, :updated_at, :width, :height
 
   belongs_to :project
 end

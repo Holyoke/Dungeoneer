@@ -1,9 +1,8 @@
 require 'rails_helper'
-require 'rspec_api_documentation/dsl'
 
  RSpec.describe "Areas", :type => :request do
-   let(:user) { FactoryGirl.create(:user) }
-   let!(:project) { FactoryGirl.create(:project_with_areas, id: 1) }
+   let!(:user) { FactoryGirl.create(:user) }
+   let!(:project) { FactoryGirl.create(:project_with_areas, users: [user]) }
 
    before do
      login_as(user, scope: :user)
@@ -17,8 +16,13 @@ require 'rspec_api_documentation/dsl'
 
        body = JSON.parse(response.body)
        result_names = project.areas.map{ |area| area['name'] }
+       result_widths = project.areas.map{ |area| area['width'] }
+
        area_names = body.map{|area| area['name'] }
-       expect(area_names).to match_array(area_names)
+       area_widths = body.map{|area| area['width'] }
+
+       expect(area_names).to match_array(result_names)
+       expect(area_widths).to match_array(result_widths)
      end
 
      it "returns an error message if there's no project_id specified" do
@@ -37,7 +41,9 @@ require 'rspec_api_documentation/dsl'
 
        body = JSON.parse(response.body)
        area_name = body['name']
-       expect(area_name).to eq(area_name)
+       area_width = body['width']
+       expect(area_name).to eq(area.name)
+       expect(area_width).to eq(area.width)
      end
    end
 

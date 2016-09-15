@@ -19,6 +19,18 @@ resource "Areas" do
 
     example_request "Getting a list of areas" do
       explanation "Retrieves a list of areas with project_id"
+
+      result_names = project.areas.map{ |area| area['name'] }
+      result_widths = project.areas.map{ |area| area['width'] }
+
+      response = JSON.parse(response_body)
+
+      area_names = response.map{|area| area['name'] }
+      area_widths = response.map{|area| area['width'] }
+
+      expect(area_names).to match_array(result_names)
+      expect(area_widths).to match_array(result_widths)
+
       expect(status).to eq 200
     end
   end
@@ -28,7 +40,12 @@ resource "Areas" do
 
     example_request "Retrieving a specific area" do
       explanation "Retrieve area by id"
+
+      response = JSON.parse(response_body)
+      width = response['width']
+
       expect(status).to eq 200
+      expect(project.areas.last.width).to eq(width)
     end
   end
 
