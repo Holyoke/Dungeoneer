@@ -33,5 +33,15 @@ FactoryGirl.define do
         create_list([:project, :with_area_and_pins], evaluator.projects_count , users: [user])
       end
     end
+
+    factory :admin_with_projects do
+      transient do
+        projects_count 2
+      end
+
+      after(:create) do |admin, evaluator|
+        create_list(:admin_project_memberships, evaluator.projects_count, user: admin)
+      end
+    end
   end
 end

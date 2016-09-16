@@ -4,16 +4,12 @@ resource "Floorplan Pins" do
   header "Accept", "application/json"
   header "Content-Type", "application/json"
 
-  let!(:user) { FactoryGirl.create(:user) }
-  let!(:project) { FactoryGirl.create(:project, :with_area_and_pins, users: [user]) }
+  let!(:user) { FactoryGirl.create(:admin_with_projects, projects_count: 1) }
+  let!(:project) { user.projects.first }
   let!(:area) { project.areas.first }
 
   before do
     login_as(user, scope: :user)
-
-    user.projects.each do |project|
-      user.set_role(project.id, 'admin')
-    end
   end
 
   get "/api/v1/pins" do
@@ -30,7 +26,6 @@ resource "Floorplan Pins" do
 
   get "/api/v1/pins/:id" do
     let(:id) { area.pins.last.id }
-
     example_request "Retrieving a specific pin" do
       explanation "Retrieve pin by id"
       expect(status).to eq 200
@@ -43,10 +38,10 @@ resource "Floorplan Pins" do
     parameter :description, "Description of the pin area", :scope => :pin
     parameter :area_id, "ID of the area which the pin belongs to", :scope => :pin
 
-    response_field :x, "X coordinate in terms of percentage. Data format is float, and ranges between 0 -> 1.0.",
+    response_field :x, "X coordinate in terms of percentage. Data format is float, and ranges between 0.00000 -> 1.0000.",
                   :scope => :pin,
                   "Type" => "Float"
-    response_field :y, "Y coordinate in terms of percentage. Data format is float, and ranges between 0 -> 1.0.",
+    response_field :y, "Y coordinate in terms of percentage. Data format is float, and ranges between 0.00000 -> 1.0000.",
                   :scope => :pin,
                   "Type" => "Float"
     response_field :description, "Description of the pin area",

@@ -14,5 +14,14 @@ FactoryGirl.define do
   factory :project_membership do
     project nil
     user nil
+
+    factory :admin_project_memberships do
+      role 'admin'
+
+      after(:create) do |user_project, evaluator|
+        create(:project, :with_area_and_pins, project_memberships: [user_project])
+      end
+    end
+
   end
 end
