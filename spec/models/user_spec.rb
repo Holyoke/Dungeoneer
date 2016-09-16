@@ -22,13 +22,10 @@
 require 'rails_helper'
 
 describe User, type: :model do
-  let(:project) {FactoryGirl.create(:project) }
-  let(:user) { FactoryGirl.create(:user_with_projects) }
+  let!(:user) { FactoryGirl.create(:user_with_projects) }
+  let(:project) { user.projects.first }
 
   describe '#set_role' do
-    let(:project) {FactoryGirl.create(:project) }
-    let(:user) { FactoryGirl.create(:user_with_projects) }
-
     it 'assigns role to project membership' do
       project_id = user.projects.first.id
       expect(user.find_membership(project_id).role).to eq("collaborator")
