@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JobWalk</title>
+    
+
+    <link rel="stylesheet" media="all" href="/assets/application-d12397cbc3a266ce5a99f7b588223090c55ca04a439953bb5f9304395de93fc3.css" data-turbolinks-track="reload" />
+    <script src="/assets/application-a5e2d54ea630af1aa065b772dddf72ddf91bfb969dd85d1015035e72c7a14e59.js" data-turbolinks-track="reload"></script>
+
+    <link rel="stylesheet" href="https://npmcdn.com/leaflet@0.7.7/dist/leaflet.css" />
+    <script src="https://npmcdn.com/leaflet@0.7.7/dist/leaflet.js"></script>
+  </head>
+
+  <body>
+    <div class='container'>
+        <div id="flash" class="flash-alert">Invalid Email or password.</div>
+      <h2>Log in</h2>
+
+<form class="new_user" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" />
+  <div class="field">
+    <label for="user_email">Email</label><br />
+    <input autofocus="autofocus" type="email" value="test@test.com" name="user[email]" id="user_email" />
+  </div>
+
+  <div class="field">
+    <label for="user_password">Password</label><br />
+    <input autocomplete="off" type="password" name="user[password]" id="user_password" />
+  </div>
+
+    <div class="field">
+      <input name="user[remember_me]" type="hidden" value="0" /><input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me" />
+      <label for="user_remember_me">Remember me</label>
+    </div>
+
+  <div class="actions">
+    <input type="submit" name="commit" value="Log in" data-disable-with="Log in" />
+  </div>
+</form>
+
+  <a href="/users/sign_up">Sign up</a><br />
+
+  <a href="/users/password/new">Forgot your password?</a><br />
+
+
+
+
+
+    </div>
+  </body>
+</html>
