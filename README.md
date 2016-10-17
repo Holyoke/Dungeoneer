@@ -1,6 +1,6 @@
-# JobWalk
+# Dungeoneer
 
-JobWalk is an application for project engineers to help manage their floor plans with 360 photos.
+Dungeoneer is an application for video gamers to share maps.
 
 # Technologies Used:
 
@@ -8,7 +8,7 @@ This is a `Rails 5` application.
 
 The app is utilizing `Devise` for User authentication.
 
-For Image Uploading and Processing, JobWalk is utilizing `CarrierWave` and `MiniMagick`.
+For Image Uploading and Processing, Dungeoneer is utilizing `CarrierWave` and `MiniMagick`.
 
 For interactive maps, Web App is looking to use `leaflet.js`.
 
