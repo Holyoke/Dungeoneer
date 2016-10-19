@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160912232724) do
+ActiveRecord::Schema.define(version: 20161019181557) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "areas", force: :cascade do |t|
     t.string   "name",        null: false
-    t.integer  "project_id"
+    t.integer  "map_id"
     t.string   "floor_plan"
     t.string   "thumbnail"
     t.datetime "created_at",  null: false
@@ -25,12 +25,12 @@ ActiveRecord::Schema.define(version: 20160912232724) do
     t.text     "description"
     t.float    "width",       null: false
     t.float    "height",      null: false
-    t.index ["project_id"], name: "index_areas_on_project_id", using: :btree
+    t.index ["map_id"], name: "index_areas_on_map_id", using: :btree
   end
 
   create_table "invites", force: :cascade do |t|
     t.string   "email"
-    t.integer  "project_id"
+    t.integer  "map_id"
     t.integer  "sender_id"
     t.integer  "recipient_id"
     t.string   "token"
@@ -38,6 +38,26 @@ ActiveRecord::Schema.define(version: 20160912232724) do
     t.datetime "updated_at",                   null: false
     t.integer  "role",         default: 0,     null: false
     t.boolean  "accepted",     default: false
+  end
+
+  create_table "map_memberships", force: :cascade do |t|
+    t.integer  "map_id"
+    t.integer  "user_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "role",       default: 0, null: false
+    t.index ["map_id"], name: "index_map_memberships_on_map_id", using: :btree
+    t.index ["user_id"], name: "index_map_memberships_on_user_id", using: :btree
+  end
+
+  create_table "maps", force: :cascade do |t|
+    t.string   "name",        null: false
+    t.string   "license"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.text     "description"
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_maps_on_user_id", using: :btree
   end
 
   create_table "pins", force: :cascade do |t|
@@ -48,26 +68,6 @@ ActiveRecord::Schema.define(version: 20160912232724) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["area_id"], name: "index_pins_on_area_id", using: :btree
-  end
-
-  create_table "project_memberships", force: :cascade do |t|
-    t.integer  "project_id"
-    t.integer  "user_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "role",       default: 0, null: false
-    t.index ["project_id"], name: "index_project_memberships_on_project_id", using: :btree
-    t.index ["user_id"], name: "index_project_memberships_on_user_id", using: :btree
-  end
-
-  create_table "projects", force: :cascade do |t|
-    t.string   "name",        null: false
-    t.string   "license"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.text     "description"
-    t.integer  "user_id"
-    t.index ["user_id"], name: "index_projects_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -90,7 +90,7 @@ ActiveRecord::Schema.define(version: 20160912232724) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "areas", "projects"
-  add_foreign_key "project_memberships", "projects"
-  add_foreign_key "project_memberships", "users"
+  add_foreign_key "areas", "maps"
+  add_foreign_key "map_memberships", "maps"
+  add_foreign_key "map_memberships", "users"
 end
