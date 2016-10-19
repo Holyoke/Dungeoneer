@@ -5,14 +5,14 @@ default: &default
 
 development:
   <<: *default
-  database: JobWalk_development
+  database: Dungoneer_development
 
 test:
   <<: *default
-  database: JobWalk_test<%= ENV['TEST_ENV_NUMBER'] %>
+  database: Dungoneer_test<%= ENV['TEST_ENV_NUMBER'] %>
 
 production:
   <<: *default
-  database: JobWalk_production
-  username: JobWalk
-  password: <%= ENV['JOBWALK_DATABASE_PASSWORD'] %>
+  database: Dungoneer_production
+  username: Dungoneer
+  password: <%= ENV['Dungoneer_DATABASE_PASSWORD'] %>
