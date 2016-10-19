@@ -12,6 +12,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+/public/uploads/
 /public/uploads/*
 /public/uploads/tmp/*
 /reference_documents/*
