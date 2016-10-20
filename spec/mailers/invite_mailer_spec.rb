@@ -9,7 +9,7 @@ describe InviteMailer, type: :mailer do
     let(:email) { 'fake@email.com' }
 
     it 'renders the subject' do
-      expect(mail.subject).to eq('Constructive Project Invitation')
+      expect(mail.subject).to eq('Dungoneer Map Invitation')
     end
 
     it 'renders the receiver email' do
@@ -17,22 +17,22 @@ describe InviteMailer, type: :mailer do
     end
 
     it 'renders the sender email' do
-      expect(mail.from).to eq(['invite@constructiveapp.com'])
+      expect(mail.from).to eq(['invite@dungoneerapp.com'])
     end
 
     it 'assigns @invite_url' do
-      expect(mail.body.encoded).to include("constructiveapp.com#{invite_url}")
+      expect(mail.body.encoded).to include("dungoneerapp.com#{invite_url}")
     end
   end
 
   describe '#existing_user_invite' do
-    let(:mail) { described_class.new_user_invite(email, project_name) }
-    let(:project_name) { 'Fake project' }
+    let(:mail) { described_class.new_user_invite(email, map_name) }
+    let(:map_name) { 'Fake map' }
 
     let(:email) { 'fake@email.com' }
 
     it 'renders the subject' do
-      expect(mail.subject).to eq('Constructive Project Invitation')
+      expect(mail.subject).to eq('Dungoneer Map Invitation')
     end
 
     it 'renders the receiver email' do
@@ -40,12 +40,12 @@ describe InviteMailer, type: :mailer do
     end
 
     it 'renders the sender email' do
-      expect(mail.from).to eq(['invite@constructiveapp.com'])
+      expect(mail.from).to eq(['invite@dungoneerapp.com'])
     end
 
     it 'assigns @invite_url' do
       expect(mail.body.encoded).to include(
-        "You have been invited to the project #{@project_name}"
+        "You have been invited to the map #{@map_name}"
       )
     end
   end

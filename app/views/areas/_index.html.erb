@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Areas of <%= @project.name.html_safe %></h1>
+<h1>Areas of <%= @map.name.html_safe %></h1>
 
 <table class="table table-striped">
   <tbody class= "flex flex-row-wrap padded-children">
-    <% @project.areas.each do |area| %>
+    <% @map.areas.each do |area| %>
       <tr>
         <td><%= area.name %></td>
         <td> <%= image_tag area.floor_plan.thumb.url %></td>
@@ -17,4 +17,4 @@
 
 <br>
 
-<%= link_to 'New Area', new_project_area_path(@project) if role == "admin" %>
+<%= link_to 'New Area', new_map_area_path(@map) if role == "admin" %>

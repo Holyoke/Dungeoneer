@@ -18,6 +18,6 @@ require 'rails_helper'
 
 RSpec.describe Area, type: :model do
   it { should validate_presence_of(:name) }
-  it { should belong_to(:project) }
+  it { should belong_to(:map) }
   it { should have_many(:pins) }
 end

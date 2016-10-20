@@ -4,9 +4,9 @@ resource "Floorplan Pins" do
   header "Accept", "application/json"
   header "Content-Type", "application/json"
 
-  let!(:user) { FactoryGirl.create(:admin_with_projects, projects_count: 1) }
-  let!(:project) { user.projects.first }
-  let!(:area) { project.areas.first }
+  let!(:user) { FactoryGirl.create(:admin_with_maps, maps_count: 1) }
+  let!(:map) { user.maps.first }
+  let!(:area) { map.areas.first }
 
   before do
     login_as(user, scope: :user)

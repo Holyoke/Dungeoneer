@@ -6,37 +6,37 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-admin_1 = User.create(name: "Admin1", email: "admin1@jobwalk.com", password: "test123")
-admin_2 = User.create(name: "Admin2", email: "admin2@jobwalk.com", password: "test123")
-user_jane = User.create(name: "Jane", email: "jane@jobwalk.com", password: "test123")
-user_joe = User.create(name: "Joe", email: "joe@jobwalk.com", password: "test123")
+admin_1 = User.create(name: "Admin1", email: "admin1@dungoneer.com", password: "test123")
+admin_2 = User.create(name: "Admin2", email: "admin2@dungoneer.com", password: "test123")
+user_jane = User.create(name: "Jane", email: "jane@dungoneer.com", password: "test123")
+user_joe = User.create(name: "Joe", email: "joe@dungoneer.com", password: "test123")
 
-# Add projects to admin 1
+# Add maps to admin 1
 4.times do |idx|
   license = "idx#{idx}"
-  project = admin_1.projects.create(
-          name: "Test Project #{idx + 1}",
+  map = admin_1.maps.create(
+          name: "Test Map #{idx + 1}",
           license: license,
-          description: "This is a description for Project #{idx + 1}"
+          description: "This is a description for Map #{idx + 1}"
           )
-  admin_1.set_role(project.id, 'admin')
+  admin_1.set_role(map.id, 'admin')
 end
 
-# Add users to projects in various ways
-project = admin_1.projects[0]
+# Add users to maps in various ways
+map = admin_1.maps[0]
 
-user_joe.project_memberships.create(project: project, role: 'collaborator')
-user_jane.project_memberships.create(project: project, role: 'collaborator')
-admin_2.project_memberships.create(project: project, role: 'admin')
+user_joe.map_memberships.create(map: map, role: 'collaborator')
+user_jane.map_memberships.create(map: map, role: 'collaborator')
+admin_2.map_memberships.create(map: map, role: 'admin')
 
-user_joe.project_memberships.create(project: admin_1.projects[1], role: 'collaborator')
-user_jane.project_memberships.create(project: admin_1.projects[2], role: 'collaborator')
+user_joe.map_memberships.create(map: admin_1.maps[1], role: 'collaborator')
+user_jane.map_memberships.create(map: admin_1.maps[2], role: 'collaborator')
 
-#Areas to project
-project = admin_1.projects[0]
+#Areas to map
+map = admin_1.maps[0]
 
 3.times do |n|
-  project.areas.create(
+  map.areas.create(
       name: "Test Area #{n + 1}",
       description: "Foo",
       floor_plan: File.open(File.join(Rails.root, 'sample_data','sample_floor_plan.pdf' ))
@@ -44,7 +44,7 @@ project = admin_1.projects[0]
 end
 
 #Pins to area
-area = project.areas.first
+area = map.areas.first
 3.times do |n|
   area.pins.create(
       description: "Pin Seed Description #{n}",

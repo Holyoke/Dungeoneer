@@ -18,7 +18,7 @@ class Area < ApplicationRecord
   # potentially have many floorplans in the future may want create a new model
   # for floorplans
   mount_uploader :floor_plan, FloorPlanUploader
-  belongs_to :project
+  belongs_to :map
   has_many :pins, dependent: :destroy
 
   validates :name, presence: true

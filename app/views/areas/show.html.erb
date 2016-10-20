@@ -6,8 +6,8 @@
 </p>
 
 <p>
-  <strong>Project:</strong>
-  <%= @area.project.name %>
+  <strong>Map:</strong>
+  <%= @area.map.name %>
 </p>
 
 <p>
@@ -30,5 +30,5 @@
 </p>
 
 <%= link_to 'Edit', edit_area_path(@area) %> |
-<%= link_to 'Back', project_path(@area.project) %>
+<%= link_to 'Back', map_path(@area.map) %>
 <%= button_to 'Destroy', @area, method: :delete, data: { confirm: 'Destroy area?' } %>

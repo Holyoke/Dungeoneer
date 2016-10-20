@@ -22,22 +22,22 @@
 require 'rails_helper'
 
 describe User, type: :model do
-  let!(:user) { FactoryGirl.create(:user_with_projects) }
-  let(:project) { user.projects.first }
+  let!(:user) { FactoryGirl.create(:user_with_maps) }
+  let(:map) { user.maps.first }
 
   describe '#set_role' do
-    it 'assigns role to project membership' do
-      project_id = user.projects.first.id
-      expect(user.find_membership(project_id).role).to eq("collaborator")
-      user.set_role(project_id, "admin")
-      expect(user.find_membership(project_id).role).to eq("admin")
+    it 'assigns role to map membership' do
+      map_id = user.maps.first.id
+      expect(user.find_membership(map_id).role).to eq("collaborator")
+      user.set_role(map_id, "admin")
+      expect(user.find_membership(map_id).role).to eq("admin")
     end
   end
 
   describe '#find_membership' do
-    it 'finds project memberships' do
-      project_id = user.projects.first.id
-      expect(user.find_membership(project_id).role).to eq("collaborator")
+    it 'finds map memberships' do
+      map_id = user.maps.first.id
+      expect(user.find_membership(map_id).role).to eq("collaborator")
     end
   end
 end

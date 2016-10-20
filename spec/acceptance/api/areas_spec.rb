@@ -5,23 +5,23 @@ resource "Areas" do
   header "Content-Type", "application/json"
 
   let!(:user) { FactoryGirl.create(:user) }
-  let!(:project) { FactoryGirl.create(:project_with_areas, users: [user]) }
+  let!(:map) { FactoryGirl.create(:map_with_areas, users: [user]) }
 
   before do
     login_as(user, scope: :user)
   end
 
   get "/api/v1/areas" do
-    parameter :project_id, "Specify project"
-    let(:project_id) { project.id }
+    parameter :map_id, "Specify map"
+    let(:map_id) { map.id }
 
     let(:raw_post) { params.to_json }
 
     example_request "Getting a list of areas" do
-      explanation "Retrieves a list of areas with project_id"
+      explanation "Retrieves a list of areas with map_id"
 
-      result_names = project.areas.map{ |area| area['name'] }
-      result_widths = project.areas.map{ |area| area['width'] }
+      result_names = map.areas.map{ |area| area['name'] }
+      result_widths = map.areas.map{ |area| area['width'] }
 
       response = JSON.parse(response_body)
 
@@ -36,7 +36,7 @@ resource "Areas" do
   end
 
   get "api/v1/areas/:id" do
-    let(:id) { project.areas.last.id }
+    let(:id) { map.areas.last.id }
 
     example_request "Retrieving a specific area" do
       explanation "Retrieve area by id"
@@ -45,28 +45,28 @@ resource "Areas" do
       width = response['width']
 
       expect(status).to eq 200
-      expect(project.areas.last.width).to eq(width)
+      expect(map.areas.last.width).to eq(width)
     end
   end
 
   put "/api/v1/areas/:id" do
     parameter :name, "Name of area", :scope => :area
     parameter :description, "Description of the area", :scope => :area
-    parameter :project_id, "id of the parent project", :scope => :area
+    parameter :map_id, "id of the parent map", :scope => :area
 
     response_field :name, "Name of area", :scope => :area
     response_field :description, "Description of the area", :scope => :area
-    response_field :project_id, "id of the parent project", :scope => :area
+    response_field :map_id, "id of the parent map", :scope => :area
 
-    let(:id) { project.areas.last.id }
+    let(:id) { map.areas.last.id }
     let(:name) { "Updated area name." }
     let(:description) { "Updated area description." }
-    let(:project_id) { project.id }
+    let(:map_id) { map.id }
 
     let(:raw_post) { params.to_json }
 
     example_request "Update a specific area" do
-      explanation "Updating an area by id. Requires project_id "
+      explanation "Updating an area by id. Requires map_id "
       expect(status).to eq 200
     end
   end

@@ -30,12 +30,12 @@
       </div>
 
       <div>
-        <%= f.hidden_field :project_id, :value => params[:project_id] ||  area.project.id %>
+        <%= f.hidden_field :map_id, :value => params[:map_id] ||  area.map.id %>
       </div>
 
       <div class="footer">
         <div class="button"><%= submit_tag 'Save', class: "clear-formatting"%> </div>
-        <div class="button"><%= link_to 'Back', project_path(area.project), class: "clear-formatting" %></div>
+        <div class="button"><%= link_to 'Back', map_path(area.map), class: "clear-formatting" %></div>
       </div>
     </div>
   <% end %>

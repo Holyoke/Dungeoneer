@@ -2,11 +2,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def after_sign_up_path_for(resource)
-    "/users/#{current_user.id}/projects"
+    "/users/#{current_user.id}/maps"
   end
 
   def after_sign_in_path_for(resource)
-    "/users/#{current_user.id}/projects"
+    "/users/#{current_user.id}/maps"
   end
 
   private

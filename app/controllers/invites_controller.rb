@@ -6,7 +6,7 @@ class InvitesController < ApplicationController
     if invite.save
       if invite.recipient
         invite.accept_invitation
-        InviteMailer.existing_user_invite(invite.email, invite.project.name)
+        InviteMailer.existing_user_invite(invite.email, invite.map.name)
       else
         InviteMailer.new_user_invite(
           invite.email,
@@ -21,6 +21,6 @@ class InvitesController < ApplicationController
   private
 
   def invite_params
-    params.require(:invite).permit(:project_id, :email, :role)
+    params.require(:invite).permit(:map_id, :email, :role)
   end
 end
