@@ -1,11 +1,11 @@
 module Api::V1
   class AreasController < ApiApplicationController
     before_action :set_area, only: [:show, :update, :destroy]
-    before_action :check_project, only: [:index]
+    before_action :check_map, only: [:index]
 
     def index
-      project = Project.find(params[:project_id])
-      @areas = project.areas
+      map = Map.find(params[:map_id])
+      @areas = map.areas
       render json: @areas
     end
 
@@ -42,12 +42,12 @@ module Api::V1
     end
 
     def area_params
-      params.require(:area).permit(:name, :project_id, :description)
+      params.require(:area).permit(:name, :map_id, :description)
     end
 
-    def check_project
-      if params[:project_id].nil?
-        render json: {error: 'requires project_id'}, status: 404
+    def check_map
+      if params[:map_id].nil?
+        render json: {error: 'requires map_id'}, status: 404
       end
     end
   end

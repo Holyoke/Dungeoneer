@@ -49,7 +49,7 @@ module Api::V1
 
     def check_area
       if params[:area_id].nil?
-        render json: {error: 'requires project_id'}, status: 404
+        render json: {error: 'requires map_id'}, status: 404
       end
     end
   end
