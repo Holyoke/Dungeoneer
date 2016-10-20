@@ -9,12 +9,12 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [] do
-    resources :projects, only: [:index]
+    resources :maps, only: [:index]
   end
 
   resources :invites
 
-  resources :projects do
+  resources :maps do
     resources :areas, only: [:new]
     resources :members, only: :index
   end
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   #API
   namespace :api,  defaults: {format: 'json'} do
     namespace :v1 do
-      resources :projects, except: [:new, :edit]
+      resources :maps, except: [:new, :edit]
       resources :areas, except: [:new, :edit]
       resources :pins, except: [:new, :edit]
       resource :session, only: [:create, :destroy], controller: 'sessions'
