@@ -4,7 +4,7 @@
 #
 #  id           :integer          not null, primary key
 #  email        :string
-#  project_id   :integer
+#  map_id       :integer
 #  sender_id    :integer
 #  recipient_id :integer
 #  token        :string

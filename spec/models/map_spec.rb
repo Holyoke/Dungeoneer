@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: projects
+# Table name: maps
 #
 #  id          :integer          not null, primary key
 #  name        :string           not null

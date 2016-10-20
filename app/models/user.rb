@@ -46,6 +46,6 @@ class User < ApplicationRecord
   end
 
   def find_membership(map_id)
-    mapMembership.where(user_id: self.id, map_id: map_id).first
+    MapMembership.where(user_id: self.id, map_id: map_id).first
   end
 end

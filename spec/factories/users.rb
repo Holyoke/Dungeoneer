@@ -24,23 +24,23 @@ FactoryGirl.define do
     email { Faker::Internet.email }
     password { 'password' }
 
-    factory :user_with_projects do
+    factory :user_with_maps do
       transient do
-        projects_count 2
+        maps_count 2
       end
 
       after(:create) do |user, evaluator|
-        create_list(:project, evaluator.projects_count, users: [user])
+        create_list(:map, evaluator.maps_count, users: [user])
       end
     end
 
-    factory :admin_with_projects do
+    factory :admin_with_maps do
       transient do
-        projects_count 2
+        maps_count 2
       end
 
       after(:create) do |admin, evaluator|
-        create_list(:admin_project_memberships, evaluator.projects_count, user: admin)
+        create_list(:admin_map_memberships, evaluator.maps_count, user: admin)
       end
     end
   end

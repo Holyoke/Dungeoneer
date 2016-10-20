@@ -3,7 +3,7 @@
 # Table name: map_memberships
 #
 #  id         :integer          not null, primary key
-#  map_id :integer
+#  map_id     :integer
 #  user_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null

@@ -1,0 +1,25 @@
+<div class="flex row padded-children">
+  <div class="flex column padded-children">
+    <div class="map-info">
+      <p>
+      <strong>Name:</strong>
+      <%= @map.name %>
+      </p>
+
+      <p>
+      <strong>License:</strong>
+      <%= @map.license %>
+      </p>
+      <p>
+      <strong>Description:</strong>
+      <%= @map.description %>
+      </p>
+
+      <%= link_to 'Edit', edit_map_path(@map) if @role == "admin" %>
+    </div>
+      <%= link_to 'Members', map_members_url(@map) %>
+  </div>
+  <div>
+    <%= render '/areas/index', role: @role %>
+  </div>
+</div>

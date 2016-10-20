@@ -4,7 +4,7 @@
 #
 #  id          :integer          not null, primary key
 #  name        :string           not null
-#  project_id  :integer
+#  map_id      :integer
 #  floor_plan  :string
 #  thumbnail   :string
 #  created_at  :datetime         not null
