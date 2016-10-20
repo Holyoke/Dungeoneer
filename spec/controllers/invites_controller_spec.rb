@@ -3,13 +3,13 @@ require 'rails_helper'
 describe InvitesController, type: :controller do
   describe '#create' do
     login_user
-    let(:project) { FactoryGirl.create(:project) }
+    let(:map) { FactoryGirl.create(:map) }
     let(:role) { "admin" }
     let(:invite_email) { 'fake@email.com' }
     let(:send_invite) do
       post :create, params: {
         invite: {
-          project_id: project.id,
+          map_id: map.id,
           email: invite_email,
           role: "admin"
         }
@@ -23,7 +23,7 @@ describe InvitesController, type: :controller do
     it 'creates a new invite object' do
       send_invite
       last_invite = Invite.last
-      expect(last_invite.project_id).to eq(project.id)
+      expect(last_invite.map_id).to eq(map.id)
       expect(last_invite.email).to eq(invite_email)
       expect(last_invite.sender_id).to eq(User.last.id)
       expect(last_invite.role).to eq("admin")
@@ -43,15 +43,15 @@ describe InvitesController, type: :controller do
       let(:invite_email) { 'existing@email.com' }
       let!(:user) { FactoryGirl.create(:user, email: invite_email) }
 
-      it 'adds the project to the user group' do
+      it 'adds the map to the user group' do
         send_invite
-        expect(user.projects).to include(project)
+        expect(user.maps).to include(map)
       end
 
       it 'sends email to let them know they joined the group' do
         expect(InviteMailer).to receive(:existing_user_invite).with(
           invite_email,
-          project.name
+          map.name
         ).and_call_original
         send_invite
       end

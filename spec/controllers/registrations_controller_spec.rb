@@ -8,8 +8,8 @@ describe RegistrationsController, type: :controller do
       end
 
       let(:email) { "fake@email.com" }
-      let(:project) { FactoryGirl.create(:project) }
-      let!(:invite) { Invite.create(project_id: project.id, email: email) }
+      let(:map) { FactoryGirl.create(:map) }
+      let!(:invite) { Invite.create(map_id: map.id, email: email) }
 
       let(:register_user) do
         post :create, params: {
@@ -28,7 +28,7 @@ describe RegistrationsController, type: :controller do
         expect(invite.accepted).to eq(true)
       end
 
-      it { should use_after_action(:invite_to_project) }
+      it { should use_after_action(:invite_to_map) }
     end
   end
 end

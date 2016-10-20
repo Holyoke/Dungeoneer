@@ -3,18 +3,18 @@ require 'rails_helper'
 describe AreasController, type: :controller do
   login_user
 
-  let(:project) { FactoryGirl.create(:project_with_areas) }
-  let(:area) { project.areas.first}
+  let(:map) { FactoryGirl.create(:map_with_areas) }
+  let(:area) { map.areas.first}
   let!(:user) do
     user = User.last
-    user.projects.push(project)
-    user.set_role(project.id, "admin")
+    user.maps.push(map)
+    user.set_role(map.id, "admin")
     user
   end
 
   describe '#show' do
     let(:show_area) do
-      get :show, params: {id: project.areas.first.id}
+      get :show, params: {id: map.areas.first.id}
     end
 
     it 'renders show page' do
@@ -27,9 +27,9 @@ describe AreasController, type: :controller do
       get :edit , params: {id: area.id}
     end
 
-    context 'when project does not belong to user' do
+    context 'when map does not belong to user' do
       before do
-        user.projects = []
+        user.maps = []
         user.save
       end
 
@@ -40,15 +40,15 @@ describe AreasController, type: :controller do
 
         it 'returns proper alert' do
           edit_area
-          expect(flash[:alert]).to eq("Unauthorized access to this project")
+          expect(flash[:alert]).to eq("Unauthorized access to this map")
         end
       end
 
-      context 'when user is a collaborator of the project' do
+      context 'when user is a collaborator of the map' do
         context 'unauthorized edit' do
           before do
-            user.projects.push(project)
-            user.set_role(project.id, "collaborator")
+            user.maps.push(map)
+            user.set_role(map.id, "collaborator")
           end
 
           it 'redirects to home page' do
@@ -57,7 +57,7 @@ describe AreasController, type: :controller do
 
           it 'returns proper alert' do
             edit_area
-            expect(flash[:alert]).to eq("Unauthorized access to this project")
+            expect(flash[:alert]).to eq("Unauthorized access to this map")
           end
         end
       end
