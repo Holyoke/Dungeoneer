@@ -11,11 +11,11 @@
 #  user_id     :integer
 #
 
-class Project < ApplicationRecord
+class Map < ApplicationRecord
   validates :name, presence: true
 
   has_many :invites
   has_many :areas, dependent: :destroy
-  has_many :project_memberships
-  has_many :users, through: :project_memberships
+  has_many :map_memberships
+  has_many :users, through: :map_memberships
 end

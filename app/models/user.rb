@@ -28,24 +28,24 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :project_memberships
+  has_many :map_memberships
   has_many :invitations, class_name: "Invite", foreign_key: 'recipient_id'
   has_many :sent_invites, class_name: "Invite", foreign_key: 'sender_id'
-  has_many :projects, through: :project_memberships
-  has_many :areas, through: :projects
+  has_many :maps, through: :map_memberships
+  has_many :areas, through: :maps
 
-  def admin?(project_id)
-    membership = find_membership(project_id)
+  def admin?(map_id)
+    membership = find_membership(map_id)
     membership.role == "admin"
   end
 
-  def set_role(project_id, role)
-    membership = find_membership(project_id)
+  def set_role(map_id, role)
+    membership = find_membership(map_id)
     membership.role = role
     membership.save
   end
 
-  def find_membership(project_id)
-    ProjectMembership.where(user_id: self.id, project_id: project_id).first
+  def find_membership(map_id)
+    mapMembership.where(user_id: self.id, map_id: map_id).first
   end
 end
