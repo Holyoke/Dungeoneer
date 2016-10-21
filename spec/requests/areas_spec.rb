@@ -2,21 +2,21 @@ require 'rails_helper'
 
  RSpec.describe "Areas", :type => :request do
    let!(:user) { FactoryGirl.create(:user) }
-   let!(:project) { FactoryGirl.create(:project_with_areas, users: [user]) }
+   let!(:map) { FactoryGirl.create(:map_with_areas, users: [user]) }
 
    before do
      login_as(user, scope: :user)
    end
 
    describe "GET /api/v1/areas" do
-     it "returns all the areas of a specified project" do
-       get '/api/v1/areas', params: { project_id: 1}
+     it "returns all the areas of a specified map" do
+       get '/api/v1/areas', params: { map_id: 1}
 
        expect(response.status).to eq 200
 
        body = JSON.parse(response.body)
-       result_names = project.areas.map{ |area| area['name'] }
-       result_widths = project.areas.map{ |area| area['width'] }
+       result_names = map.areas.map{ |area| area['name'] }
+       result_widths = map.areas.map{ |area| area['width'] }
 
        area_names = body.map{|area| area['name'] }
        area_widths = body.map{|area| area['width'] }
@@ -25,7 +25,7 @@ require 'rails_helper'
        expect(area_widths).to match_array(result_widths)
      end
 
-     it "returns an error message if there's no project_id specified" do
+     it "returns an error message if there's no map_id specified" do
        get '/api/v1/areas'
        expect(response.status).to eq 404
      end
@@ -33,7 +33,7 @@ require 'rails_helper'
 
    describe "GET api/v1/areas/:id" do
      it "returns the specified area" do
-       area = project.areas.first
+       area = map.areas.first
 
        get "/api/v1/areas/#{area.id}"
 
@@ -49,7 +49,7 @@ require 'rails_helper'
 
    describe "PUT /api/v1/areas/:id" do
      it "updates the specified area" do
-      area = project.areas.first
+      area = map.areas.first
       area_params = {
         area: {
             name: "Area-X-Edited",
