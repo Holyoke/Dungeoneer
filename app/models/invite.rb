@@ -17,7 +17,7 @@
 class Invite < ApplicationRecord
   enum role: [:collaborator, :admin]
 
-  belongs_to :project
+  belongs_to :map
   belongs_to :sender, class_name: 'User'
   belongs_to :recipient, class_name: 'User'
 
@@ -26,12 +26,12 @@ class Invite < ApplicationRecord
 
   def accept_invitation
     self.accepted = true
-    self.recipient.projects.push(self.project)
+    self.recipient.maps.push(self.map)
     self.save
   end
 
   def generate_token
-    self.token = Digest::SHA1.hexdigest([self.project_id, Time.now, rand].join)
+    self.token = Digest::SHA1.hexdigest([self.map_id, Time.now, rand].join)
   end
 
   def check_user_existence

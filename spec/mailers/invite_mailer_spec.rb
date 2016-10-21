@@ -9,7 +9,7 @@ describe InviteMailer, type: :mailer do
     let(:email) { 'fake@email.com' }
 
     it 'renders the subject' do
-      expect(mail.subject).to eq('Dungoneer Map Invitation')
+      expect(mail.subject).to eq('Dungeoneer Map Invitation')
     end
 
     it 'renders the receiver email' do
@@ -17,11 +17,11 @@ describe InviteMailer, type: :mailer do
     end
 
     it 'renders the sender email' do
-      expect(mail.from).to eq(['invite@dungoneerapp.com'])
+      expect(mail.from).to eq(['invite@dungeoneer.com'])
     end
 
     it 'assigns @invite_url' do
-      expect(mail.body.encoded).to include("dungoneerapp.com#{invite_url}")
+      expect(mail.body.encoded).to include("dungeoneer.com#{invite_url}")
     end
   end
 
@@ -32,7 +32,7 @@ describe InviteMailer, type: :mailer do
     let(:email) { 'fake@email.com' }
 
     it 'renders the subject' do
-      expect(mail.subject).to eq('Dungoneer Map Invitation')
+      expect(mail.subject).to eq('Dungeoneer Map Invitation')
     end
 
     it 'renders the receiver email' do
@@ -40,7 +40,7 @@ describe InviteMailer, type: :mailer do
     end
 
     it 'renders the sender email' do
-      expect(mail.from).to eq(['invite@dungoneerapp.com'])
+      expect(mail.from).to eq(['invite@dungeoneer.com'])
     end
 
     it 'assigns @invite_url' do
