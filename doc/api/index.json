@@ -39,6 +39,32 @@
       ]
     },
     {
+      "name": "Maps",
+      "examples": [
+        {
+          "description": "Getting a list of maps",
+          "link": "maps/getting_a_list_of_maps.json",
+          "groups": "all",
+          "route": "/api/v1/maps",
+          "method": "get"
+        },
+        {
+          "description": "Retrieving a specific map",
+          "link": "maps/retrieving_a_specific_map.json",
+          "groups": "all",
+          "route": "api/v1/maps/:id",
+          "method": "get"
+        },
+        {
+          "description": "Update a specific map",
+          "link": "maps/update_a_specific_map.json",
+          "groups": "all",
+          "route": "/api/v1/maps/:id",
+          "method": "put"
+        }
+      ]
+    },
+    {
       "name": "Floorplan Pins",
       "examples": [
         {
@@ -75,32 +101,13 @@
           "groups": "all",
           "route": "/api/v1/pins/:id",
           "method": "delete"
-        }
-      ]
-    },
-    {
-      "name": "Projects",
-      "examples": [
-        {
-          "description": "Getting a list of projects",
-          "link": "projects/getting_a_list_of_projects.json",
-          "groups": "all",
-          "route": "/api/v1/projects",
-          "method": "get"
         },
         {
-          "description": "Retrieving a specific project",
-          "link": "projects/retrieving_a_specific_project.json",
+          "description": "Deleting a pin from the wrong area",
+          "link": "floorplan_pins/deleting_a_pin_from_the_wrong_area.json",
           "groups": "all",
-          "route": "api/v1/projects/:id",
-          "method": "get"
-        },
-        {
-          "description": "Update a specific project",
-          "link": "projects/update_a_specific_project.json",
-          "groups": "all",
-          "route": "/api/v1/projects/:id",
-          "method": "put"
+          "route": "/api/v1/pins/:id",
+          "method": "delete"
         }
       ]
     }

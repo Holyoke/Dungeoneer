@@ -1,0 +1,32 @@
+{
+  "resource": "Maps",
+  "http_method": "GET",
+  "route": "/api/v1/maps",
+  "description": "Getting a list of maps",
+  "explanation": "Retrieves a list of maps with areas",
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/api/v1/maps",
+      "request_body": null,
+      "request_headers": {
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "[\n  {\n    \"id\": 2,\n    \"name\": \"Test_Map\",\n    \"license\": null,\n    \"created_at\": \"2016-10-21T00:14:37.630Z\",\n    \"updated_at\": \"2016-10-21T00:14:37.630Z\",\n    \"description\": null,\n    \"areas\": [\n      {\n        \"id\": 4,\n        \"name\": \"Test Area\",\n        \"floor_plan\": {\n          \"floor_plan\": {\n            \"url\": \"/uploads/area/floor_plan/4/Test%20Area-uploaded.pdf\",\n            \"full_map\": {\n              \"url\": \"/uploads/area/floor_plan/4/full_map.png\"\n            },\n            \"thumb\": {\n              \"url\": \"/uploads/area/floor_plan/4/thumb.png\"\n            }\n          }\n        },\n        \"description\": \"Foo\",\n        \"created_at\": \"2016-10-21T00:14:44.584Z\",\n        \"updated_at\": \"2016-10-21T00:14:44.584Z\",\n        \"width\": 612.0,\n        \"height\": 792.0\n      },\n      {\n        \"id\": 3,\n        \"name\": \"Test Area\",\n        \"floor_plan\": {\n          \"floor_plan\": {\n            \"url\": \"/uploads/area/floor_plan/3/Test%20Area-uploaded.pdf\",\n            \"full_map\": {\n              \"url\": \"/uploads/area/floor_plan/3/full_map.png\"\n            },\n            \"thumb\": {\n              \"url\": \"/uploads/area/floor_plan/3/thumb.png\"\n            }\n          }\n        },\n        \"description\": \"Foo\",\n        \"created_at\": \"2016-10-21T00:14:41.044Z\",\n        \"updated_at\": \"2016-10-21T00:14:41.044Z\",\n        \"width\": 612.0,\n        \"height\": 792.0\n      }\n    ]\n  },\n  {\n    \"id\": 1,\n    \"name\": \"Test_Map\",\n    \"license\": null,\n    \"created_at\": \"2016-10-21T00:14:30.424Z\",\n    \"updated_at\": \"2016-10-21T00:14:30.424Z\",\n    \"description\": null,\n    \"areas\": [\n      {\n        \"id\": 1,\n        \"name\": \"Test Area\",\n        \"floor_plan\": {\n          \"floor_plan\": {\n            \"url\": \"/uploads/area/floor_plan/1/Test%20Area-uploaded.pdf\",\n            \"full_map\": {\n              \"url\": \"/uploads/area/floor_plan/1/full_map.png\"\n            },\n            \"thumb\": {\n              \"url\": \"/uploads/area/floor_plan/1/thumb.png\"\n            }\n          }\n        },\n        \"description\": \"Foo\",\n        \"created_at\": \"2016-10-21T00:14:34.052Z\",\n        \"updated_at\": \"2016-10-21T00:14:34.052Z\",\n        \"width\": 612.0,\n        \"height\": 792.0\n      },\n      {\n        \"id\": 2,\n        \"name\": \"Test Area\",\n        \"floor_plan\": {\n          \"floor_plan\": {\n            \"url\": \"/uploads/area/floor_plan/2/Test%20Area-uploaded.pdf\",\n            \"full_map\": {\n              \"url\": \"/uploads/area/floor_plan/2/full_map.png\"\n            },\n            \"thumb\": {\n              \"url\": \"/uploads/area/floor_plan/2/thumb.png\"\n            }\n          }\n        },\n        \"description\": \"Foo\",\n        \"created_at\": \"2016-10-21T00:14:37.613Z\",\n        \"updated_at\": \"2016-10-21T00:14:37.613Z\",\n        \"width\": 612.0,\n        \"height\": 792.0\n      }\n    ]\n  }\n]",
+      "response_headers": {
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://jobwalk-staging.herokuapp.com/api/v1/maps\" -X GET \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\""
+    }
+  ]
+}

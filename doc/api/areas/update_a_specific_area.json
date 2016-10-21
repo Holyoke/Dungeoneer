@@ -3,7 +3,7 @@
   "http_method": "PUT",
   "route": "/api/v1/areas/:id",
   "description": "Update a specific area",
-  "explanation": "Updating an area by id. Requires project_id ",
+  "explanation": "Updating an area by id. Requires map_id ",
   "parameters": [
     {
       "scope": "area",
@@ -17,8 +17,8 @@
     },
     {
       "scope": "area",
-      "name": "project_id",
-      "description": "id of the parent project"
+      "name": "map_id",
+      "description": "id of the parent map"
     }
   ],
   "response_fields": [
@@ -34,15 +34,15 @@
     },
     {
       "scope": "area",
-      "name": "project_id",
-      "description": "id of the parent project"
+      "name": "map_id",
+      "description": "id of the parent map"
     }
   ],
   "requests": [
     {
       "request_method": "PUT",
       "request_path": "/api/v1/areas/2",
-      "request_body": "{\"area\":{\"name\":\"Updated area name.\",\"description\":\"Updated area description.\",\"project_id\":1}}",
+      "request_body": "{\"area\":{\"name\":\"Updated area name.\",\"description\":\"Updated area description.\",\"map_id\":1}}",
       "request_headers": {
       },
       "request_query_parameters": {
@@ -50,11 +50,11 @@
       "request_content_type": "application/json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"id\": 2,\n  \"name\": \"Updated area name.\",\n  \"floor_plan\": {\n    \"floor_plan\": {\n      \"url\": \"/uploads/area/floor_plan/2/Test%20Area-uploaded.pdf\",\n      \"full_map\": {\n        \"url\": \"/uploads/area/floor_plan/2/full_map.png\"\n      },\n      \"thumb\": {\n        \"url\": \"/uploads/area/floor_plan/2/thumb.png\"\n      }\n    }\n  },\n  \"description\": \"Updated area description.\",\n  \"created_at\": \"2016-09-15T18:59:23.560Z\",\n  \"updated_at\": \"2016-09-15T18:59:23.600Z\",\n  \"width\": 3024.0,\n  \"height\": 2160.0,\n  \"project\": {\n    \"id\": 1,\n    \"name\": \"Test_Project\",\n    \"license\": null,\n    \"created_at\": \"2016-09-15T18:59:03.132Z\",\n    \"updated_at\": \"2016-09-15T18:59:03.132Z\",\n    \"description\": null\n  }\n}",
+      "response_body": "{\n  \"id\": 2,\n  \"name\": \"Updated area name.\",\n  \"floor_plan\": {\n    \"floor_plan\": {\n      \"url\": \"/uploads/area/floor_plan/2/Test%20Area-uploaded.pdf\",\n      \"full_map\": {\n        \"url\": \"/uploads/area/floor_plan/2/full_map.png\"\n      },\n      \"thumb\": {\n        \"url\": \"/uploads/area/floor_plan/2/thumb.png\"\n      }\n    }\n  },\n  \"description\": \"Updated area description.\",\n  \"created_at\": \"2016-10-21T00:14:30.208Z\",\n  \"updated_at\": \"2016-10-21T00:14:30.240Z\",\n  \"width\": 612.0,\n  \"height\": 792.0,\n  \"map\": {\n    \"id\": 1,\n    \"name\": \"Test_Map\",\n    \"license\": null,\n    \"created_at\": \"2016-10-21T00:14:23.298Z\",\n    \"updated_at\": \"2016-10-21T00:14:23.298Z\",\n    \"description\": null\n  }\n}",
       "response_headers": {
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://jobwalk-staging.herokuapp.com/api/v1/areas/2\" -d '{\"area\":{\"name\":\"Updated area name.\",\"description\":\"Updated area description.\",\"project_id\":1}}' -X PUT \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\""
+      "curl": "curl \"http://jobwalk-staging.herokuapp.com/api/v1/areas/2\" -d '{\"area\":{\"name\":\"Updated area name.\",\"description\":\"Updated area description.\",\"map_id\":1}}' -X PUT \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\""
     }
   ]
 }

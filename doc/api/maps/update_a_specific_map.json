@@ -1,0 +1,46 @@
+{
+  "resource": "Maps",
+  "http_method": "PUT",
+  "route": "/api/v1/maps/:id",
+  "description": "Update a specific map",
+  "explanation": "Updating a map by id",
+  "parameters": [
+    {
+      "scope": "map",
+      "name": "name",
+      "description": "Name of map"
+    },
+    {
+      "scope": "map",
+      "name": "license",
+      "description": "Optional license"
+    },
+    {
+      "scope": "map",
+      "name": "description",
+      "description": "Description of the map"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "PUT",
+      "request_path": "/api/v1/maps/2",
+      "request_body": "{\"map\":{\"name\":\"Updated name.\",\"license\":\"updatedLicense1\",\"description\":\"Updated description.\"}}",
+      "request_headers": {
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"id\": 2,\n  \"name\": \"Updated name.\",\n  \"license\": \"updatedLicense1\",\n  \"created_at\": \"2016-10-21T00:15:06.088Z\",\n  \"updated_at\": \"2016-10-21T00:15:12.963Z\",\n  \"description\": \"Updated description.\",\n  \"areas\": [\n    {\n      \"id\": 4,\n      \"name\": \"Test Area\",\n      \"floor_plan\": {\n        \"floor_plan\": {\n          \"url\": \"/uploads/area/floor_plan/4/Test%20Area-uploaded.pdf\",\n          \"full_map\": {\n            \"url\": \"/uploads/area/floor_plan/4/full_map.png\"\n          },\n          \"thumb\": {\n            \"url\": \"/uploads/area/floor_plan/4/thumb.png\"\n          }\n        }\n      },\n      \"description\": \"Foo\",\n      \"created_at\": \"2016-10-21T00:15:12.934Z\",\n      \"updated_at\": \"2016-10-21T00:15:12.934Z\",\n      \"width\": 612.0,\n      \"height\": 792.0\n    },\n    {\n      \"id\": 3,\n      \"name\": \"Test Area\",\n      \"floor_plan\": {\n        \"floor_plan\": {\n          \"url\": \"/uploads/area/floor_plan/3/Test%20Area-uploaded.pdf\",\n          \"full_map\": {\n            \"url\": \"/uploads/area/floor_plan/3/full_map.png\"\n          },\n          \"thumb\": {\n            \"url\": \"/uploads/area/floor_plan/3/thumb.png\"\n          }\n        }\n      },\n      \"description\": \"Foo\",\n      \"created_at\": \"2016-10-21T00:15:09.497Z\",\n      \"updated_at\": \"2016-10-21T00:15:09.497Z\",\n      \"width\": 612.0,\n      \"height\": 792.0\n    }\n  ]\n}",
+      "response_headers": {
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": "curl \"http://jobwalk-staging.herokuapp.com/api/v1/maps/2\" -d '{\"map\":{\"name\":\"Updated name.\",\"license\":\"updatedLicense1\",\"description\":\"Updated description.\"}}' -X PUT \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\""
+    }
+  ]
+}
