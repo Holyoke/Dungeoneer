@@ -17,7 +17,7 @@
 /public/uploads/tmp/*
 /reference_documents/*
 .idea/*
-frontend/node_modules/
+/frontend/node_modules/
 .DS_Store
 public/.DS_Store
 app/assets/.DS_Store
