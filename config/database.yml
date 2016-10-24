@@ -13,6 +13,6 @@ test:
 
 production:
   <<: *default
-  database: Dungoneer_production
-  username: Dungoneer
+  database: Dungeoneer_production
+  username: Dungeoneer
   password: <%= ENV['Dungeoneer_DATABASE_PASSWORD'] %>

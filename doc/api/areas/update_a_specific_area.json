@@ -54,7 +54,7 @@
       "response_headers": {
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://jobwalk-staging.herokuapp.com/api/v1/areas/2\" -d '{\"area\":{\"name\":\"Updated area name.\",\"description\":\"Updated area description.\",\"map_id\":1}}' -X PUT \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\""
+      "curl": "curl \"http://dungeoneer-staging.herokuapp.com/api/v1/areas/2\" -d '{\"area\":{\"name\":\"Updated area name.\",\"description\":\"Updated area description.\",\"map_id\":1}}' -X PUT \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\""
     }
   ]
 }

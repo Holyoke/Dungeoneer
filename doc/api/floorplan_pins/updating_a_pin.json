@@ -45,7 +45,7 @@
       "response_headers": {
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://jobwalk-staging.herokuapp.com/api/v1/pins/3\" -d '{\"pin\":{\"x\":1.0,\"y\":0.0,\"description\":\"Edited pin description.\"}}' -X PUT \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\""
+      "curl": "curl \"http://dungeoneer-staging.herokuapp.com/api/v1/pins/3\" -d '{\"pin\":{\"x\":1.0,\"y\":0.0,\"description\":\"Edited pin description.\"}}' -X PUT \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\""
     }
   ]
 }

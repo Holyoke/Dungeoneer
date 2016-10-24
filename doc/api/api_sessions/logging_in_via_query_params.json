@@ -35,7 +35,7 @@
       "response_headers": {
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://jobwalk-staging.herokuapp.com/api/v1/session\" -d '{\"session\":{\"email\":\"sydni@durganmarks.com\",\"password\":\"password\"}}' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\""
+      "curl": "curl \"http://dungeoneer-staging.herokuapp.com/api/v1/session\" -d '{\"session\":{\"email\":\"sydni@durganmarks.com\",\"password\":\"password\"}}' -X POST \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\""
     }
   ]
 }

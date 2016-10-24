@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 feature 'CRUD Map Stories', :devise do
-  let(:user_1) { FactoryGirl.create(:user, email: 'user1@jobwalk.com') }
-  let(:user_2) { FactoryGirl.create(:user, email: 'user2@jobwalk.net') }
+  let(:user_1) { FactoryGirl.create(:user, email: 'user1@dungeoneer.com') }
+  let(:user_2) { FactoryGirl.create(:user, email: 'user2@dungeoneer.net') }
   before { login_as(user_1, scope: :user) }
   after { Warden.test_reset! }
 
