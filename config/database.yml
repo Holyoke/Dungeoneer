@@ -5,14 +5,14 @@ default: &default
 
 development:
   <<: *default
-  database: Dungoneer_development
+  database: Dungeoneer_development
 
 test:
   <<: *default
-  database: Dungoneer_test<%= ENV['TEST_ENV_NUMBER'] %>
+  database: Dungeoneer_test<%= ENV['TEST_ENV_NUMBER'] %>
 
 production:
   <<: *default
   database: Dungoneer_production
   username: Dungoneer
-  password: <%= ENV['Dungoneer_DATABASE_PASSWORD'] %>
+  password: <%= ENV['Dungeoneer_DATABASE_PASSWORD'] %>
