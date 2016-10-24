@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-admin_1 = User.create(name: "Admin1", email: "admin1@dungoneer.com", password: "test123")
-admin_2 = User.create(name: "Admin2", email: "admin2@dungoneer.com", password: "test123")
-user_jane = User.create(name: "Jane", email: "jane@dungoneer.com", password: "test123")
-user_joe = User.create(name: "Joe", email: "joe@dungoneer.com", password: "test123")
+admin_1 = User.create(name: "Admin1", email: "admin1@dungeoneer.com", password: "test123")
+admin_2 = User.create(name: "Admin2", email: "admin2@dungeoneer.com", password: "test123")
+user_jane = User.create(name: "Jane", email: "jane@dungeoneer.com", password: "test123")
+user_joe = User.create(name: "Joe", email: "joe@dungeoneer.com", password: "test123")
 
 # Add maps to admin 1
 4.times do |idx|

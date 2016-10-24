@@ -2,20 +2,18 @@
   <h1>Collaborators</h1>
 </div>
 <div class="flex row boxed-children wrap">
-  <% @project.project_memberships.each do |membership| %>
+  <% @map.map_memberships.each do |membership| %>
     <div class="flex column">
       <h4><%= membership.user.email %></h4>
       <p class="<%= membership.role %>"><%= membership.role %></p>
     </div>
   <% end %>
-  <% @project.invites.each do |invite| %>
+  <% @map.invites.each do |invite| %>
     <div class="flex column">
       <h4><%= invite.email %></h4>
       <p>Pending<p>
     </div>
   <% end %>
-  <%= render 'invite_admins', project: @project, invite: @invite %>
-  <%= render 'invite_collaborators', project: @project, invite: @invite %>
+  <%= render 'invite_admins', map: @map, invite: @invite %>
+  <%= render 'invite_collaborators', map: @map, invite: @invite %>
 </div>
-
-

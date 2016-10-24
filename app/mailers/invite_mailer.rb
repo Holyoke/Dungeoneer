@@ -11,8 +11,8 @@ class InviteMailer < ApplicationMailer
     )
   end
 
-  def existing_user_invite(email, project_name)
-    @project_name = project_name
+  def existing_user_invite(email, map_name)
+    @map_name = map_name
     mail(
       to: email,
       from: "invite@#{DOMAIN}",
