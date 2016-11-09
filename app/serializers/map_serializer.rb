@@ -4,7 +4,6 @@
 #
 #  id          :integer          not null, primary key
 #  name        :string           not null
-#  license     :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  description :text
@@ -12,7 +11,7 @@
 #
 
 class MapSerializer < ActiveModel::Serializer
-  attributes :id, :name, :license, :created_at, :updated_at, :description
+  attributes :id, :name, :created_at, :updated_at, :description
 
   has_many :areas
 end
