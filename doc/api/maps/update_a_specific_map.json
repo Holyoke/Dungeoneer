@@ -28,7 +28,7 @@
     {
       "request_method": "PUT",
       "request_path": "/api/v1/maps/2",
-      "request_body": "{\"map\":{\"name\":\"Updated name.\",\"license\":\"updatedLicense1\",\"description\":\"Updated description.\"}}",
+      "request_body": "{\"map\":{\"name\":\"Updated name.\",\"description\":\"Updated description.\"}}",
       "request_headers": {
       },
       "request_query_parameters": {
@@ -36,11 +36,11 @@
       "request_content_type": "application/json",
       "response_status": 200,
       "response_status_text": "OK",
-      "response_body": "{\n  \"id\": 2,\n  \"name\": \"Updated name.\",\n  \"license\": \"updatedLicense1\",\n  \"created_at\": \"2016-10-24T22:06:22.707Z\",\n  \"updated_at\": \"2016-10-24T22:06:30.208Z\",\n  \"description\": \"Updated description.\",\n  \"areas\": [\n    {\n      \"id\": 3,\n      \"name\": \"Test Area\",\n      \"floor_plan\": {\n        \"floor_plan\": {\n          \"url\": \"/uploads/area/floor_plan/3/Test%20Area-uploaded.pdf\",\n          \"full_map\": {\n            \"url\": \"/uploads/area/floor_plan/3/full_map.png\"\n          },\n          \"thumb\": {\n            \"url\": \"/uploads/area/floor_plan/3/thumb.png\"\n          }\n        }\n      },\n      \"description\": \"Foo\",\n      \"created_at\": \"2016-10-24T22:06:26.266Z\",\n      \"updated_at\": \"2016-10-24T22:06:26.266Z\",\n      \"width\": 612.0,\n      \"height\": 792.0\n    },\n    {\n      \"id\": 4,\n      \"name\": \"Test Area\",\n      \"floor_plan\": {\n        \"floor_plan\": {\n          \"url\": \"/uploads/area/floor_plan/4/Test%20Area-uploaded.pdf\",\n          \"full_map\": {\n            \"url\": \"/uploads/area/floor_plan/4/full_map.png\"\n          },\n          \"thumb\": {\n            \"url\": \"/uploads/area/floor_plan/4/thumb.png\"\n          }\n        }\n      },\n      \"description\": \"Foo\",\n      \"created_at\": \"2016-10-24T22:06:30.166Z\",\n      \"updated_at\": \"2016-10-24T22:06:30.166Z\",\n      \"width\": 612.0,\n      \"height\": 792.0\n    }\n  ]\n}",
+      "response_body": "{\n  \"id\": 2,\n  \"name\": \"Updated name.\",\n  \"created_at\": \"2016-11-09T19:51:59.685Z\",\n  \"updated_at\": \"2016-11-09T19:52:08.011Z\",\n  \"description\": \"Updated description.\",\n  \"areas\": [\n    {\n      \"id\": 4,\n      \"name\": \"Test Area\",\n      \"floor_plan\": {\n        \"floor_plan\": {\n          \"url\": \"/uploads/area/floor_plan/4/Test%20Area-uploaded.pdf\",\n          \"full_map\": {\n            \"url\": \"/uploads/area/floor_plan/4/full_map.png\"\n          },\n          \"thumb\": {\n            \"url\": \"/uploads/area/floor_plan/4/thumb.png\"\n          }\n        }\n      },\n      \"description\": \"Foo\",\n      \"created_at\": \"2016-11-09T19:52:07.984Z\",\n      \"updated_at\": \"2016-11-09T19:52:07.984Z\",\n      \"width\": 612.0,\n      \"height\": 792.0\n    },\n    {\n      \"id\": 3,\n      \"name\": \"Test Area\",\n      \"floor_plan\": {\n        \"floor_plan\": {\n          \"url\": \"/uploads/area/floor_plan/3/Test%20Area-uploaded.pdf\",\n          \"full_map\": {\n            \"url\": \"/uploads/area/floor_plan/3/full_map.png\"\n          },\n          \"thumb\": {\n            \"url\": \"/uploads/area/floor_plan/3/thumb.png\"\n          }\n        }\n      },\n      \"description\": \"Foo\",\n      \"created_at\": \"2016-11-09T19:52:03.558Z\",\n      \"updated_at\": \"2016-11-09T19:52:03.558Z\",\n      \"width\": 612.0,\n      \"height\": 792.0\n    }\n  ]\n}",
       "response_headers": {
       },
       "response_content_type": "application/json; charset=utf-8",
-      "curl": "curl \"http://dungeoneer-staging.herokuapp.com/api/v1/maps/2\" -d '{\"map\":{\"name\":\"Updated name.\",\"license\":\"updatedLicense1\",\"description\":\"Updated description.\"}}' -X PUT \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\""
+      "curl": "curl \"http://dungeoneer-staging.herokuapp.com/api/v1/maps/2\" -d '{\"map\":{\"name\":\"Updated name.\",\"description\":\"Updated description.\"}}' -X PUT \\\n\t-H \"Accept: application/json\" \\\n\t-H \"Content-Type: application/json\""
     }
   ]
 }
