@@ -12,13 +12,11 @@ feature 'CRUD Map Stories', :devise do
       if idx % 2 == 0
         user_1.maps.create(
                 name: "User 1's map",
-                license: 'dummytext',
                 description: "#{user_1.email}'s map'"
                 )
       else
         user_2.maps.create(
                 name: "User 2's map",
-                license: 'dummytext',
                 description: "#{user_2.email}'s map'"
                 )
       end

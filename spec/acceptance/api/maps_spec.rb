@@ -35,7 +35,6 @@ resource "Maps" do
     let(:id) { maps.last.id }
     let(:name) { "Updated name." }
     let(:description) { "Updated description." }
-    let(:license) { "updatedLicense1" }
     let(:raw_post) { params.to_json }
 
     example_request "Update a specific map" do

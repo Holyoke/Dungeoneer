@@ -51,7 +51,7 @@ class MapsController < ApplicationController
   end
 
   def map_params
-    params.require(:map).permit(:name, :license, :description)
+    params.require(:map).permit(:name, :description)
   end
 
   def authorize_update

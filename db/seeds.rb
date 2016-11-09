@@ -13,10 +13,8 @@ user_joe = User.create(name: "Joe", email: "joe@dungeoneer.com", password: "test
 
 # Add maps to admin 1
 4.times do |idx|
-  license = "idx#{idx}"
   map = admin_1.maps.create(
           name: "Test Map #{idx + 1}",
-          license: license,
           description: "This is a description for Map #{idx + 1}"
           )
   admin_1.set_role(map.id, 'admin')

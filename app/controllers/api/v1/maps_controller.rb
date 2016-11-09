@@ -39,7 +39,7 @@ module Api::V1
         end
 
         def map_params
-          params.require(:map).permit(:name, :license, :description)
+          params.require(:map).permit(:name, :description)
         end
     end
 end
