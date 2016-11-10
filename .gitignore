@@ -28,6 +28,7 @@ app/views/areas/.DS_Store
 node_modules/
 bundle.js
 bundle.js.map
+tmp/
 
 
 # Ignore Byebug command history file.
