@@ -54,10 +54,14 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
+	var _session_api_util = __webpack_require__(172);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	document.addEventListener('DOMContentLoaded', function () {
 	    var root = document.getElementById('root');
+	    window.login = _session_api_util.login;
+	    window.logout = _session_api_util.logout;
 	    _reactDom2.default.render(_react2.default.createElement(
 	        'h1',
 	        null,
@@ -21431,6 +21435,35 @@
 	
 	module.exports = ReactDOMNullInputValuePropHook;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 172 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var login = exports.login = function login(user, success, error) {
+	  $.ajax({
+	    url: '/api/v1/session/',
+	    type: 'POST',
+	    data: user,
+	    success: success,
+	    error: error
+	  });
+	};
+	
+	var logout = exports.logout = function logout(data, success, error) {
+	  $.ajax({
+	    url: '/api/v1/session/',
+	    type: 'DELETE',
+	    data: data,
+	    success: success,
+	    error: error
+	  });
+	};
 
 /***/ }
 /******/ ]);
