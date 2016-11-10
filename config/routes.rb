@@ -4,9 +4,9 @@ Rails.application.routes.draw do
     registrations: "registrations"
   }
 
-  devise_scope :user do
-    root to: "devise/sessions#new"
-  end
+  # devise_scope :user do
+  #   root to: "devise/sessions#new"
+  # end
 
   resources :users, only: [] do
     resources :maps, only: [:index]
@@ -22,6 +22,9 @@ Rails.application.routes.draw do
   resources :areas, except: [:index, :new]
 
   resources :users
+
+  #static pages
+  root "static_pages#root"
 
 
   #API
