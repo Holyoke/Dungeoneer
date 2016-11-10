@@ -19,11 +19,15 @@ log/development.log
 /reference_documents/*
 .idea/*
 /frontend/node_modules/
+/fr
 .DS_Store
 public/.DS_Store
 app/assets/.DS_Store
 app/views/.DS_Store
 app/views/areas/.DS_Store
+node_modules/
+bundle.js
+bundle.js.map
 
 
 # Ignore Byebug command history file.
