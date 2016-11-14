@@ -65,7 +65,7 @@
 	    _reactDom2.default.render(_react2.default.createElement(
 	        'h1',
 	        null,
-	        'Welcome to Dungeoneer WUT '
+	        'Welcome to Dungeoneer Baby '
 	    ), root);
 	});
 
@@ -21456,6 +21456,16 @@
 	};
 	
 	var logout = exports.logout = function logout(data, success, error) {
+	  $.ajax({
+	    url: '/api/v1/session/',
+	    type: 'DELETE',
+	    data: data,
+	    success: success,
+	    error: error
+	  });
+	};
+	
+	var signup = exports.signup = function signup(data, success, error) {
 	  $.ajax({
 	    url: '/api/v1/session/',
 	    type: 'DELETE',
