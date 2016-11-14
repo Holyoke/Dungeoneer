@@ -65,7 +65,7 @@
 	    _reactDom2.default.render(_react2.default.createElement(
 	        'h1',
 	        null,
-	        'Welcome to Dungeoneer Baby '
+	        'Welcome to Dungeoneer WUT '
 	    ), root);
 	});
 
