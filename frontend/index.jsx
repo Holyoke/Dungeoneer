@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { login, logout } from './util/session_api_util.js';
+import configureStore from './store/store';
 
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');
-    window.login = login;
-    window.logout = logout;
+    window.store = configureStore();
     ReactDOM.render(<h1>Welcome to Dungeoneer Baby </h1>, root);
 });
