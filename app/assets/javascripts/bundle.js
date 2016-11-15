@@ -73,8 +73,9 @@
 	document.addEventListener('DOMContentLoaded', function () {
 	  var store = (0, _store2.default)();
 	  var root = document.getElementById('root');
+	  window.store = store;
 	  window.actions = actions;
-	  window.buildtime = new Date().toLocaleTimeString();
+	  window.buildstamp = new Date().toLocaleTimeString();
 	  _reactDom2.default.render(_react2.default.createElement(_root2.default, { store: store }), root);
 	});
 	
@@ -22567,7 +22568,7 @@
 	
 	      return newState;
 	    case 'RECEIVE_ERRORS':
-	      alert(action.errors);
+	      window.alert(action.errors);
 	      newState.errors = action.errors;
 	
 	      return newState;
@@ -30955,6 +30956,10 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _greeting = __webpack_require__(349);
+	
+	var _greeting2 = _interopRequireDefault(_greeting);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var App = function App(_ref) {
@@ -30967,11 +30972,63 @@
 	      null,
 	      'Dungeoneer App Component'
 	    ),
+	    _react2.default.createElement(_greeting2.default, null),
 	    children
 	  );
 	};
 	
 	exports.default = App;
+
+/***/ },
+/* 349 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouter = __webpack_require__(295);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var personalGreeting = function personalGreeting(currentUser, logout) {
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(
+	      'h3',
+	      null,
+	      'Welcome, currentUser.name!'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { onClick: logout },
+	      'Log out'
+	    )
+	  );
+	};
+	
+	var sessionLinks = function sessionLinks() {
+	  return _react2.default.createElement(
+	    _reactRouter.Link,
+	    { to: '/login' },
+	    'Login'
+	  );
+	};
+	
+	var Greeting = function Greeting(_ref) {
+	  var currentUser = _ref.currentUser,
+	      logout = _ref.logout;
+	  return currentUser ? personalGreeting(currentUser, logout) : sessionLinks();
+	};
+	
+	exports.default = Greeting;
 
 /***/ }
 /******/ ]);
