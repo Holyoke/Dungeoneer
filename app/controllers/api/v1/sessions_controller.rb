@@ -40,7 +40,7 @@ module Api::V1
 
     def destroy
       # Fetch params
-      user = User.find_by(authentication_token: params[:user_token])
+      user = User.find_by(authentication_token: params[:authentication_token])
 
       if user.nil?
         render status: 404, json: { message: 'Invalid token.' }

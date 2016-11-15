@@ -7,18 +7,22 @@ import {
 
 import { login, logout } from '../util/session_api_util';
 
-export default({ getState, dispatch }) => next => action => {
+const sessionMiddleware = ({ getState, dispatch }) => next => action => {
   const successCallback = user => dispatch(receiveCurrentUser(user));
   const errorCallback = xhr => dispatch(receiveErrors(xhr.responseJSON));
 
   switch(action.type) {
     case LOGIN:
       login(action.user, successCallback, errorCallback);
-      return next(action);
+      var result = next(action);
+      return result
     case LOGOUT:
-      logout(() => next(action));
+      logout(action.user);
+      next(action);
       break;
     default:
       return next(action);
   }
 }
+
+export default sessionMiddleware;

@@ -12,6 +12,7 @@ const SessionReducer = (state = {currentUser: null, errors: []}, action) => {
 
   switch(action.type){
     case 'RECEIVE_CURRENT_USER':
+      console.log('action:', action)
       newState.currentUser = action.user;
       newState.errors = [];
 
