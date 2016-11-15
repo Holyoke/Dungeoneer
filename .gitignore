@@ -19,7 +19,6 @@ log/development.log
 /reference_documents/
 .idea/
 /frontend/node_modules/
-/fr
 .DS_Store
 public/.DS_Store
 app/assets/.DS_Store
