@@ -73,8 +73,9 @@
 	document.addEventListener('DOMContentLoaded', function () {
 	  var store = (0, _store2.default)();
 	  var root = document.getElementById('root');
+	  window.store = store;
 	  window.actions = actions;
-	  window.buildtime = new Date().toLocaleTimeString();
+	  window.buildstamp = new Date().toLocaleTimeString();
 	  _reactDom2.default.render(_react2.default.createElement(_root2.default, { store: store }), root);
 	});
 	
@@ -22551,8 +22552,13 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	var _nullUser = Object.freeze({
+	  currentUser: null,
+	  errors: []
+	});
+	
 	var SessionReducer = function SessionReducer() {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { currentUser: null, errors: [] };
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _nullUser;
 	  var action = arguments[1];
 	
 	  Object.freeze(state);
@@ -22561,19 +22567,17 @@
 	
 	  switch (action.type) {
 	    case 'RECEIVE_CURRENT_USER':
-	      console.log('action:', action);
-	      newState.currentUser = action.user;
+	      newState.currentUser = action.currentUser;
 	      newState.errors = [];
 	
 	      return newState;
 	    case 'RECEIVE_ERRORS':
-	      alert(action.errors);
+	      window.alert(action.errors);
 	      newState.errors = action.errors;
 	
 	      return newState;
 	    case 'LOGOUT':
-	      newState.errors = [];
-	      newState.currentUser = null;
+	      newState = _nullUser;
 	
 	      return newState;
 	    default:
@@ -22587,43 +22591,43 @@
 /* 196 */
 /***/ function(module, exports) {
 
-	"use strict";
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
-	var LOGIN = exports.LOGIN = "LOGIN";
-	var LOGOUT = exports.LOGOUT = "LOGOUT";
-	var RECEIVE_CURRENT_USER = exports.RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
-	var RECEIVE_ERRORS = exports.RECEIVE_ERRORS = "RECEIVE_ERRORS";
+	var LOGIN = exports.LOGIN = 'LOGIN';
+	var LOGOUT = exports.LOGOUT = 'LOGOUT';
+	var RECEIVE_CURRENT_USER = exports.RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
+	var RECEIVE_ERRORS = exports.RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 	
 	var login = exports.login = function login(user) {
-	    return {
-	        type: LOGIN,
-	        user: user
-	    };
+	  return {
+	    type: LOGIN,
+	    user: user
+	  };
 	};
 	
 	var logout = exports.logout = function logout(user) {
-	    return {
-	        type: LOGOUT,
-	        user: user
-	    };
+	  return {
+	    type: LOGOUT,
+	    user: user
+	  };
 	};
 	
 	var receiveCurrentUser = exports.receiveCurrentUser = function receiveCurrentUser(currentUser) {
-	    return {
-	        type: RECEIVE_CURRENT_USER,
-	        currentUser: currentUser
-	    };
+	  return {
+	    type: RECEIVE_CURRENT_USER,
+	    currentUser: currentUser
+	  };
 	};
 	
 	var receiveErrors = exports.receiveErrors = function receiveErrors() {
-	    var errors = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-	    return {
-	        type: RECEIVE_ERRORS,
-	        errors: errors
-	    };
+	  var errors = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+	  return {
+	    type: RECEIVE_ERRORS,
+	    errors: errors
+	  };
 	};
 
 /***/ },
@@ -25417,21 +25421,23 @@
 	
 	var _reactRouter = __webpack_require__(295);
 	
-	var _app = __webpack_require__(348);
+	var _App = __webpack_require__(348);
 	
-	var _app2 = _interopRequireDefault(_app);
+	var _App2 = _interopRequireDefault(_App);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Root = function Root(_ref) {
 	  var store = _ref.store;
+	
 	  return _react2.default.createElement(
 	    _reactRedux.Provider,
 	    { store: store },
 	    _react2.default.createElement(
 	      _reactRouter.Router,
 	      { history: _reactRouter.hashHistory },
-	      _react2.default.createElement(_reactRouter.Route, { path: '/', component: _app2.default })
+	      _react2.default.createElement(_reactRouter.Route, { path: '/', component: _App2.default }),
+	      _react2.default.createElement(_reactRouter.Route, { path: '/login', component: _App2.default })
 	    )
 	  );
 	};
@@ -30955,6 +30961,10 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _greeting_container = __webpack_require__(349);
+	
+	var _greeting_container2 = _interopRequireDefault(_greeting_container);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var App = function App(_ref) {
@@ -30967,11 +30977,103 @@
 	      null,
 	      'Dungeoneer App Component'
 	    ),
+	    _react2.default.createElement(_greeting_container2.default, null),
 	    children
 	  );
 	};
 	
 	exports.default = App;
+
+/***/ },
+/* 349 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(286);
+	
+	var _session_actions = __webpack_require__(196);
+	
+	var _greeting = __webpack_require__(350);
+	
+	var _greeting2 = _interopRequireDefault(_greeting);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var mapStateToProps = function mapStateToProps(_ref) {
+	  var session = _ref.session;
+	  return {
+	    currentUser: session.currentUser
+	  };
+	};
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    logout: function logout() {
+	      return dispatch((0, _session_actions.logout)());
+	    }
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_greeting2.default);
+
+/***/ },
+/* 350 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouter = __webpack_require__(295);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var personalGreeting = function personalGreeting(currentUser, logout) {
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(
+	      'h3',
+	      null,
+	      'Welcome, ',
+	      currentUser.email,
+	      '!'
+	    ),
+	    _react2.default.createElement(
+	      'button',
+	      { onClick: logout },
+	      'Log out'
+	    )
+	  );
+	};
+	
+	var sessionLinks = function sessionLinks() {
+	  return _react2.default.createElement(
+	    _reactRouter.Link,
+	    { to: '/login' },
+	    'Login'
+	  );
+	};
+	
+	var Greeting = function Greeting(_ref) {
+	  var currentUser = _ref.currentUser,
+	      logout = _ref.logout;
+	
+	  return currentUser ? personalGreeting(currentUser, logout) : sessionLinks(logout);
+	};
+	
+	exports.default = Greeting;
 
 /***/ }
 /******/ ]);
