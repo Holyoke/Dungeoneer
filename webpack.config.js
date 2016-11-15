@@ -1,5 +1,5 @@
 module.exports = {
-  entry: './frontend/index',
+  entry: './frontend/entry',
   output: {
     path: 'app/assets/javascripts',
     filename: 'bundle.js',
