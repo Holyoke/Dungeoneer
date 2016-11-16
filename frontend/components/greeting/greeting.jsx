@@ -1,16 +1,23 @@
 import React from 'react'
 import { Link } from 'react-router'
 
-const personalGreeting = (currentUser, logout) => (
-  <div>
-    <h3>Welcome, {currentUser.email}!</h3>
-    <button onClick={logout}>Log out</button>
-  </div>
-)
+const personalGreeting = (currentUser, logout) => {
+  debugger
+  return (
+    <div>
+      <h3>Welcome, {currentUser.email}!</h3>
+      <button onClick={logout}>Log out</button>
+    </div>
+  )
+}
 
 const sessionLinks = () => {
   return (
-    <Link to="/login">Login</Link>
+    <div>
+      <p>Not logged in</p>
+      <Link to="/login">Login Plz</Link>
+      <a href="/users/sign_in">Login manually here</a>
+    </div>
   )
 }
 

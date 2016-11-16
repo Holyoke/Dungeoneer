@@ -17,6 +17,7 @@ const sessionMiddleware = ({ getState, dispatch }) => next => action => {
       var result = next(action)
       return result
     case LOGOUT:
+      console.log('LOGOUT payload: ', action)
       logout(action.user)
       next(action)
       break

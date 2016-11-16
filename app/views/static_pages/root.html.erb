@@ -1,8 +1,9 @@
-<h1>Home Page</h1>
+<h1>Root.html.erb</h1>
 
-<% if current_user.present? %>
-  <%= link_to 'Create a new Map', new_map_url %>
-  <%= link_to 'View Maps', maps_url %>
-<% end %>
+<script type="text/javascript">
+  <% if current_user.present? %>
+    window.currentUser = <%= current_user.to_json.html_safe %>
+  <% end %>
+</script>
 
 <main id="root"></main>

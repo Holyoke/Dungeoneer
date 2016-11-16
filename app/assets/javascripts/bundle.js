@@ -71,11 +71,21 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	document.addEventListener('DOMContentLoaded', function () {
-	  var store = (0, _store2.default)();
-	  var root = document.getElementById('root');
+	  var store = void 0;
+	
+	  if (window.currentUser) {
+	    var preloadedState = { session: { currentUser: window.currentUser } };
+	    store = (0, _store2.default)(preloadedState);
+	  } else {
+	    store = (0, _store2.default)();
+	  }
+	
+	  // testing
 	  window.store = store;
 	  window.actions = actions;
 	  window.buildstamp = new Date().toLocaleTimeString();
+	
+	  var root = document.getElementById('root');
 	  _reactDom2.default.render(_react2.default.createElement(_root2.default, { store: store }), root);
 	});
 	
@@ -25352,6 +25362,7 @@
 	          var result = next(action);
 	          return result;
 	        case _session_actions.LOGOUT:
+	          console.log('LOGOUT payload: ', action);
 	          (0, _session_api_util.logout)(action.user);
 	          next(action);
 	          break;
@@ -31048,6 +31059,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var personalGreeting = function personalGreeting(currentUser, logout) {
+	  debugger;
 	  return _react2.default.createElement(
 	    'div',
 	    null,
@@ -31068,9 +31080,23 @@
 	
 	var sessionLinks = function sessionLinks() {
 	  return _react2.default.createElement(
-	    _reactRouter.Link,
-	    { to: '/login' },
-	    'Login'
+	    'div',
+	    null,
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      'Not logged in'
+	    ),
+	    _react2.default.createElement(
+	      _reactRouter.Link,
+	      { to: '/login' },
+	      'Login Plz'
+	    ),
+	    _react2.default.createElement(
+	      'a',
+	      { href: '/users/sign_in' },
+	      'Login manually here'
+	    )
 	  );
 	};
 	

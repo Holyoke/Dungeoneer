@@ -1,12 +1,13 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  helper_method :logged_in?
 
   def after_sign_up_path_for(resource)
-    "/users/#{current_user.id}/maps"
+    "/"
   end
 
   def after_sign_in_path_for(resource)
-    "/users/#{current_user.id}/maps"
+    "/"
   end
 
   private
@@ -14,5 +15,9 @@ class ApplicationController < ActionController::Base
   def user_not_authorized
     flash[:alert] = "Access denied."
     redirect_to (request.referrer || root_path)
+  end
+
+  def logged_in?
+    @current_user ||= User.find_by(session_token: session[:session_token])
   end
 end
