@@ -3,17 +3,21 @@ import { Link } from 'react-router'
 
 const personalGreeting = (currentUser, logout) => (
   <div>
-    <h3>Welcome, currentUser.name!</h3>
+    <h3>Welcome, {currentUser.email}!</h3>
     <button onClick={logout}>Log out</button>
   </div>
 )
 
-const sessionLinks = () => (
-  <Link to="/login">Login</Link>
-)
+const sessionLinks = () => {
+  return (
+    <Link to="/login">Login</Link>
+  )
+}
 
-const Greeting = ({currentUser, logout}) => (
-  currentUser ? personalGreeting(currentUser, logout) : sessionLinks()
-)
+const Greeting = ({currentUser, logout}) => {
+  return (
+    currentUser ? personalGreeting(currentUser, logout) : sessionLinks(logout)
+  )
+}
 
 export default Greeting
