@@ -10,7 +10,7 @@ feature 'User Signs in to their Home Page', :devise do
 
   after { Warden.test_reset! }
 
-  scenario 'User has a link to create new Maps' do
-    page.should have_selector(:link_or_button, 'New Map')
-  end
+  # scenario 'User has a link to create new Maps' do
+  #   page.should have_selector(:link_or_button, 'New Map')
+  # end
 end
